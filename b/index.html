@@ -178,6 +178,26 @@ svg.pf .bnd,.axs .bnd{fill:var(--logo)}svg.pf .bndt,.axs .bndt{fill:var(--logoin
 
 /* axes sit outside the plot: the prices and years stay in place while the boxes are dragged */
 .cwrap{position:relative;box-sizing:content-box}.axs{position:absolute;display:block;overflow:hidden;pointer-events:none;font-family:var(--mono);background:var(--cbg)}
+
+/* watchlist */
+.wl .wlbar{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.3fr) auto auto auto;gap:.8rem;align-items:end;padding:1rem 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+.wl .sf{display:flex;flex-direction:column;gap:.3rem}.wl .sf span{font:700 .72rem var(--disp);text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.wl select,.wl input{font:500 1rem var(--body);min-height:2.8rem;border:1.5px solid var(--ink);border-radius:var(--rad);background:var(--surface);color:var(--ink);padding:0 .7rem;width:100%;box-sizing:border-box}
+.wl .wlb{min-height:2.8rem;padding:0 1rem;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);border-radius:var(--rad);font:700 .9rem var(--body);cursor:pointer;white-space:nowrap}
+.wl .wlb:hover:not(:disabled){background:var(--soft)}.wl .wlb:disabled{opacity:.4;cursor:not-allowed}.wl .wld{color:var(--cred)}
+.wl select:focus,.wl input:focus,.wl button:focus-visible{outline:3px solid var(--link);outline-offset:1px}
+.wl .wlmsg{min-height:1.4rem;margin:.5rem 0 0;font-size:.9rem;color:var(--mut)}
+.wl .wladd{position:relative;max-width:34rem;margin:.6rem 0 1.2rem}
+.wl .wlsug{list-style:none;margin:.2rem 0 0;padding:0;border:1px solid var(--line);background:var(--surface);border-radius:var(--rad)}.wl .wlsug:empty{display:none}
+.wl .wlsug button{all:unset;display:block;box-sizing:border-box;width:100%;padding:.55rem .8rem;cursor:pointer;color:var(--ink)}.wl .wlsug button:hover,.wl .wlsug button:focus-visible{background:var(--soft)}
+.wl .wlsug li+li{border-top:1px solid var(--line)}.wl .wlno{padding:.55rem .8rem}
+.wl .wlempty{padding:2rem 1rem;text-align:center;color:var(--mut);border:1px dashed var(--line);border-radius:var(--rad)}
+.wl .wlt{width:100%;min-width:44rem;border-collapse:collapse;font-size:.95rem}.wl .wlt th{text-align:left;font:700 .72rem var(--disp);text-transform:uppercase;letter-spacing:.09em;color:var(--mut);border-bottom:2px solid var(--ink);padding:.7rem .6rem}
+.wl .wlt td{padding:.7rem .6rem;border-bottom:1px solid var(--line);vertical-align:middle}.wl .wlt .snum{text-align:right;font-family:var(--mono)}.wl .wlt small{display:block;color:var(--mut);font-size:.78rem}
+.wl .wla{color:var(--ink);text-decoration:none}.wl .wla:hover b,.wl .wla:focus-visible b{color:var(--link);text-decoration:underline}.wl .wlt td b{font:700 1.02rem var(--mono)}
+.wl .wlx{width:2rem;height:2rem;border:1.5px solid var(--line);border-radius:50%;background:transparent;color:var(--mut);font:700 1.1rem/1 var(--body);cursor:pointer}.wl .wlx:hover,.wl .wlx:focus-visible{border-color:var(--cred);color:var(--cred)}
+.wl .stw{overflow-x:auto}.wl .count{margin:.4rem 0 .5rem;font-size:.95rem}
+@media(max-width:900px){.wl .wlbar{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.wl .wlb{width:100%}}
 /* Style B: field guide, dark, cyan */
 .B .layout{display:grid;grid-template-columns:clamp(11rem,16vw,15rem) minmax(0,1fr);min-height:100vh}
 .B aside.side{position:sticky;top:0;height:100vh;overflow:auto;border-right:1px solid var(--line);background:var(--surface);padding:1.4rem 1rem;display:flex;flex-direction:column;gap:1.4rem}
@@ -295,13 +315,13 @@ var KEY='pnfs_progress_'+STYLE;
 function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
 function save(o){try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
 var TX={
- en:{home:'Home',screener:'Charts',learn:'Learn',charts:'Charts',market:'Market',game:'Game (coming later)',rules:'Rules',gloss:'Glossary',limits:'Limits',
+ en:{home:'Home',screener:'Charts',watchlist:'Watchlist',learn:'Learn',charts:'Charts',market:'Market',game:'Game (coming later)',rules:'Rules',gloss:'Glossary',limits:'Limits',
   h1:'Read a Dhaka Stock Exchange chart in thirty minutes',
   sub:'Point and Figure charts for DSE stocks, explained in plain words. Free, with no sign-in. The chart describes what buyers and sellers have done; it does not tell you what happens next.',
   cta1:'Start lesson 1',cta2:'Browse the charts',
   banner:'Educational tool, not investment advice. End-of-day Dhaka Stock Exchange prices via AmarStock (amarstock.com), to ',
   foot:'Educational only. Not investment advice. Charts describe what has happened; they do not forecast. Not affiliated with Thomas Dorsey, John Wiley & Sons or Dorsey Wright. Method after Thomas Dorsey, Point and Figure Charting (3rd ed.). The Bengali text is a draft for a native editor.'},
- bn:{home:'হোম',screener:'চার্ট',learn:'শিখুন',charts:'চার্ট',market:'বাজার',game:'কুইজ (পরে আসছে)',rules:'নিয়ম',gloss:'শব্দকোষ',limits:'সীমাবদ্ধতা',
+ bn:{home:'হোম',screener:'চার্ট',watchlist:'ওয়াচলিস্ট',learn:'শিখুন',charts:'চার্ট',market:'বাজার',game:'কুইজ (পরে আসছে)',rules:'নিয়ম',gloss:'শব্দকোষ',limits:'সীমাবদ্ধতা',
   h1:'ত্রিশ মিনিটে ঢাকা স্টক এক্সচেঞ্জের চার্ট পড়তে শিখুন',
   sub:'ডিএসই শেয়ারের পয়েন্ট অ্যান্ড ফিগার চার্ট, সহজ ভাষায়। বিনামূল্যে, সাইন-ইন ছাড়া। চার্ট দেখায় ক্রেতা ও বিক্রেতা কী করেছে; এরপর কী হবে তা বলে না।',
   cta1:'পাঠ ১ শুরু করুন',cta2:'চার্টগুলো দেখুন',
@@ -695,6 +715,63 @@ document.addEventListener('click',function(e){var o=e.target.closest&&e.target.c
 
 P_.screener=function(m){V=null;var h=el('div',{'class':'scr'},'<p class="dim" style="padding:1rem 0">Loading every chart…</p>');m.appendChild(h);SCRH=h;
   loadIndex(function(j){if(!h.isConnected)return;if(!j){h.innerHTML='<p class="dim" style="padding:1rem 0">The chart list could not be loaded. Reload the page to try again.</p>';return}(STYLE==='A'?renderA:renderB)()})};
+
+/* ---------- watchlists: named, saved in this browser; stocks are added only here ---------- */
+var WLKEY='pnfs_watchlists',WLMAX=100;
+function wlLoad(){var o=null;try{o=JSON.parse(localStorage.getItem(WLKEY))}catch(e){}
+  if(!o||!o.lists||!o.lists.length)o={lists:[{id:'w1',name:lang==='bn'?'আমার ওয়াচলিস্ট':'My watchlist',tickers:[]}],active:'w1'};
+  if(!o.lists.some(function(x){return x.id===o.active}))o.active=o.lists[0].id;return o}
+function wlSave(o){try{localStorage.setItem(WLKEY,JSON.stringify(o));return true}catch(e){return false}}
+P_.watchlist=function(m){
+  var bn=lang==='bn',h=el('div',{'class':'scr wl'},'<p class="dim" style="padding:1rem 0">'+(bn?'লোড হচ্ছে…':'Loading…')+'</p>');m.appendChild(h);
+  loadIndex(function(j){if(!h.isConnected)return;
+    if(!j){h.innerHTML='<p class="dim" style="padding:1rem 0">'+(bn?'চার্টের তালিকা লোড করা যায়নি। পাতাটি আবার খুলুন।':'The chart list could not be loaded. Reload the page to try again.')+'</p>';return}
+    build()});
+  function build(){
+    var S=wlLoad(),msg='';
+    function cur(){return S.lists.filter(function(x){return x.id===S.active})[0]}
+    function persist(note){msg=wlSave(S)?(note||'')+(note?' · ':'')+(bn?'এই ব্রাউজারে সংরক্ষিত':'Saved in this browser'):(bn?'সংরক্ষণ করা গেল না (ব্রাউজার স্টোরেজ বন্ধ)। এই পাতায় থাকা পর্যন্ত তালিকা কাজ করবে।':'Could not save (the browser blocks storage). The list works until you leave this page.');say()}
+    h.innerHTML='<p class="kick">'+t('watchlist')+'</p><h1 id="pg">'+(bn?'আপনার ওয়াচলিস্ট':'Your watchlist')+'</h1>'
+      +'<p class="slede">'+(bn?'এখানে শেয়ার যোগ করে নাম দিয়ে তালিকা সংরক্ষণ করুন। শেয়ার যোগ করা যায় শুধু এই পাতা থেকে। তালিকা আপনার এই ডিভাইসের ব্রাউজারে থাকে, কোনো অ্যাকাউন্ট লাগে না।':'Add stocks here, give the list a name and keep it. Stocks can be added from this page only. Lists stay in this browser on this device; there is no account.')+'</p>'
+      +'<div class="wlbar"><label class="sf"><span>'+(bn?'তালিকা':'Watchlist')+'</span><select id="wl-sel"></select></label>'
+      +'<label class="sf"><span>'+(bn?'নাম':'Name')+'</span><input id="wl-name" maxlength="40" autocomplete="off"></label>'
+      +'<button type="button" class="wlb" id="wl-savename">'+(bn?'নাম সংরক্ষণ':'Save name')+'</button><button type="button" class="wlb" id="wl-new">'+(bn?'নতুন তালিকা':'New list')+'</button><button type="button" class="wlb wld" id="wl-del">'+(bn?'তালিকা মুছুন':'Delete list')+'</button></div>'
+      +'<p class="wlmsg" id="wl-msg" role="status" aria-live="polite"></p>'
+      +'<div class="wladd"><label class="sf"><span>'+(bn?'শেয়ার যোগ করুন':'Add a stock')+'</span><input id="wl-q" type="search" autocomplete="off" placeholder="'+(bn?'টিকার বা কোম্পানির নাম লিখুন':'Type a ticker or a company name')+'"></label><ul class="wlsug" id="wl-sug"></ul></div>'
+      +'<div id="wl-tbl"></div>';
+    var sel=$('#wl-sel',h),nm=$('#wl-name',h),q=$('#wl-q',h),sug=$('#wl-sug',h),tbl=$('#wl-tbl',h),del=$('#wl-del',h);
+    function say(){$('#wl-msg',h).textContent=msg}
+    function bar(){sel.innerHTML=S.lists.map(function(x){return '<option value="'+esc(x.id)+'"'+(x.id===S.active?' selected':'')+'>'+esc(x.name)+' ('+x.tickers.length+')</option>'}).join('');nm.value=cur().name;del.disabled=S.lists.length<2}
+    function row(tk_){var r=ROWS.filter(function(x){return x.t===tk_})[0];
+      if(!r)return '<tr><td><b>'+esc(tk_)+'</b></td><td colspan="6" class="dim">'+(bn?'আর্কাইভে নেই':'Not in the archive')+'</td><td class="chev">'+rm(tk_)+'</td></tr>';
+      return '<tr><td><a class="wla" href="#/stock/'+encodeURIComponent(r.t)+'"><b>'+esc(r.t)+'</b></a>'+(r.name?'<small>'+esc(r.name)+'</small>':'')+'</td><td>'+secLink(r)+'</td><td class="pt">'+pt(r)+'</td><td>'+dt(r.date)+'</td><td>'+(r.col?tag(r):'<span class="dim">–</span>')+'</td><td class="snum">'+price(r)+'</td><td>'+sig(r)+'</td><td class="chev">'+rm(tk_)+'</td></tr>'}
+    function rm(tk_){return '<button type="button" class="wlx" data-rm="'+esc(tk_)+'" aria-label="'+(bn?'তালিকা থেকে সরান: ':'Remove from this watchlist: ')+esc(tk_)+'">×</button>'}
+    function table(){var L_=cur();
+      if(!L_.tickers.length){tbl.innerHTML='<p class="wlempty">'+(bn?'এই তালিকা খালি। উপরের বাক্সে খুঁজে শেয়ার যোগ করুন।':'This watchlist is empty. Search above to add stocks.')+'</p>';return}
+      tbl.innerHTML='<p class="count"><b>'+L_.tickers.length+'</b> '+(bn?'টি শেয়ার':(L_.tickers.length===1?'stock':'stocks'))+' in '+esc(L_.name)+'</p><div class="stw"><table class="res wlt"><thead><tr><th>'+(bn?'শেয়ার':'Stock')+'</th><th>'+(bn?'খাত':'Sector')+'</th><th>'+(bn?'সর্বশেষ প্যাটার্ন':'Latest pattern')+'</th><th>'+(bn?'তারিখ':'Date')+'</th><th>'+(bn?'কলাম':'Column')+'</th><th class="snum">'+(bn?'দাম':'Price')+'</th><th>'+(bn?'সংকেত':'Signal')+'</th><th></th></tr></thead><tbody>'+L_.tickers.map(row).join('')+'</tbody></table></div>'}
+    function sugg(){var v=q.value.trim().toLowerCase(),have=cur().tickers;
+      if(!v){sug.innerHTML='';return []}
+      var hits=ROWS.filter(function(r){return have.indexOf(r.t)<0&&(r.t.toLowerCase().indexOf(v)>=0||(r.name&&r.name.toLowerCase().indexOf(v)>=0))});
+      hits.sort(function(a,b){var as=a.t.toLowerCase().indexOf(v)===0?0:1,bs=b.t.toLowerCase().indexOf(v)===0?0:1;return as-bs||(a.t<b.t?-1:1)});hits=hits.slice(0,8);
+      sug.innerHTML=hits.length?hits.map(function(r){return '<li><button type="button" data-add="'+esc(r.t)+'"><b>'+esc(r.t)+'</b>'+(r.name?' <span>'+esc(r.name)+'</span>':'')+' <small class="dim">'+esc(r.sector)+'</small></button></li>'}).join(''):'<li class="dim wlno">'+(bn?'কিছু পাওয়া যায়নি, বা আগেই যোগ করা আছে।':'No match, or already in this list.')+'</li>';
+      return hits}
+    function add(tk_){var L_=cur();if(L_.tickers.indexOf(tk_)>=0)return;if(L_.tickers.length>=WLMAX){msg=bn?'একটি তালিকায় সর্বোচ্চ ১০০টি শেয়ার।':'A list holds up to '+WLMAX+' stocks.';say();return}
+      L_.tickers.push(tk_);persist((bn?'যোগ হয়েছে: ':'Added ')+tk_);q.value='';sug.innerHTML='';bar();table();q.focus()}
+    function rename(){var v=nm.value.replace(/\s+/g,' ').trim();if(!v){msg=bn?'তালিকার একটি নাম দিন।':'Give the list a name.';say();nm.value=cur().name;return}
+      cur().name=v;persist(bn?'নাম সংরক্ষিত':'Name saved');bar();table()}
+    sel.onchange=function(){S.active=sel.value;persist();bar();table();sugg()};
+    $('#wl-savename',h).onclick=rename;
+    nm.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();rename()}};
+    $('#wl-new',h).onclick=function(){var n=S.lists.length+1,id='w'+Date.now().toString(36);S.lists.push({id:id,name:(bn?'ওয়াচলিস্ট ':'Watchlist ')+n,tickers:[]});S.active=id;persist(bn?'নতুন তালিকা':'New list');bar();table();sugg();nm.focus();nm.select()};
+    del.onclick=function(){if(S.lists.length<2)return;var L_=cur();if(!window.confirm((bn?'মুছবেন: ':'Delete the list "')+L_.name+(bn?'?':'" and its '+L_.tickers.length+' stocks?')))return;
+      S.lists=S.lists.filter(function(x){return x.id!==L_.id});S.active=S.lists[0].id;persist(bn?'তালিকা মোছা হয়েছে':'List deleted');bar();table();sugg()};
+    q.oninput=sugg;
+    q.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();var hs=sugg();if(hs.length)add(hs[0].t)}};
+    sug.onclick=function(e){var b=e.target.closest&&e.target.closest('[data-add]');if(b)add(b.getAttribute('data-add'))};
+    tbl.onclick=function(e){var b=e.target.closest&&e.target.closest('[data-rm]');if(!b)return;var k=b.getAttribute('data-rm'),L_=cur();L_.tickers=L_.tickers.filter(function(x){return x!==k});persist((bn?'সরানো হয়েছে: ':'Removed ')+k);bar();table();sugg()};
+    bar();table();say();
+  }
+};
 })();
 /* ---------- lessons ---------- */
 function shuffleKeep(opts,ansText){return {opts:opts,ans:opts.indexOf(ansText)}}
@@ -856,8 +933,8 @@ P_.limits=function(m){
 };
 
 /* ---------- router and chrome ---------- */
-var NAV=[['','home'],['learn','learn'],['screener','screener'],['market','market'],['game','game'],['rules','rules'],['glossary','gloss'],['limits','limits']];
-var ROUTES={'':'home',screener:'screener',charts:'screener',stocks:'stocks',stock:'stock',market:'market',learn:'learn',check:'check',glossary:'glossary',rules:'rules',limits:'limits'};
+var NAV=[['','home'],['learn','learn'],['screener','screener'],['watchlist','watchlist'],['market','market'],['game','game'],['rules','rules'],['glossary','gloss'],['limits','limits']];
+var ROUTES={'':'home',screener:'screener',charts:'screener',watchlist:'watchlist',stocks:'stocks',stock:'stock',market:'market',learn:'learn',check:'check',glossary:'glossary',rules:'rules',limits:'limits'};
 function chrome(cur){
   $('#banner').textContent=t('banner')+fd(D.asof)+'.';
   $('#foot').innerHTML='<span>'+esc(t('foot'))+'</span>';
