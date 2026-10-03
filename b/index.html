@@ -1,0 +1,848 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>PnF Desk · field guide to Point and Figure charts for the DSE</title>
+<meta name="description" content="A field guide to reading Point and Figure charts for Dhaka Stock Exchange stocks: lessons, a pattern screener and the market Bullish Percent. Educational, not investment advice.">
+<meta name="theme-color" content="#67e8f9">
+<meta property="og:type" content="website"><meta property="og:title" content="PnF Desk · field guide to Point and Figure charts for the DSE"><meta property="og:description" content="A field guide to reading Point and Figure charts for Dhaka Stock Exchange stocks: lessons, a pattern screener and the market Bullish Percent. Educational, not investment advice.">
+<meta name="twitter:card" content="summary"><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20rx=%275%27%20fill=%27%2367e8f9%27/%3E%3Cpath%20d=%27M7%207l7%207M14%207l-7%207M7%2018l7%207M14%2018l-7%207%27%20stroke=%27%2304222a%27%20stroke-width=%272.6%27%20stroke-linecap=%27round%27%20fill=%27none%27/%3E%3Ccircle%20cx=%2723%27%20cy=%2710.5%27%20r=%274%27%20stroke=%27%2304222a%27%20stroke-width=%272.6%27%20fill=%27none%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#0b0f14;--surface:#0f161e;--ink:#e8eef6;--mut:#8997a8;--line:#1f2d3b;--grid:#1c2a38;--soft:#131d29;--chartbg:#111418;--x:#5eead4;--o:#fb923c;--link:#67e8f9;--linkink:#04222a;--note:#10202c;--noteink:#9edff0;--okbg:#0f3b3a;--badbg:#3b2412;--logo:#67e8f9;--logoink:#04222a;--logoo:#04222a;--cbg:#111418;--cink:#e4e7ea;--cgrid:#2a3038;--cband:#1a1e24;--clast:#26394a;--cframe:#59616b;--cyr:#252a31;--ccm:#99a1ab;--cgreen:#3a9a4c;--cred:#d4483f;--cmk:#82c8ff;--lm:#82c8ff;--ls:#c9a8ff;color-scheme:dark;--rad:8px;--disp:"IBM Plex Sans",system-ui,sans-serif;--body:"IBM Plex Sans",system-ui,"Noto Sans Bengali",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--glyph:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+*{box-sizing:border-box}
+html{scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font:17px/1.65 var(--body);padding:0}
+a{color:var(--link)}
+a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--link);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;left:8px;top:-60px;background:var(--surface);color:var(--ink);padding:8px 12px;border:2px solid var(--link);z-index:50}
+.skip:focus{top:8px}
+.banner{background:var(--note);color:var(--noteink);font:12px/1.4 var(--mono);padding:7px 16px;text-align:center}
+header.top{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar{max-width:1040px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{font:700 20px var(--disp);color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px;margin-right:auto;min-height:40px}
+.brand svg{width:28px;height:28px}
+nav.main{display:flex;gap:2px;flex-wrap:wrap}
+nav.main a,nav.main span{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font:500 15px var(--disp);min-height:40px;display:inline-flex;align-items:center}
+nav.main a:hover{background:var(--soft)}
+nav.main a[aria-current="page"]{background:var(--soft);box-shadow:inset 0 -3px 0 var(--link)}
+nav.main span{color:var(--mut)}
+.tools{display:flex;gap:6px}
+.tools button{min-height:40px;min-width:40px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;cursor:pointer;font:500 14px var(--disp);padding:0 10px}
+.tools button:hover{background:var(--soft)}
+main{max-width:1040px;margin:0 auto;padding:24px 16px 48px}
+h1,h2,h3{font-family:var(--disp);line-height:1.15;margin:0 0 12px;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(28px,5.2vw,46px);font-weight:700}h2{font-size:clamp(22px,3.4vw,28px);margin-top:44px}h3{font-size:18px}
+p{margin:0 0 12px;max-width:66ch}
+.lede{font-size:19px;color:var(--mut);max-width:58ch}
+.mut{color:var(--mut)}.small{font-size:14px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border:2px solid var(--link);background:var(--link);color:var(--linkink);font:600 16px var(--disp);text-decoration:none;cursor:pointer;border-radius:var(--rad)}
+.btn.ghost{background:transparent;color:var(--link)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--rad);padding:16px;min-width:0}
+a.card{display:block;color:inherit;text-decoration:none}a.card:hover{border-color:var(--link)}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;font:500 12px var(--mono);border:1px solid var(--line);background:var(--soft);white-space:nowrap}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:28px;align-items:start}
+@media(max-width:820px){.hero{grid-template-columns:minmax(0,1fr)}}
+.chartbox{background:var(--chartbg);border:1px solid var(--line);border-radius:var(--rad);padding:6px;min-width:0}
+.cscroll{overflow:auto;max-height:520px;-webkit-overflow-scrolling:touch;max-width:100%;min-width:0}.hero .cscroll{max-height:330px}.card .cscroll{max-height:250px}.axwrap{display:flex;align-items:flex-start;width:max-content}.axwrap svg{flex:none}.axwrap svg.axis{position:sticky;left:0;z-index:2;background:var(--chartbg)}
+h1[tabindex]:focus,h1[tabindex]:focus-visible{outline:none}.cscroll:focus-visible{outline-offset:-3px}
+svg.pnf{display:block;font-family:var(--mono)}
+svg.pnf text{fill:var(--mut);font-size:10.5px}
+svg.pnf .gl{stroke:var(--grid);stroke-width:1}
+svg.pnf .band{fill:var(--grid);opacity:.55}
+svg.pnf .hit{fill:transparent;cursor:pointer}
+svg.pnf .sel{fill:var(--link);opacity:.16}
+svg.pnf .tlb{stroke:var(--x);stroke-width:1.8;stroke-dasharray:6 4;fill:none}
+svg.pnf .tlr{stroke:var(--o);stroke-width:1.8;stroke-dasharray:6 4;fill:none}
+svg.pnf .hl{stroke:var(--ink);stroke-width:1.4;stroke-dasharray:3 3}
+svg.pnf text.hlt{fill:var(--ink);font-weight:600}
+svg.pnf text.last{fill:var(--ink);font-weight:600}
+.cap{min-height:3.4em;margin:10px 4px 2px;font-size:15px;max-width:none}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--mut);margin:4px 4px 0;align-items:center}
+.legend svg{vertical-align:middle}
+details{margin:10px 0}
+summary{cursor:pointer;font:600 14px var(--disp)}
+.tw{overflow-x:auto;max-height:340px;overflow-y:auto}
+table{border-collapse:collapse;width:100%;font:14px/1.5 var(--body)}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--mut);white-space:nowrap}
+td.n,th.n{text-align:right;font-family:var(--mono);white-space:nowrap}
+.read{border-left:5px solid var(--link);background:var(--surface);padding:14px 18px;border-radius:0 var(--rad) var(--rad) 0;margin:14px 0;max-width:70ch}
+.read h2,.read .head{font:700 clamp(20px,3vw,26px)/1.25 var(--disp);margin:0 0 6px}
+.read p{margin:0 0 6px}
+.split{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:22px}
+@media(max-width:860px){.split{grid-template-columns:minmax(0,1fr)}}
+.stack{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;min-width:0}.stack>*{min-width:0}
+.split>*{min-width:0}
+.loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:14px 0 22px;padding:0;list-style:none}
+.loop li{border:1px solid var(--line);background:var(--surface);border-radius:var(--rad);padding:8px 12px;font:600 14px var(--disp);display:flex;gap:8px;align-items:center}
+.loop li b{width:24px;height:24px;border-radius:50%;background:var(--link);color:var(--linkink);display:grid;place-items:center;font:600 12px var(--mono)}
+.callout{background:var(--soft);border-radius:var(--rad);padding:14px 18px;margin:12px 0;max-width:70ch}
+.opt{display:flex;width:100%;text-align:left;gap:12px;align-items:center;min-height:54px;padding:10px 16px;margin:0 0 8px;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:var(--rad);font:inherit;cursor:pointer}
+.opt:hover:not([disabled]){border-color:var(--link);background:var(--soft)}
+.opt.right{border-color:var(--x);background:var(--okbg)}
+.opt.wrong{border-color:var(--o);background:var(--badbg)}
+.opt .tag{margin-left:auto;font:600 13px var(--mono)}
+.opt:disabled{cursor:default}
+.prog{height:8px;border-radius:99px;background:var(--grid);overflow:hidden;margin:10px 0}
+.prog i{display:block;height:100%;background:var(--link)}
+.crumbs{font-size:14px;margin-bottom:12px}
+.steps{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start}
+.steps b{width:30px;height:30px;border-radius:50%;background:var(--link);color:var(--linkink);display:grid;place-items:center;font:600 14px var(--mono)}
+footer{border-top:1px solid var(--line);background:var(--surface)}
+footer .in{max-width:1040px;margin:0 auto;padding:22px 16px;display:grid;gap:8px;font-size:14px;color:var(--mut)}
+.ok{color:var(--x);font-weight:600}.bad{color:var(--o);font-weight:600}
+.tick{font:600 13px var(--mono);color:var(--x)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* ---- revision 3: classic chart, scaling layouts ---- */
+html{font-size:clamp(15px,.4vw + 12px,21px)}
+body{font-size:1rem;line-height:1.6;margin:0;padding:0}
+.site{min-height:100vh;background:var(--bg);color:var(--ink);font-family:var(--body)}
+.site h1,.site h2,.site h3{font-family:var(--disp)}
+.site main{max-width:min(94vw,1680px);margin:0 auto;padding:1.4rem clamp(1rem,2.4vw,2.6rem) 3rem}
+.cscroll{overflow-x:auto;max-width:100%}
+svg.pf{display:block;width:100%;height:auto;margin:0 auto;font-family:var(--mono)}
+svg.pf .band{fill:var(--cband)}svg.pf .lastband{fill:var(--clast)}svg.pf .yr{fill:var(--cyr)}
+svg.pf .g{stroke:var(--cgrid);stroke-width:1}svg.pf .frame{fill:none;stroke:var(--cframe);stroke-width:1.2}
+svg.pf .ax{fill:var(--ccm);font-size:10px}svg.pf .ax.mi{font-size:7px}svg.pf .lastax{fill:var(--cink);font-weight:700;font-size:10.5px}
+svg.pf .gl{fill:var(--cink);font-family:var(--glyph);font-weight:500}svg.pf .ol{opacity:.7}
+svg.pf .mk{fill:var(--cmk);font-family:var(--glyph);font-weight:700}
+svg.pf .sg{fill:var(--cgreen)}svg.pf .sr{fill:var(--cred)}svg.pf .gw{fill:#fff;font-family:var(--glyph);font-weight:700}
+svg.pf .yl{fill:var(--ccm);font-size:11px;font-weight:600}svg.pf .sel{fill:var(--link);opacity:.18}svg.pf .hit{fill:transparent;cursor:pointer}
+svg.pf{touch-action:none;user-select:none}svg.pf .tl{stroke:var(--cink);stroke-width:1.4;stroke-dasharray:5 4;fill:none;opacity:.5}
+svg.pf .hl{stroke:var(--cink);stroke-width:1.4;stroke-dasharray:3 3}svg.pf .hlt{fill:var(--cink);font-weight:600;font-size:10px}
+.chartbox{background:var(--cbg);border:1px solid var(--line);border-radius:var(--rad);padding:.5rem;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:.3rem 1.1rem;font-size:.78rem;color:var(--mut);margin:.5rem .3rem 0;align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.lg{display:inline-grid;place-items:center;width:1.05rem;height:1.05rem;font:600 .72rem var(--glyph);font-style:normal;color:var(--cink);border:1px solid var(--line)}
+.lg.lgo{opacity:.7}.lg.lgg{background:var(--cgreen);color:#fff;border-color:var(--cgreen)}.lg.lgr{background:var(--cred);color:#fff;border-color:var(--cred)}
+.lg.lgb{background:var(--clast)}.lg.lgm{color:var(--cmk);font-weight:700}
+.pfcard{background:var(--cbg);border:1px solid var(--line);border-radius:var(--rad);overflow:hidden;min-width:0}
+.pfcard .chartbox{border:0;border-top:1px solid var(--line);border-radius:0}
+.hd{padding:1rem 1.2rem .8rem;color:var(--cink)}
+.hd .top{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .9rem}
+.hd .nm{font:700 clamp(1.5rem,2.6vw,2.4rem)/1.1 var(--disp);letter-spacing:-.015em;margin:0;color:var(--cink)}
+.hd .tk{font:500 .85rem var(--mono);color:var(--ccm)}
+.hd .row{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;margin-top:.7rem}
+.hd .f{display:flex;flex-direction:column;gap:1px;min-width:0}
+.hd .f small{font:500 .62rem var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--ccm)}
+.hd .f b{font:600 .88rem var(--disp);color:var(--cink)}
+.hd .ohlc{display:flex;gap:.8rem;font:500 .88rem var(--mono)}
+.hd .ohlc i{font-style:normal;color:var(--ccm);margin-right:.4rem}.hd .ohlc .na{color:var(--ccm)}.hd .ohlc b{font:600 .88rem var(--mono)}
+.hd .ctx{display:flex;flex-wrap:wrap;gap:.5rem .8rem;margin:.9rem 0 0}
+.hd .ctx .cg{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1rem .9rem;border:1px solid var(--line);border-radius:6px;padding:.4rem .8rem;font:500 .82rem/1.4 var(--mono)}
+.hd .ctx .cg small,.hd .ctx .cg span,.hd .ctx .cg span i{font:inherit;font-size:.82rem;letter-spacing:0;text-transform:none}
+.hd .ctx .cg small{font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.hd .ctx .cmk small{color:var(--lm)}.hd .ctx .csec small{color:var(--ls)}
+.hd .ctx .cg span{color:var(--cink);white-space:nowrap}.hd .ctx .cg span i{font-style:normal;color:var(--ccm);margin-right:.35rem}
+.hd .ctx .cg span.na,.hd .ctx .cg span.na i{color:var(--ccm)}
+.snaps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(.6rem,1.2vw,1.2rem)}
+@media(max-width:1000px){.snaps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){.snaps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.snap{display:flex;flex-direction:column;gap:.3rem;background:var(--cbg);border:1px solid var(--line);border-radius:var(--rad);padding:.7rem;color:var(--ink);text-decoration:none;min-width:0}
+.snap:hover{border-color:var(--link)}
+.snap .nm{font:700 1rem var(--disp)}.snap .rd{font-size:.78rem;color:var(--mut);line-height:1.35;min-height:3.2em}
+.snap .sh{margin-top:auto}
+.snap svg.pf{max-width:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.9rem;padding:0 1.5rem;border:2px solid var(--link);background:var(--link);color:var(--linkink);font:700 1rem var(--disp);text-decoration:none;border-radius:var(--rad);cursor:pointer}
+.btn:focus-visible,.btn2:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--link);outline-offset:2px}
+.btns{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.4rem;margin-top:1.2rem}
+.lbl{font:600 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 .6rem}
+.stp{display:grid;gap:.7rem}.stp div{border-top:2px solid var(--ink);padding-top:.45rem}.stp b{display:block;font:700 1.02rem var(--disp)}.stp span{color:var(--mut);font-size:.92rem}
+.below{padding-top:2.4rem;min-height:92vh}
+.hero{min-height:calc(100vh - 12rem);display:grid;padding-block:.8rem;gap:clamp(1.2rem,3.4vw,3.6rem);align-items:center}
+.hero .hl h1{margin:0 0 .9rem;letter-spacing:-.03em}
+.hero .lede{font-size:clamp(1rem,1.35vw,1.4rem);color:var(--mut);max-width:34em}
+.hero svg.pf{max-height:46vh;width:auto;max-width:100%}
+.hero .chartbox{padding:.6rem}
+.down{margin:1.4rem 0 0}
+.crumbs{font-size:.85rem;margin-bottom:.8rem}
+.split{display:grid;grid-template-columns:minmax(0,2.6fr) minmax(0,1fr);gap:clamp(1rem,2vw,2rem);align-items:start}
+@media(max-width:980px){.split{grid-template-columns:minmax(0,1fr)}}
+.stack{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;min-width:0}.stack>*{min-width:0}
+.hero>*{min-width:0}
+@media(max-width:900px){.hero{min-height:0;grid-template-columns:minmax(0,1fr)!important}.hero svg.pf{max-height:none}}
+
+.hero .stp{gap:.45rem}.hero .stp span{font-size:.85rem}.hero .lbl.down{margin-top:.8rem}
+.hero .btns{margin-top:.9rem}
+
+@media(min-width:901px){.hero .stp{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.hero .stp div{padding-top:.35rem}}
+.hero .cap{min-height:0;margin:.4rem .3rem 0;font-size:.8rem}
+.hero .chartbox{padding:.4rem}
+
+.ctl{display:flex;gap:.5rem;margin:.2rem .2rem .6rem}.tgl{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:.25rem .9rem;font:600 .8rem var(--disp);cursor:pointer}.tgl[aria-pressed=true]{background:var(--link);color:var(--linkink);border-color:var(--link)}
+/* Style B: field guide, dark, cyan */
+.B .layout{display:grid;grid-template-columns:clamp(11rem,16vw,15rem) minmax(0,1fr);min-height:100vh}
+.B aside.side{position:sticky;top:0;height:100vh;overflow:auto;border-right:1px solid var(--line);background:var(--surface);padding:1.4rem 1rem;display:flex;flex-direction:column;gap:1.4rem}
+.B .brand{font:700 1.2rem var(--disp);display:flex;gap:.6rem;align-items:center;color:var(--ink);text-decoration:none}
+.B .brand svg{width:1.8rem;height:1.8rem}
+.B .vnav{display:flex;flex-direction:column;gap:.15rem}
+.B .vnav a,.B .vnav span{padding:.55rem .8rem;border-left:3px solid transparent;color:var(--mut);font:500 .95rem var(--disp);text-decoration:none}
+.B .vnav a:hover{color:var(--ink)}
+.B .vnav a[aria-current="page"]{border-left-color:var(--link);color:var(--ink);font-weight:700;background:var(--soft)}
+.B .path{margin-top:auto;font-size:.8rem;color:var(--mut)}.B .path b{display:block;color:var(--ink);font-size:.95rem}
+.B .tools button{min-height:2.2rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:var(--rad);padding:0 .8rem;font:600 .85rem var(--disp);cursor:pointer;width:100%}
+.B .content{min-width:0}
+.B .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}
+.B .hl h1{font-size:clamp(1.8rem,min(3.3vw,6.6vh),3.6rem);font-weight:700;line-height:1.05}
+.B .btn{background:var(--link);color:var(--linkink);border-color:var(--link);border-radius:var(--rad)}
+.B .btn2{display:inline-flex;align-items:center;min-height:2.9rem;padding:0 1.4rem;border:2px solid var(--link);color:var(--link);font:700 1rem var(--disp);text-decoration:none;border-radius:var(--rad)}
+.B .fig{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);gap:1rem;align-items:start}
+.B .side2 table{font:.78rem var(--mono)}
+.B .callout{margin-top:.8rem;background:var(--bg);border:1px solid var(--link);padding:.6rem .8rem;font-size:.82rem;color:var(--ink);border-radius:var(--rad)}
+.B .reads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin-top:.9rem}
+.B .reads div{border:1px solid var(--line);background:var(--surface);padding:.6rem .8rem;font-size:.85rem;border-radius:var(--rad)}
+.B .reads b{display:block;color:var(--link);font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.15rem}
+.B .stp div{border-top-color:#2a3a4a}
+.B footer{border-top:1px solid var(--line);background:var(--surface)}
+.B footer .in{padding:1.4rem clamp(1rem,2.4vw,2.6rem);font-size:.85rem;color:var(--mut)}
+@media(max-width:820px){
+  .B .layout{grid-template-columns:minmax(0,1fr)}
+  .B aside.side{position:static;height:auto;flex-direction:column;gap:.6rem;padding:.7rem 1rem 0}
+  .B .vnav{flex-direction:row;overflow-x:auto}.B .vnav a,.B .vnav span{border-left:0;border-bottom:3px solid transparent;white-space:nowrap}
+  .B .vnav a[aria-current="page"]{border-bottom-color:var(--link)}
+  .B .path{display:none}.B .tools button{width:auto}
+  .B .fig{grid-template-columns:minmax(0,1fr)}.B .reads{grid-template-columns:minmax(0,1fr)}
+}
+
+.B .side2{min-width:0}.B .side2 th,.B .side2 td{padding:.25rem .3rem;white-space:nowrap}.B .side2 table{table-layout:auto;width:100%}
+
+.B .side2{overflow:hidden}.B .side2 table{font-size:.68rem}.B .side2 th,.B .side2 td{padding:.2rem .2rem}
+.scr{position:relative}.scr .dim{color:var(--mut)}.scr .stag{display:inline-block;font:600 .72rem var(--mono);padding:.12rem .45rem;border:1px solid var(--line);border-radius:var(--rad);color:var(--ink);white-space:nowrap}
+.scr .sgn{font:700 .7rem var(--mono);padding:.12rem .4rem;border-radius:var(--rad);color:#fff}.scr .sgb{background:var(--cgreen)}.scr .sgs{background:var(--cred)}
+.scr .nochart{border:1px dashed var(--line);border-radius:var(--rad);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;color:var(--mut);font-size:.8rem;text-align:center;padding:1rem;min-height:8rem}.scr .nochart b{font:700 1.6rem var(--mono);color:var(--ink);opacity:.45}
+.scr th.nb{padding:.7rem .6rem!important;vertical-align:bottom}.scr .res td:nth-child(4),.scr .res td:nth-child(5){white-space:nowrap}
+.scr .sronly{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.B .scr .bgrid{display:grid;grid-template-columns:clamp(15rem,20vw,20rem) minmax(0,1fr);gap:clamp(1rem,2vw,2rem);align-items:start}
+.B .scr .rail{position:sticky;top:1rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--rad);padding:1rem;display:flex;flex-direction:column;gap:1rem}
+.B .scr .rail h2{font:700 .8rem var(--disp);text-transform:uppercase;letter-spacing:.12em;color:var(--link);margin:0}
+.B .scr .fld{display:flex;flex-direction:column;gap:.35rem}.B .scr .fld>label{font:600 .8rem var(--disp);color:var(--mut)}
+.B .scr select,.B .scr input{font:500 .95rem var(--body);min-height:2.6rem;border:1px solid var(--line);border-radius:var(--rad);background:var(--bg);color:var(--ink);padding:0 .7rem;width:100%}
+.B .scr select:focus,.B .scr input:focus,.B .scr button:focus-visible{outline:2px solid var(--link);outline-offset:1px}
+.B .scr .combo{position:relative}.B .scr .combo>button{width:100%;min-height:2.6rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem;text-align:left;border:1px solid var(--link);border-radius:var(--rad);background:var(--bg);color:var(--ink);font:600 .92rem var(--body);padding:0 .7rem;cursor:pointer}
+.B .scr .combo>button span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.B .scr .combo i{font-style:normal;color:var(--link)}
+.B .scr .pop{position:absolute;z-index:20;left:0;right:0;top:calc(100% + .3rem);background:var(--surface);border:1px solid var(--link);border-radius:var(--rad);box-shadow:0 10px 30px #000a;padding:.5rem}
+.B .scr .pop input{margin-bottom:.4rem}.B .scr .pop [role=listbox]{max-height:18rem;overflow:auto}
+.B .scr .og{font:700 .68rem var(--disp);text-transform:uppercase;letter-spacing:.1em;color:var(--mut);padding:.6rem .4rem .25rem}
+.B .scr .op{display:flex;justify-content:space-between;gap:.5rem;padding:.45rem .5rem;border-radius:calc(var(--rad) - 3px);cursor:pointer;font-size:.88rem}.B .scr .op:hover{background:var(--soft)}
+.B .scr .op.sel{background:var(--note);color:var(--link);font-weight:600}.B .scr .op em{font:500 .78rem var(--mono);color:var(--mut);font-style:normal}.B .scr .op.z{opacity:.5}
+.B .scr .seg{display:flex;border:1px solid var(--line);border-radius:var(--rad);overflow:hidden}.B .scr .seg button{flex:1;min-height:2.4rem;border:0;border-right:1px solid var(--line);background:var(--bg);color:var(--mut);font:600 .88rem var(--body);cursor:pointer}.B .scr .seg button:last-child{border:0}
+.B .scr .seg button[aria-pressed=true]{background:var(--link);color:var(--linkink)}
+.B .scr .reset{min-height:2.4rem;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:var(--rad);font:600 .88rem var(--body);cursor:pointer}
+.B .scr .what{border-top:1px solid var(--line);padding-top:.9rem}.B .scr .what h3{font:700 1rem var(--disp);margin:0 0 .3rem;color:var(--link)}.B .scr .what p{margin:0;font-size:.86rem;color:var(--mut)}
+.B .scr .otop{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}.B .scr h1{font:700 clamp(1.8rem,2.6vw,2.6rem) var(--disp);margin:0;letter-spacing:-.01em}.B .scr .oc{margin-left:auto;font:500 .85rem var(--mono);color:var(--mut)}.B .scr .oc b{color:var(--link);font-size:1.1rem}
+
+.B .scr .chips{display:flex;gap:.4rem;flex-wrap:wrap;margin:.8rem 0 1rem;min-height:2rem;align-items:center}
+.B .scr .chip{border:1px solid var(--link);color:var(--link);background:transparent;border-radius:99px;padding:.25rem .8rem;font:600 .8rem var(--body);cursor:pointer}
+.B .scr table.lines{width:100%;border-collapse:collapse;font-size:.92rem}
+.B .scr .lines th{text-align:left;font:700 .7rem var(--disp);text-transform:uppercase;letter-spacing:.1em;color:var(--mut);border-bottom:1px solid var(--link);padding:0}
+.B .scr .lines th button{all:unset;cursor:pointer;display:block;padding:.6rem .7rem;white-space:nowrap}.B .scr .lines th button:hover{color:var(--ink)}
+.B .scr .lines td{padding:.65rem .7rem;border-bottom:1px solid var(--line);vertical-align:middle}.B .scr .lines tbody tr:hover td{background:var(--soft)}
+.B .scr .lines td b{font:700 .98rem var(--mono);color:var(--link)}.B .scr .lines small{display:block;color:var(--mut);font-size:.76rem;line-height:1.2}
+.B .scr .lines .pt{font-weight:600}.B .scr .snum{text-align:right;font-family:var(--mono)}.B .scr th.snum button{text-align:right}
+.B .scr .none{text-align:center;color:var(--mut);padding:2.5rem 0!important}
+
+.B .scr .lines td:nth-child(4),.B .scr .lines td:nth-child(5){white-space:nowrap}
+.B .scr .lk{all:unset;cursor:pointer;color:var(--link)}.B .scr .lk:hover,.B .scr .lk:focus-visible{text-decoration:underline}
+.B .scr .combo>button:disabled{opacity:.4;cursor:not-allowed;border-color:var(--line)}
+.B .scr .back{all:unset;cursor:pointer;color:var(--link);font:600 .9rem var(--disp);border:1px solid var(--link);border-radius:var(--rad);padding:.4rem .9rem;display:inline-block;margin-bottom:1rem}
+.B .scr .kick{font:700 .75rem var(--disp);text-transform:uppercase;letter-spacing:.12em;color:var(--link);margin:0}.B .scr .vh h1 span{font:500 .5em var(--body);color:var(--mut)}.B .scr .sub{color:var(--mut);margin:.2rem 0 1rem}
+.B .scr .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.6rem;margin:0 0 1rem}.B .scr .facts div{background:var(--surface);border:1px solid var(--line);border-radius:var(--rad);padding:.6rem .8rem}.B .scr .facts dt{font:600 .7rem var(--disp);color:var(--mut)}.B .scr .facts dd{margin:.15rem 0 0;font:600 .95rem var(--body)}
+.B .scr .def{max-width:48rem;color:var(--mut)}.B .scr .vchart{background:var(--chartbg);border:1px solid var(--line);border-radius:var(--rad);padding:.8rem;max-width:70rem;margin:1rem 0}.B .scr .vchart .cscroll{overflow-x:auto}.B .scr .scap{font-size:.82rem}
+.B .scr .ssh{font:700 1.1rem var(--disp);margin:1.4rem 0 .4rem}.B .scr .slist{list-style:none;margin:0;padding:0}.B .scr .slist li{display:grid;grid-template-columns:8rem minmax(0,1fr) auto;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line)}
+.B .scr .vw{max-width:72rem}
+.B .scr .lk{all:unset;cursor:pointer;color:var(--link)}.B .scr .lk:hover,.B .scr .lk:focus-visible{text-decoration:underline}
+.B .scr .combo>button:disabled{opacity:.4;cursor:not-allowed;border-color:var(--line)}
+.B .scr .back{all:unset;cursor:pointer;color:var(--link);font:600 .9rem var(--disp);border:1px solid var(--link);border-radius:var(--rad);padding:.4rem .9rem;display:inline-block;margin-bottom:1rem}
+.B .scr .kick{font:700 .75rem var(--disp);text-transform:uppercase;letter-spacing:.12em;color:var(--link);margin:0}.B .scr .vh h1 span{font:500 .5em var(--body);color:var(--mut)}.B .scr .sub{color:var(--mut);margin:.2rem 0 1rem}
+.B .scr .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.6rem;margin:0 0 1rem}.B .scr .facts div{background:var(--surface);border:1px solid var(--line);border-radius:var(--rad);padding:.6rem .8rem}.B .scr .facts dt{font:600 .7rem var(--disp);color:var(--mut)}.B .scr .facts dd{margin:.15rem 0 0;font:600 .95rem var(--body)}
+.B .scr .def{max-width:48rem;color:var(--mut)}.B .scr .vchart{background:var(--chartbg);border:1px solid var(--line);border-radius:var(--rad);padding:.8rem;max-width:70rem;margin:1rem 0}.B .scr .vchart .cscroll{overflow-x:auto}.B .scr .scap{font-size:.82rem}
+.B .scr .ssh{font:700 1.1rem var(--disp);margin:1.4rem 0 .4rem}.B .scr .slist{list-style:none;margin:0;padding:0}.B .scr .slist li{display:grid;grid-template-columns:8rem minmax(0,1fr) auto;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line)}
+.B .scr .vw{max-width:72rem}
+@media(max-width:1000px){.B .scr .bgrid{grid-template-columns:1fr}.B .scr .rail{position:static}.B .scr .out{overflow-x:auto;position:relative}}
+
+</style>
+
+<div class="site B"><a class="skip" href="#app" id="skip">Skip to content</a><div class="banner" role="note" id="banner"></div><div class="layout"><aside class="side"><a class="brand" href="#/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--logo)"/><path d="M7 7l7 7M14 7l-7 7M7 18l7 7M14 18l-7 7" stroke="var(--logoink)" stroke-width="2.6" stroke-linecap="round" fill="none"/><circle cx="23" cy="10.5" r="4" stroke="var(--logoo)" stroke-width="2.6" fill="none"/></svg><span>PnF Desk</span></a><nav class="vnav" id="nav" aria-label="Main"></nav><div class="path" id="path"></div><div class="tools"><button id="lang" type="button" aria-label="Switch language">বাংলা</button></div></aside><div class="content"><main id="app"></main><footer><div class="in" id="foot"></div></footer></div></div></div>
+
+<script>
+(function(){
+'use strict';
+var D={"asof":"2026-10-01","n":404,"market_bp":{"signal":"SELL","since":"2026-09-13","column":"O","column_since":"2026-07-23","reading":40.7,"reverse_at":42.0,"bp":40.7,"zone":"below 50 midline"},"sector_bp":{"Bank":{"column":"O","bp":45.2,"zone":"below 50 midline","n":31},"Cement":{"column":"O","bp":28.6,"zone":"oversold (<30)","n":7},"Ceramic":{"column":"O","bp":0.0,"zone":"oversold (<30)","n":5},"Engineering":{"column":"O","bp":28.6,"zone":"oversold (<30)","n":42},"Financial In":{"column":"O","bp":35.0,"zone":"below 50 midline","n":20},"FoodAllied":{"column":"X","bp":14.3,"zone":"oversold (<30)","n":21},"FuelPower":{"column":"X","bp":43.5,"zone":"below 50 midline","n":23},"IT":{"column":"O","bp":45.5,"zone":"below 50 midline","n":11},"Insurance":{"column":"X","bp":27.6,"zone":"oversold (<30)","n":58},"Jute":{"column":"X","bp":66.7,"zone":"above 50 midline","n":3},"Misc":{"column":"X","bp":14.3,"zone":"oversold (<30)","n":14},"PaperPrint":{"column":"O","bp":16.7,"zone":"oversold (<30)","n":6},"PharmaChem":{"column":"X","bp":38.2,"zone":"below 50 midline","n":34},"ServRealEst":{"column":"O","bp":25.0,"zone":"oversold (<30)","n":4},"Tannery":{"column":"X","bp":50.0,"zone":"above 50 midline","n":6},"Telecom":{"column":"O","bp":66.7,"zone":"above 50 midline","n":3},"Textile":{"column":"X","bp":56.9,"zone":"above 50 midline","n":58},"TravelLeisur":{"column":"X","bp":75.0,"zone":"overbought (>70)","n":4}},"bp_chart":{"box0":3,"levels":[6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78],"cols":[["O",4,8],["X",5,20],["O",16,19],["X",17,22],["O",10,21],["X",11,33],["O",5,32],["X",6,31],["O",21,30],["X",22,37],["O",18,36]],"years":[[2,"25"],[7,"26"]],"dates":["2024-10-27","2024-12-02","2025-01-05","2025-03-09","2025-05-19","2025-09-08","2025-11-13","2026-02-17","2026-03-08","2026-07-15","2026-09-14"],"tl":[["bull",0,3,6],["bear",5,34,9],["bull",6,4,14]]},"dsex":{"name":"DSEX","price":5531.65,"col":"X","chart":{"box0":638,"levels":[4584.0,4592.0,4600.0,4608.0,4616.0,4624.0,4632.0,4640.0,4648.0,4656.0,4664.0,4672.0,4680.0,4688.0,4696.0,4704.0,4712.0,4720.0,4728.0,4736.0,4744.0,4752.0,4760.0,4768.0,4776.0,4784.0,4792.0,4800.0,4808.0,4816.0,4824.0,4832.0,4840.0,4848.0,4856.0,4864.0,4872.0,4880.0,4888.0,4896.0,4904.0,4912.0,4920.0,4928.0,4936.0,4944.0,4952.0,4960.0,4968.0,4976.0,4984.0,4992.0,5000.0,5008.0,5016.0,5024.0,5032.0,5040.0,5048.0,5056.0,5064.0,5072.0,5080.0,5088.0,5096.0,5104.0,5112.0,5120.0,5128.0,5136.0,5144.0,5152.0,5160.0,5168.0,5176.0,5184.0,5192.0,5200.0,5208.0,5216.0,5224.0,5232.0,5240.0,5248.0,5256.0,5264.0,5272.0,5280.0,5288.0,5296.0,5304.0,5312.0,5320.0,5328.0,5336.0,5344.0,5352.0,5360.0,5368.0,5376.0,5384.0,5392.0,5400.0,5408.0,5416.0,5424.0,5432.0,5440.0,5448.0,5456.0,5464.0,5472.0,5480.0,5488.0,5496.0,5504.0,5512.0,5520.0,5528.0,5536.0,5544.0,5552.0,5560.0,5568.0,5576.0,5584.0,5592.0,5600.0,5608.0,5616.0,5624.0,5632.0,5640.0,5648.0,5656.0,5664.0,5672.0,5680.0,5688.0,5696.0,5704.0,5712.0,5720.0,5728.0,5736.0,5744.0,5752.0,5760.0,5768.0,5776.0,5784.0,5792.0,5800.0,5808.0,5816.0,5824.0,5832.0,5840.0,5848.0,5856.0,5864.0,5872.0,5880.0,5888.0,5896.0,5904.0,5912.0,5920.0,5928.0,5936.0,5944.0,5952.0,5960.0,5968.0,5976.0],"cols":[["O",728,762],["X",729,746],["O",704,745],["X",705,723],["O",677,722],["X",678,741],["O",724,740],["X",725,736],["O",725,735],["X",726,740],["O",707,739],["X",708,721],["O",712,720],["X",713,723],["O",709,722],["X",710,716],["O",703,715],["X",704,720],["O",710,719],["X",711,720],["O",711,719],["X",712,719],["O",712,718],["X",713,716],["O",708,715],["X",709,713],["O",707,712],["X",708,719],["O",704,718],["X",705,711],["O",707,710],["X",708,715],["O",711,714],["X",712,719],["O",713,718],["X",714,725],["O",720,724],["X",721,723],["O",715,722],["X",716,718],["O",711,717],["X",712,719],["O",715,718],["X",716,718],["O",713,717],["X",714,718],["O",712,717],["X",713,719],["O",714,718],["X",715,719],["O",680,718],["X",681,691],["O",679,690],["X",680,688],["O",666,687],["X",667,683],["O",661,682],["X",662,672],["O",661,671],["X",662,668],["O",639,667],["X",640,664],["O",657,663],["X",658,665],["O",650,664],["X",651,673],["O",667,672],["X",668,688],["O",684,687],["X",685,701],["O",696,700],["X",697,724],["O",716,723],["X",717,742],["O",727,741],["X",728,760],["O",729,759],["X",730,745],["O",733,744],["X",734,753],["O",744,752],["X",745,771],["O",764,770],["X",765,773],["O",767,772],["X",768,774],["O",749,773],["X",750,759],["O",748,758],["X",749,757],["O",731,756],["X",732,746],["O",737,745],["X",738,750],["O",715,749],["X",716,724],["O",694,723],["X",695,711],["O",699,710],["X",700,712],["O",700,711],["X",701,709],["O",643,708],["X",644,682],["O",668,681],["X",669,699],["O",690,698],["X",691,695],["O",679,694],["X",680,688],["O",675,687],["X",676,689],["O",682,688],["X",683,687],["O",664,686],["X",665,677],["O",673,676],["X",674,681],["O",671,680],["X",672,687],["O",683,686],["X",684,691],["O",680,690],["X",681,706],["O",701,705],["X",702,705],["O",699,704],["X",700,726],["O",717,725],["X",718,771],["O",746,770],["X",747,763],["O",757,762],["X",758,766],["O",738,765],["X",739,762],["O",690,761],["X",691,739],["O",726,738],["X",727,730],["O",712,729],["X",713,725],["O",704,724],["X",705,713],["O",706,712],["X",707,731],["O",719,730],["X",720,726],["O",721,725],["X",722,727],["O",718,726],["X",719,730],["O",727,729],["X",728,734],["O",728,733],["X",729,731],["O",724,730],["X",725,728],["O",716,727],["X",717,724],["O",716,723],["X",717,760],["O",748,759],["X",749,759],["O",755,758],["X",756,775],["O",766,774],["X",767,778],["O",756,777],["X",757,786],["O",782,785],["X",783,793],["O",786,792],["X",787,810],["O",792,809],["X",793,806],["O",788,805],["X",789,807],["O",799,806],["X",800,807],["O",801,806],["X",802,805],["O",793,804],["X",794,807],["O",783,806],["X",784,791],["O",770,790],["X",771,776],["O",765,775],["X",766,774],["O",771,773],["X",772,776],["O",752,775],["X",753,768],["O",738,767],["X",739,765],["O",758,764],["X",759,768],["O",756,767],["X",757,762]],"years":[[19,"25"],[119,"26"]],"dates":["2024-10-08","2024-10-14","2024-10-21","2024-10-22","2024-10-28","2024-11-06","2024-11-10","2024-11-12","2024-11-13","2024-11-14","2024-11-25","2024-11-28","2024-12-01","2024-12-04","2024-12-08","2024-12-09","2024-12-12","2024-12-17","2024-12-26","2025-01-01","2025-01-05","2025-01-07","2025-01-08","2025-01-12","2025-01-13","2025-01-14","2025-01-16","2025-01-21","2025-01-29","2025-02-03","2025-02-04","2025-02-09","2025-02-10","2025-02-18","2025-02-20","2025-02-25","2025-02-27","2025-03-02","2025-03-04","2025-03-06","2025-03-10","2025-03-16","2025-03-17","2025-03-18","2025-03-23","2025-03-25","2025-04-06","2025-04-07","2025-04-08","2025-04-10","2025-04-27","2025-04-28","2025-05-04","2025-05-05","2025-05-07","2025-05-13","2025-05-17","2025-05-18","2025-05-19","2025-05-22","2025-05-29","2025-06-17","2025-06-18","2025-06-19","2025-06-22","2025-06-29","2025-06-30","2025-07-07","2025-07-08","2025-07-10","2025-07-13","2025-07-21","2025-07-22","2025-07-27","2025-07-30","2025-08-04","2025-08-13","2025-08-19","2025-08-21","2025-08-26","2025-08-27","2025-09-01","2025-09-02","2025-09-03","2025-09-04","2025-09-08","2025-09-10","2025-09-14","2025-09-15","2025-09-17","2025-09-23","2025-09-25","2025-09-29","2025-10-06","2025-10-12","2025-10-14","2025-10-20","2025-10-21","2025-10-22","2025-10-26","2025-10-28","2025-11-02","2025-11-16","2025-11-20","2025-11-23","2025-11-25","2025-11-26","2025-11-27","2025-12-01","2025-12-03","2025-12-04","2025-12-10","2025-12-11","2025-12-14","2025-12-21","2025-12-23","2025-12-24","2025-12-28","2025-12-29","2026-01-05","2026-01-06","2026-01-08","2026-01-12","2026-01-20","2026-01-21","2026-01-22","2026-01-25","2026-02-05","2026-02-08","2026-02-16","2026-02-22","2026-02-24","2026-02-25","2026-02-26","2026-03-01","2026-03-02","2026-03-09","2026-03-15","2026-03-24","2026-03-25","2026-03-31","2026-04-01","2026-04-05","2026-04-06","2026-04-07","2026-04-08","2026-04-12","2026-04-13","2026-04-15","2026-04-16","2026-04-20","2026-04-22","2026-04-23","2026-04-26","2026-04-27","2026-04-29","2026-05-03","2026-05-05","2026-05-11","2026-05-14","2026-05-18","2026-06-07","2026-06-08","2026-06-10","2026-06-11","2026-06-15","2026-06-16","2026-06-21","2026-06-23","2026-06-30","2026-07-02","2026-07-06","2026-07-08","2026-07-15","2026-07-20","2026-07-22","2026-07-26","2026-07-29","2026-07-30","2026-08-02","2026-08-03","2026-08-06","2026-08-09","2026-08-12","2026-08-19","2026-08-23","2026-08-25","2026-08-27","2026-08-31","2026-09-01","2026-09-02","2026-09-03","2026-09-07","2026-09-08","2026-09-14","2026-09-20","2026-09-22","2026-09-24","2026-09-28","2026-10-01"],"tl":[["bear",0,763,45],["bull",4,676,40],["bear",5,742,9],["bull",6,723,8],["bear",7,737,9],["bull",8,724,10],["bear",9,741,33],["bull",16,702,24],["bear",17,721,19],["bull",18,709,20],["bear",19,721,21],["bull",20,710,22],["bear",21,720,27],["bull",26,706,28],["bear",27,720,33],["bull",28,703,40],["bear",35,726,43],["bull",40,710,44],["bear",41,720,43],["bull",42,714,44],["bear",43,719,45],["bull",44,712,46],["bear",45,719,47],["bull",46,711,50],["bear",47,720,49],["bull",48,713,50],["bear",49,720,69],["bull",60,638,102],["bear",85,775,129],["bull",102,642,203]]},"signal":"SELL","since":"2026-09-27","rev":5552.0},"featured":[{"t":"GP","name":"Grameenphone","sector":"Telecom","price":241.1,"date":"2026-10-01","col":"O","col_since":"2026-08-13","top":256.0,"bot":240.0,"rev":252.0,"box":4.0,"signal":"BUY","since":"2026-06-21","pattern":"Double Top","pattern_date":"2026-06-29","trend":"bear","tl_level":280.0,"rs":{"signal":"SELL","since":"2025-08-17","col":"O","reading":4.359},"chart":{"box0":189,"levels":[236.0,240.0,244.0,248.0,252.0,256.0,260.0,264.0,268.0,272.0,276.0,280.0,284.0,288.0,292.0,296.0,300.0,304.0,308.0,312.0,316.0,320.0,324.0,328.0,332.0,336.0,340.0,344.0,348.0,352.0],"cols":[["O",211,216],["X",212,215],["O",206,214],["X",207,213],["O",209,212],["X",210,216],["O",204,215],["X",205,207],["O",198,206],["X",199,212],["O",204,211],["X",205,207],["O",196,206],["X",197,200],["O",193,199],["X",194,199],["O",190,198],["X",191,194],["O",190,193],["X",191,193],["O",190,192],["X",191,195],["O",190,194]],"years":[[5,"25"],[14,"26"]],"dates":["2024-10-08","2024-10-14","2024-10-28","2024-11-12","2024-11-19","2025-02-17","2025-04-27","2025-04-28","2025-05-25","2025-07-27","2025-08-24","2025-08-31","2025-11-16","2025-11-27","2026-01-04","2026-02-16","2026-03-04","2026-03-15","2026-04-05","2026-04-29","2026-05-10","2026-06-29","2026-09-10"],"tl":[["bear",0,217,5],["bull",2,205,6],["bear",5,217,26]]},"sector_bp":{"signal":"BUY","since":"2026-02-26","column":"O","column_since":"2026-08-19","bp":66.7,"reverse_at":74.0,"zone":"above 50 midline"}},{"t":"BRACBANK","name":"BRAC Bank","sector":"Bank","price":65.7,"date":"2026-10-01","col":"X","col_since":"2026-09-30","top":66.0,"bot":63.0,"rev":63.0,"box":1.0,"signal":"SELL","since":"2026-07-02","pattern":"Bullish Signal Reversed","pattern_date":"2026-07-09","trend":"bear","tl_level":67.0,"rs":{"signal":"SELL","since":"2026-07-07","col":"X","reading":1.188},"chart":{"box0":65,"levels":[35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0],"cols":[["O",66,71],["X",67,70],["O",67,69],["X",68,71],["O",67,70],["X",68,76],["O",71,75],["X",72,76],["O",70,75],["X",71,92],["O",88,91],["X",89,94],["O",88,93],["X",89,91],["O",87,90],["X",88,99],["O",92,98],["X",93,97],["O",90,96],["X",91,93],["O",84,92],["X",85,93],["O",83,92],["X",84,90],["O",85,89],["X",86,97],["O",91,96],["X",92,98],["O",95,97],["X",96,107],["O",100,106],["X",101,104],["O",91,103],["X",92,99],["O",87,98],["X",88,92],["O",89,91],["X",90,95],["O",92,94],["X",93,99],["O",95,98],["X",96,100],["O",91,99],["X",92,96],["O",92,95],["X",93,96]],"years":[[3,"25"],[25,"26"]],"dates":["2024-10-21","2024-10-30","2024-11-25","2025-02-16","2025-04-29","2025-05-17","2025-05-18","2025-05-24","2025-05-26","2025-07-24","2025-07-28","2025-07-31","2025-08-10","2025-08-12","2025-08-19","2025-09-01","2025-09-10","2025-09-11","2025-09-29","2025-10-06","2025-10-19","2025-10-26","2025-11-16","2025-12-11","2025-12-29","2026-01-20","2026-01-21","2026-02-02","2026-02-05","2026-02-23","2026-03-01","2026-03-02","2026-03-08","2026-03-10","2026-03-31","2026-04-01","2026-04-05","2026-04-27","2026-05-12","2026-06-02","2026-06-23","2026-06-29","2026-07-09","2026-07-15","2026-08-25","2026-09-30"],"tl":[["bull",0,65,2],["bear",1,71,3],["bull",2,66,4],["bear",3,72,5],["bull",4,66,8],["bear",5,77,7],["bull",6,70,8],["bear",7,77,9],["bull",8,69,22],["bear",15,100,25],["bull",22,82,32],["bear",29,108,39],["bull",34,86,42],["bear",41,101,49]]},"sector_bp":{"signal":"BUY","since":"2025-07-24","column":"O","column_since":"2026-09-10","bp":45.2,"reverse_at":52.0,"zone":"below 50 midline"}},{"t":"SQURPHARMA","name":"Square Pharmaceuticals","sector":"PharmaChem","price":218.3,"date":"2026-10-01","col":"O","col_since":"2026-09-06","top":224.0,"bot":212.0,"rev":224.0,"box":4.0,"signal":"BUY","since":"2026-02-16","pattern":"Double Top","pattern_date":"2026-06-28","trend":"bear","tl_level":228.0,"rs":{"signal":"SELL","since":"2026-06-04","col":"O","reading":3.946},"chart":{"box0":178,"levels":[196.0,198.0,200.0,204.0,208.0,212.0,216.0,220.0,224.0,228.0,232.0,236.0,240.0,244.0],"cols":[["O",182,186],["X",183,186],["O",180,185],["X",181,188],["O",179,187],["X",180,189],["O",182,188],["X",183,185],["O",182,184],["X",183,187],["O",183,186]],"years":[[2,"25"],[4,"26"]],"dates":["2024-11-25","2024-12-17","2025-05-27","2025-08-03","2026-01-01","2026-02-16","2026-03-08","2026-04-05","2026-05-17","2026-06-28","2026-09-14"],"tl":[["bull",4,178,8],["bear",5,190,9],["bull",6,181,8],["bear",7,186,9],["bull",8,181,10],["bear",9,188,14]]},"sector_bp":{"signal":"SELL","since":"2026-08-10","column":"X","column_since":"2026-09-23","bp":38.2,"reverse_at":32.0,"zone":"below 50 midline"}},{"t":"BATBC","name":"British American Tobacco Bangladesh","sector":"FoodAllied","price":223.3,"date":"2026-10-01","col":"O","col_since":"2026-08-18","top":248.0,"bot":224.0,"rev":236.0,"box":4.0,"signal":"SELL","since":"2026-08-30","pattern":"Bearish Signal (Double Bottom, lower top)","pattern_date":"2026-09-13","trend":"bear","tl_level":256.0,"rs":{"signal":"SELL","since":"2025-08-18","col":"X","reading":4.037},"chart":{"box0":181,"levels":[204.0,208.0,212.0,216.0,220.0,224.0,228.0,232.0,236.0,240.0,244.0,248.0,252.0,256.0,260.0,264.0,268.0,272.0,276.0,280.0,284.0,288.0,292.0,296.0,300.0,304.0,308.0,312.0,316.0,320.0,324.0,328.0,332.0,336.0,340.0,344.0,348.0,352.0,356.0,360.0,364.0,368.0,372.0,376.0,380.0,384.0,388.0,392.0,396.0],"cols":[["O",220,227],["X",221,226],["O",220,225],["X",221,223],["O",213,222],["X",214,226],["O",221,225],["X",222,225],["O",216,224],["X",217,223],["O",216,222],["X",217,219],["O",195,218],["X",196,218],["O",210,217],["X",211,216],["O",192,215],["X",193,202],["O",198,201],["X",199,214],["O",202,213],["X",203,207],["O",202,206],["X",203,205],["O",193,204],["X",194,196],["O",190,195],["X",191,195],["O",191,194],["X",192,203],["O",182,202],["X",183,188],["O",183,187],["X",184,186],["O",182,185],["X",183,186],["O",183,185],["X",184,194],["O",189,193],["X",190,193],["O",186,192]],"years":[[9,"25"],[29,"26"]],"dates":["2024-10-09","2024-10-14","2024-10-21","2024-10-22","2024-10-28","2024-10-31","2024-11-04","2024-11-12","2024-12-11","2025-01-01","2025-01-27","2025-01-30","2025-02-06","2025-02-09","2025-04-06","2025-04-15","2025-05-29","2025-06-18","2025-06-23","2025-07-23","2025-07-28","2025-08-03","2025-08-12","2025-09-01","2025-10-15","2025-10-21","2025-11-13","2025-11-25","2025-12-21","2026-02-15","2026-03-09","2026-03-11","2026-04-05","2026-04-26","2026-06-01","2026-06-07","2026-06-11","2026-07-29","2026-08-09","2026-08-12","2026-09-13"],"tl":[["bear",0,228,5],["bull",4,212,8],["bear",5,227,7],["bull",6,220,8],["bear",7,226,19],["bull",16,191,24],["bear",19,215,44]]},"sector_bp":{"signal":"SELL","since":"2026-07-30","column":"X","column_since":"2026-09-22","bp":14.3,"reverse_at":12.0,"zone":"oversold (<30)"}},{"t":"WALTONHIL","name":"Walton Hi-Tech Industries","sector":"Engineering","price":336.7,"date":"2026-10-01","col":"O","col_since":"2026-09-27","top":348.0,"bot":340.0,"rev":352.0,"box":4.0,"signal":"SELL","since":"2026-09-21","pattern":"Triple Bottom","pattern_date":"2026-09-21","trend":"bear","tl_level":364.0,"rs":{"signal":"SELL","since":"2025-05-28","col":"O","reading":6.087},"chart":{"box0":207,"levels":[308.0,312.0,316.0,320.0,324.0,328.0,332.0,336.0,340.0,344.0,348.0,352.0,356.0,360.0,364.0,368.0,372.0,376.0,380.0,384.0,388.0,392.0,396.0,400.0,404.0,408.0,412.0,416.0,420.0,424.0,428.0,432.0,436.0,440.0,444.0,448.0,452.0,456.0,460.0,464.0,468.0,472.0],"cols":[["O",236,246],["X",237,243],["O",226,242],["X",227,234],["O",226,233],["X",227,230],["O",224,229],["X",225,227],["O",223,226],["X",224,240],["O",232,239],["X",233,244],["O",231,243],["X",232,240],["O",230,239],["X",231,239],["O",233,238],["X",234,236],["O",225,235],["X",226,233],["O",223,232],["X",224,228],["O",213,227],["X",214,217],["O",214,216],["X",215,232],["O",214,231],["X",215,231],["O",208,230],["X",209,215],["O",211,214],["X",212,219],["O",216,218],["X",217,227],["O",222,226],["X",223,227],["O",222,226],["X",223,225],["O",222,224],["X",223,239],["O",224,238],["X",225,230],["O",212,229],["X",213,218],["O",214,217],["X",215,228],["O",224,227],["X",225,234],["O",215,233],["X",216,219],["O",212,218],["X",213,219],["O",216,218],["X",217,222],["O",219,221],["X",220,224],["O",217,223],["X",218,220],["O",217,219],["X",218,223],["O",214,222],["X",215,218],["O",215,217]],"years":[[15,"25"],[45,"26"]],"dates":["2024-10-07","2024-10-08","2024-10-15","2024-10-16","2024-10-20","2024-10-22","2024-10-24","2024-10-27","2024-10-28","2024-10-31","2024-11-04","2024-11-06","2024-11-12","2024-11-19","2024-11-24","2025-01-14","2025-01-16","2025-01-20","2025-03-23","2025-03-25","2025-04-09","2025-04-15","2025-05-07","2025-05-13","2025-05-15","2025-05-17","2025-05-19","2025-05-24","2025-05-29","2025-06-02","2025-06-23","2025-07-10","2025-07-13","2025-07-23","2025-07-29","2025-07-31","2025-08-13","2025-08-19","2025-08-24","2025-09-01","2025-09-10","2025-09-18","2025-11-10","2025-11-25","2025-12-17","2026-02-05","2026-02-08","2026-02-15","2026-03-09","2026-03-10","2026-04-30","2026-06-15","2026-06-16","2026-06-30","2026-07-02","2026-07-12","2026-07-26","2026-07-27","2026-08-25","2026-08-30","2026-09-21","2026-09-22","2026-09-27"],"tl":[["bear",0,247,9],["bull",8,222,18],["bear",11,245,25],["bull",22,212,24],["bear",23,218,25],["bull",24,213,26],["bear",25,233,27],["bull",26,213,28],["bear",27,232,33],["bull",28,207,42],["bear",39,240,47],["bull",42,211,48],["bear",47,235,59],["bull",50,211,56],["bear",55,225,59],["bull",56,216,58],["bear",57,221,59],["bull",58,216,60],["bear",59,224,66]]},"sector_bp":{"signal":"SELL","since":"2026-08-16","column":"O","column_since":"2026-07-23","bp":28.6,"reverse_at":34.0,"zone":"oversold (<30)"}}],"scr":{"rows":[{"t":"AOL","name":null,"sector":"FuelPower","pat":"Double Top","date":"2026-10-01","col":"X","level":17.0,"chart":false},{"t":"APEXTANRY","name":null,"sector":"Tannery","pat":"Bullish Signal (Double Top, rising bottom)","date":"2026-10-01","col":"X","level":98.0,"chart":false},{"t":"APEXWEAV","name":null,"sector":null,"pat":"Bearish Signal (Diagonal Triple Bottom)","date":"2026-10-01","col":"O","level":9.0,"chart":false},{"t":"BANKASIA","name":null,"sector":"Bank","pat":"Bearish Catapult","date":"2026-10-01","col":"O","level":16.0,"chart":false},{"t":"BNICL","name":null,"sector":"Insurance","pat":"Bullish Signal Reversed","date":"2026-10-01","col":"O","level":166.0,"chart":false},{"t":"ISLAMIINS","name":null,"sector":"Insurance","pat":"Spread Triple Top","date":"2026-10-01","col":"X","level":63.0,"chart":false},{"t":"KTL","name":null,"sector":"Textile","pat":"Spread Triple Top","date":"2026-10-01","col":"X","level":13.5,"chart":false},{"t":"MALEKSPIN","name":null,"sector":"Textile","pat":"Double Top","date":"2026-10-01","col":"X","level":49.0,"chart":false},{"t":"SAIHAMTEX","name":null,"sector":"Textile","pat":"Spread Triple Top","date":"2026-10-01","col":"X","level":39.0,"chart":false},{"t":"SAMATALETH","name":null,"sector":"Tannery","pat":"Bullish Catapult","date":"2026-10-01","col":"X","level":92.0,"chart":false},{"t":"SONARGAON","name":null,"sector":"Textile","pat":"Bullish Signal (Diagonal Triple Top)","date":"2026-10-01","col":"X","level":100.0,"chart":false},{"t":"TAKAFULINS","name":null,"sector":"Insurance","pat":"Bearish Signal (Double Bottom, lower top)","date":"2026-10-01","col":"O","level":52.0,"chart":false},{"t":"GP","name":"Grameenphone","sector":"Telecom","pat":"Double Top","date":"2026-06-29","col":"O","level":256.0,"chart":true,"price":241.1,"signal":"BUY","since":"2026-06-21"},{"t":"BRACBANK","name":"BRAC Bank","sector":"Bank","pat":"Bullish Signal Reversed","date":"2026-07-09","col":"X","level":64.0,"chart":true,"price":65.7,"signal":"SELL","since":"2026-07-02"},{"t":"SQURPHARMA","name":"Square Pharmaceuticals","sector":"PharmaChem","pat":"Double Top","date":"2026-06-28","col":"O","level":224.0,"chart":true,"price":218.3,"signal":"BUY","since":"2026-02-16"},{"t":"BATBC","name":"British American Tobacco Bangladesh","sector":"FoodAllied","pat":"Bearish Signal (Double Bottom, lower top)","date":"2026-09-13","col":"O","level":232.0,"chart":true,"price":223.3,"signal":"SELL","since":"2026-08-30"},{"t":"WALTONHIL","name":"Walton Hi-Tech Industries","sector":"Engineering","pat":"Triple Bottom","date":"2026-09-21","col":"O","level":344.0,"chart":true,"price":336.7,"signal":"SELL","since":"2026-09-21"}],"sector_bp":{"Bank":{"signal":"BUY","column":"O","bp":45.2,"zone":"below 50 midline","n":31},"Cement":{"signal":"BUY","column":"O","bp":28.6,"zone":"oversold (<30)","n":7},"Ceramic":{"signal":"SELL","column":"O","bp":0.0,"zone":"oversold (<30)","n":5},"Engineering":{"signal":"SELL","column":"O","bp":28.6,"zone":"oversold (<30)","n":42},"Financial In":{"signal":"BUY","column":"O","bp":35.0,"zone":"below 50 midline","n":20},"FoodAllied":{"signal":"SELL","column":"X","bp":14.3,"zone":"oversold (<30)","n":21},"FuelPower":{"signal":"SELL","column":"X","bp":43.5,"zone":"below 50 midline","n":23},"IT":{"signal":"BUY","column":"O","bp":45.5,"zone":"below 50 midline","n":11},"Insurance":{"signal":"SELL","column":"X","bp":27.6,"zone":"oversold (<30)","n":58},"Jute":{"signal":"BUY","column":"X","bp":66.7,"zone":"above 50 midline","n":3},"Misc":{"signal":"SELL","column":"X","bp":14.3,"zone":"oversold (<30)","n":14},"PaperPrint":{"signal":"SELL","column":"O","bp":16.7,"zone":"oversold (<30)","n":6},"PharmaChem":{"signal":"SELL","column":"X","bp":38.2,"zone":"below 50 midline","n":34},"ServRealEst":{"signal":"SELL","column":"O","bp":25.0,"zone":"oversold (<30)","n":4},"Tannery":{"signal":"SELL","column":"X","bp":50.0,"zone":"above 50 midline","n":6},"Telecom":{"signal":"BUY","column":"O","bp":66.7,"zone":"above 50 midline","n":3},"Textile":{"signal":"SELL","column":"X","bp":56.9,"zone":"above 50 midline","n":58},"TravelLeisur":{"signal":"BUY","column":"X","bp":75.0,"zone":"overbought (>70)","n":4}},"asof":"2026-10-01"}};D.bp_chart.pct=true;
+D.ohlc={'date':'2026-10-01','GP':[242.0,242.0,241.0],'BRACBANK':[65.9,65.9,65.4],'SQURPHARMA':[218.4,218.8,218.0],'BATBC':[225.7,225.8,222.8],'WALTONHIL':[337.3,338.0,336.4],'DSEX':[5550.43702,5579.75255,5531.64623]};
+var STYLE='B';
+var $=function(s,r){return (r||document).querySelector(s)};
+var el=function(t,a,h){var e=document.createElement(t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(h!=null)e.innerHTML=h;return e};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fd(s){if(!s)return '';var p=s.split('-');return (+p[2])+' '+MON[+p[1]-1]+' '+p[0]}
+function pr(v){var r=Math.round(v*100)/100;return r%1===0?r.toLocaleString('en-US'):r.toFixed(2)}
+function tk(v){return 'Tk '+pr(v)}
+function lab(v){return v<10?v.toFixed(2):(v%1===0?v.toLocaleString('en-US'):v.toFixed(1))}
+function pl(n,w){return n+' '+w+(n===1?'':'es')}
+
+/* ---------- language, progress ---------- */
+var lang='en';try{lang=localStorage.getItem('pnfs_lang')||'en'}catch(e){}
+function L(o){return (o&&(o[lang]||o.en))||''}
+var KEY='pnfs_progress_'+STYLE;
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
+function save(o){try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
+var TX={
+ en:{home:'Home',screener:'Screener',learn:'Learn',charts:'Charts',market:'Market',game:'Game (coming later)',rules:'Rules',gloss:'Glossary',limits:'Limits',
+  h1:'Read a Dhaka Stock Exchange chart in thirty minutes',
+  sub:'Point and Figure charts for DSE stocks, explained in plain words. Free, with no sign-in. The chart describes what buyers and sellers have done; it does not tell you what happens next.',
+  cta1:'Start lesson 1',cta2:'Browse the charts',
+  banner:'Educational tool, not investment advice. End-of-day Dhaka Stock Exchange prices via AmarStock (amarstock.com), to ',
+  foot:'Educational only. Not investment advice. Charts describe what has happened; they do not forecast. Not affiliated with Thomas Dorsey, John Wiley & Sons or Dorsey Wright. Method after Thomas Dorsey, Point and Figure Charting (3rd ed.). The Bengali text is a draft for a native editor.'},
+ bn:{home:'হোম',screener:'স্ক্রিনার',learn:'শিখুন',charts:'চার্ট',market:'বাজার',game:'কুইজ (পরে আসছে)',rules:'নিয়ম',gloss:'শব্দকোষ',limits:'সীমাবদ্ধতা',
+  h1:'ত্রিশ মিনিটে ঢাকা স্টক এক্সচেঞ্জের চার্ট পড়তে শিখুন',
+  sub:'ডিএসই শেয়ারের পয়েন্ট অ্যান্ড ফিগার চার্ট, সহজ ভাষায়। বিনামূল্যে, সাইন-ইন ছাড়া। চার্ট দেখায় ক্রেতা ও বিক্রেতা কী করেছে; এরপর কী হবে তা বলে না।',
+  cta1:'পাঠ ১ শুরু করুন',cta2:'চার্টগুলো দেখুন',
+  banner:'শিক্ষামূলক টুল, বিনিয়োগ পরামর্শ নয়। ঢাকা স্টক এক্সচেঞ্জের দিনশেষের দাম, সূত্র: আমারস্টক (amarstock.com), ',
+  foot:'শুধু শিক্ষামূলক। বিনিয়োগ পরামর্শ নয়। চার্ট যা ঘটেছে তা বর্ণনা করে, ভবিষ্যদ্বাণী করে না। বাংলা লেখাটি একজন মাতৃভাষী সম্পাদকের জন্য খসড়া।'}
+};
+function t(k){return (TX[lang]&&TX[lang][k])||TX.en[k]||k}
+
+/* ---------- chart data helpers ---------- */
+function lv(c,idx){var j=idx-c.box0,L=c.levels;if(L[j]!=null)return L[j];if(j<0)return L[0]+j*(L[1]-L[0]);var n=L.length-1;return L[n]+(j-n)*(L[n]-L[n-1])}
+function colRange(c,i){var x=c.cols[i];return [lv(c,x[1]),lv(c,x[2])]}
+function colBox(c,i){var x=c.cols[i],j=x[1]-c.box0;return c.levels[j+1]!=null?c.levels[j+1]-c.levels[j]:c.levels[j]-c.levels[j-1]}
+function describe(c,gi){
+  var x=c.cols[gi],r=colRange(c,gi),n=x[2]-x[1]+1,X=x[0]==='X',d=c.dates[gi],box=colBox(c,gi);
+  var m=function(v){return c.pct?pr(v)+'%':tk(v)};
+  if(lang==='bn')return 'কলাম '+(gi+1)+' (মোট '+c.cols.length+'): '+(X?'X':'O')+'-এর কলাম। দাম '+(X?m(r[0])+' থেকে '+m(r[1])+' পর্যন্ত উঠেছে':m(r[1])+' থেকে '+m(r[0])+' পর্যন্ত নেমেছে')+' ('+n+' বক্স)। শেষ বাড়ানো হয়েছে '+fd(d)+'।';
+  return 'Column '+(gi+1)+' of '+c.cols.length+': a column of '+(X?"X's":"O's")+'. '+(c.pct?'The reading ':'Price ')+(X?'rose from '+m(r[0])+' to '+m(r[1]):'fell from '+m(r[1])+' to '+m(r[0]))+', '+pl(n,'box')+' of '+m(box)+'. Last extended '+fd(d)+'.';
+}
+
+/* ---------- chart drawing: the classic Point and Figure look ---------- */
+var uid=0;
+function fitN(c,maxCols){return Math.min(maxCols,c.cols.length)}
+function signals(c){var st=null,out={},n=c.cols.length;for(var i=2;i<n;i++){var x=c.cols[i],p=c.cols[i-2];
+  if(x[0]==='X'&&x[2]>p[2]&&st!=='up'){out[i+':'+(p[2]+1)]='X';st='up'}
+  if(x[0]==='O'&&x[1]<p[1]&&st!=='down'){out[i+':'+(p[1]-1)]='O';st='down'}}return out}
+function monthMarks(c){var mk='123456789ABC',out={},prev=null;c.dates.forEach(function(d,i){var ym=d.slice(0,7);if(ym!==prev)out[i]=mk.charAt(+d.slice(5,7)-1);prev=ym});return out}
+function localBox(c,b){return lv(c,b+1)-lv(c,b)}
+
+function attachPZ(svg,sc,W,H,vs){
+  var P={},g=null,live=false;
+  function apply(){var v=vs.vb;svg.setAttribute('viewBox',v?v.x+' '+v.y+' '+v.w+' '+v.h:'0 0 '+W+' '+H)}
+  function norm(v){v.w=Math.min(W,Math.max(W*.3,v.w));v.h=v.w*H/W;v.x=Math.max(0,Math.min(W-v.w,v.x));v.y=Math.max(0,Math.min(H-v.h,v.y));return v.w>=W-.01?null:v}
+  function snap(){var ids=Object.keys(P),r=svg.getBoundingClientRect(),b=vs.vb||{x:0,y:0,w:W,h:H},cx=0,cy=0,d=0;
+    ids.forEach(function(k){cx+=P[k].x;cy+=P[k].y});cx/=ids.length||1;cy/=ids.length||1;
+    if(ids.length>1)d=Math.hypot(P[ids[0]].x-P[ids[1]].x,P[ids[0]].y-P[ids[1]].y);
+    g={n:ids.length,cx:cx,cy:cy,d:d,r:r,b:{x:b.x,y:b.y,w:b.w,h:b.h},sl:sc.scrollLeft,st:sc.scrollTop}}
+  function zoomAt(b,f,px,py,r){var w=b.w*f,fx=b.x+(px-r.left)/r.width*b.w,fy=b.y+(py-r.top)/r.height*b.h;
+    return {x:fx-(px-r.left)/r.width*w,y:fy-(py-r.top)/r.height*(w*H/W),w:w,h:w*H/W}}
+  function mv(e){if(!P[e.pointerId])return;P[e.pointerId]={x:e.clientX,y:e.clientY};if(!g)return;
+    var ids=Object.keys(P),cx=0,cy=0;ids.forEach(function(k){cx+=P[k].x;cy+=P[k].y});cx/=ids.length;cy/=ids.length;
+    if(Math.hypot(cx-g.cx,cy-g.cy)>5||ids.length>1)vs.moved=true;
+    if(ids.length>1&&g.n>1){var d=Math.hypot(P[ids[0]].x-P[ids[1]].x,P[ids[0]].y-P[ids[1]].y);
+      vs.vb=norm(zoomAt(g.b,g.d/Math.max(d,1),cx,cy,g.r));apply();e.preventDefault()}
+    else if(ids.length===1&&g.n===1&&vs.moved){
+      if(g.b.w>=W-.01){sc.scrollLeft=g.sl-(cx-g.cx);sc.scrollTop=g.st-(cy-g.cy)}
+      else{vs.vb=norm({x:g.b.x-(cx-g.cx)/g.r.width*g.b.w,y:g.b.y-(cy-g.cy)/g.r.height*g.b.h,w:g.b.w,h:g.b.h});apply()}
+      svg.style.cursor='grabbing'}}
+  function up(e){delete P[e.pointerId];if(Object.keys(P).length)snap();else{g=null;svg.style.cursor='grab';
+    window.removeEventListener('pointermove',mv);window.removeEventListener('pointerup',up);window.removeEventListener('pointercancel',up);live=false}}
+  svg.style.touchAction='none';svg.style.cursor='grab';svg.style.userSelect='none';svg.style.webkitUserSelect='none';
+  if(vs.vb)apply();
+  svg.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse'&&e.button!==0)return;
+    if(!Object.keys(P).length)vs.moved=false;P[e.pointerId]={x:e.clientX,y:e.clientY};snap();
+    if(!live){live=true;window.addEventListener('pointermove',mv,{passive:false});window.addEventListener('pointerup',up);window.addEventListener('pointercancel',up)}});
+  sc.addEventListener('click',function(e){if(vs.moved){e.preventDefault();e.stopPropagation();vs.moved=false}},true);
+  sc.addEventListener('wheel',function(e){if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();
+    vs.vb=norm(zoomAt(vs.vb||{x:0,y:0,w:W,h:H},Math.exp(e.deltaY*.0025),e.clientX,e.clientY,svg.getBoundingClientRect()));apply()},{passive:false});
+  sc.addEventListener('dblclick',function(){vs.vb=null;apply()});
+}
+function drawChart(host,c,o){
+  o=o||{};var vs=o.vs||(o.vs={vb:null,moved:false});var total=c.cols.length,N=o.cols||total+1,st=total+1-N,i,k,mini=!!o.mini,from=Math.max(st,0);
+  var mn,mx;
+  if(o.rows){var tail=c.cols.slice(-4),mid=0;tail.forEach(function(x){mid+=(x[1]+x[2])/2});mid=Math.round(mid/tail.length);
+    mx=mid+Math.floor(o.rows/2)-1;mn=mx-o.rows+1}
+  else{mn=1e9;mx=-1e9;for(i=from;i<total;i++){mn=Math.min(mn,c.cols[i][1]);mx=Math.max(mx,c.cols[i][2])}
+    if(o.hline!=null){mn=Math.min(mn,o.hline);mx=Math.max(mx,o.hline)}
+    mn=Math.max(c.box0,mn-1);mx=Math.min(c.box0+c.levels.length-1,mx+1)}
+  var rows=mx-mn+1,cw=o.cell||(mini?10:16),ch=cw,AXL=mini?26:58,AXR=mini?4:58,T=mini?4:10,B=mini?6:40;
+  var W=AXL+N*cw+AXR,H=T+rows*ch+B,id='c'+(++uid);
+  var Y=function(b){return T+(mx-b)*ch},X=function(i){return AXL+(i-st)*cw};
+  var s=['<svg class="pf'+(mini?' mini':'')+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+esc(o.aria||'Point and Figure chart')+'" style="'+(o.minW?'min-width:'+Math.min(o.minW,W)+'px;':'')+'max-width:'+Math.round(W*(o.grow||1.7))+'px"><defs><clipPath id="'+id+'"><rect x="'+AXL+'" y="'+T+'" width="'+(N*cw)+'" height="'+(rows*ch)+'"/></clipPath></defs>'];
+  var pi=null;if(o.price!=null){pi=mn;for(k=mn;k<=mx;k++){if(lv(c,k)<=o.price)pi=k}}
+  for(k=mn;k<=mx;k++){var v=lv(c,k),bx=localBox(c,k),q=v/(10*bx);if(Math.abs(q-Math.round(q))<1e-6)s.push('<rect class="band" x="'+AXL+'" y="'+Y(k)+'" width="'+(N*cw)+'" height="'+ch+'"/>')}
+  if(pi!=null)s.push('<rect class="lastband" x="'+AXL+'" y="'+Y(pi)+'" width="'+(N*cw)+'" height="'+ch+'"/>');
+  if(!mini)(c.years||[]).forEach(function(y){if(y[0]>=st){s.push('<rect class="yr" x="'+X(y[0])+'" y="'+T+'" width="'+cw+'" height="'+(rows*ch)+'"/><text class="yl" x="'+(X(y[0])+cw/2)+'" y="'+(T+rows*ch+18)+'" text-anchor="middle">'+y[1]+'</text>')}});
+  for(i=0;i<=N;i++)s.push('<line class="g" x1="'+(AXL+i*cw)+'" y1="'+T+'" x2="'+(AXL+i*cw)+'" y2="'+(T+rows*ch)+'"/>');
+  for(k=0;k<=rows;k++)s.push('<line class="g" x1="'+AXL+'" y1="'+(T+k*ch)+'" x2="'+(AXL+N*cw)+'" y2="'+(T+k*ch)+'"/>');
+  s.push('<rect class="frame" x="'+AXL+'" y="'+T+'" width="'+(N*cw)+'" height="'+(rows*ch)+'"/>');
+  for(k=mn;k<=mx;k++){var yy=Y(k)+ch/2+3.6,isl=(k===pi),txt=(isl&&!mini)?pr2(o.price):Math.round(lv(c,k)).toLocaleString('en-US');
+    if(mini){if((mx-k)%4===0)s.push('<text class="ax mi" x="'+(AXL-3)+'" y="'+(yy-.4)+'" text-anchor="end">'+txt+'</text>')}
+    else{var cl='ax'+(isl?' lastax':'');s.push('<text class="'+cl+'" x="'+(AXL-6)+'" y="'+yy+'" text-anchor="end">'+txt+'</text><text class="'+cl+'" x="'+(AXL+N*cw+6)+'" y="'+yy+'">'+txt+'</text>')}}
+  if(o.sel!=null&&o.sel>=st)s.push('<rect class="sel" x="'+X(o.sel)+'" y="'+T+'" width="'+cw+'" height="'+(rows*ch)+'"/>');
+  var sg=signals(c),mm=mini?{}:monthMarks(c),hold=[],fs=cw*.88;
+  for(i=from;i<total;i++){var col=c.cols[i],cx=X(i)+cw/2;
+    for(var b=col[1];b<=col[2];b++){if(b<mn||b>mx)continue;var cy=Y(b)+ch/2+fs*.33,sgn=sg[i+':'+b];
+      if(sgn){s.push('<rect class="'+(sgn==='X'?'sg':'sr')+'" x="'+(X(i)+.5)+'" y="'+(Y(b)+.5)+'" width="'+(cw-1)+'" height="'+(ch-1)+'"/><text class="gw" style="font-size:'+fs+'px" x="'+cx+'" y="'+cy+'" text-anchor="middle">'+sgn+'</text>');continue}
+      if(mm[i]!=null&&((col[0]==='X'&&b===col[1])||(col[0]==='O'&&b===col[2]))){s.push('<text class="mk" style="font-size:'+fs+'px" x="'+cx+'" y="'+cy+'" text-anchor="middle">'+mm[i]+'</text>');continue}
+      s.push('<text class="gl'+(col[0]==='O'?' ol':'')+'" style="font-size:'+fs+'px" x="'+cx+'" y="'+cy+'" text-anchor="middle">'+col[0]+'</text>')}
+    if(!mini)hold.push('<rect class="hit" data-i="'+i+'" x="'+X(i)+'" y="'+T+'" width="'+cw+'" height="'+(rows*ch)+'"><title>'+esc(describe(c,i))+'</title></rect>')}
+  if(o.trend&&c.tl){s.push('<g clip-path="url(#'+id+')">');
+    c.tl.forEach(function(e){var kind=e[0],sc=e[1],sb=e[2],ec=e[3],a=Math.max(sc,st,0),z=Math.min(ec,total-1);if(a>z)return;
+      var d=kind==='bull'?1:-1,ya=sb+d*(a-sc),yz=sb+d*(z-sc);
+      s.push('<line class="tl" x1="'+(X(a)+cw/2)+'" y1="'+(Y(ya)+ch/2)+'" x2="'+(X(z)+cw/2)+'" y2="'+(Y(yz)+ch/2)+'"/>')});s.push('</g>')}
+  if(o.hline!=null){s.push('<line class="hl" x1="'+AXL+'" x2="'+(AXL+N*cw+6)+'" y1="'+(Y(o.hline)+ch/2)+'" y2="'+(Y(o.hline)+ch/2)+'"/><text class="hlt" x="'+(AXL+N*cw+8)+'" y="'+(Y(o.hline)+ch/2+4)+'">'+Math.round(lv(c,o.hline))+'</text>')}
+  s.push(hold.join('')+'</svg>');
+  var oldsc=host.querySelector('.cscroll'),psl=oldsc?oldsc.scrollLeft:null;
+  host.innerHTML='<div class="cscroll" tabindex="'+(mini?'-1':'0')+'" aria-label="'+esc((o.aria||'Chart')+', drag to pan, pinch or ctrl+wheel to zoom, double-click to reset')+'">'+s.join('')+'</div>';
+  var sv=host.querySelector('svg.pf'),scr=host.querySelector('.cscroll');attachPZ(sv,scr,W,H,vs);
+  if(o.sel!=null&&psl!=null)scr.scrollLeft=psl;else if(!mini&&scr.scrollWidth>scr.clientWidth)scr.scrollLeft=scr.scrollWidth;
+  if(o.cap){host.onclick=function(e){var r=e.target.closest&&e.target.closest('.hit');if(!r)return;var gi=+r.getAttribute('data-i');o.cap.innerHTML=esc(describe(c,gi));drawChart(host,c,Object.assign({},o,{sel:gi}))}}
+  return host;
+}
+function pr2(v){return (Math.round(v*100)/100).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function chartBlock(c,o){
+  o=Object.assign({},o);
+  var box=el('div',{'class':'chartbox'}),host=el('div'),cap=o.capEl||el('p',{'class':'cap','aria-live':'polite'});
+  if(!o.capEl)cap.textContent=o.hint||'';
+  box.appendChild(host);var oo=Object.assign({minW:o.mini?0:620},o);if(o.interactive!==false)oo.cap=cap;drawChart(host,c,oo);
+  if(o.toggle){var bar=el('div',{'class':'ctl'}),tb=el('button',{type:'button','class':'tgl','aria-pressed':String(!!oo.trend)},'45° lines');tb.onclick=function(){var on=tb.getAttribute('aria-pressed')!=='true';tb.setAttribute('aria-pressed',String(on));oo.trend=on;drawChart(host,c,oo)};bar.appendChild(tb);box.insertBefore(bar,host)}
+  if(o.legend!==false)box.appendChild(legendEl());
+  if(o.interactive!==false&&!o.capEl)box.appendChild(cap);
+  if(o.table!==false){var det=el('details',null,'<summary>'+(lang==='bn'?'কলামগুলো টেবিল হিসেবে দেখুন':'Show the columns as a table')+'</summary>');
+    var n=Math.min(o.cols||c.cols.length,c.cols.length,40),h='<div class="tw"><table><thead><tr><th class="n">#</th><th>Kind</th><th class="n">From</th><th class="n">To</th><th class="n">Boxes</th><th>Last extended</th></tr></thead><tbody>';
+    for(var i=c.cols.length-n;i<c.cols.length;i++){var r=colRange(c,i);h+='<tr><td class="n">'+(i+1)+'</td><td>'+c.cols[i][0]+'</td><td class="n">'+lab(r[0])+'</td><td class="n">'+lab(r[1])+'</td><td class="n">'+(c.cols[i][2]-c.cols[i][1]+1)+'</td><td>'+fd(c.dates[i])+'</td></tr>'}
+    det.appendChild(el('div',null,h+'</tbody></table></div>'));box.appendChild(det)}
+  return box;
+}
+function legendEl(){
+  return el('div',{'class':'legend'},'<span><i class="lg">X</i>'+(lang==='bn'?'দাম এক বক্স উঠেছে':'price rose one box')+'</span><span><i class="lg lgo">O</i>'+(lang==='bn'?'দাম এক বক্স নেমেছে':'price fell one box')+'</span><span><i class="lg lgg">X</i>column rose above the previous top</span><span><i class="lg lgr">O</i>column fell below the previous bottom</span><span><i class="lg lgb"></i>latest price row</span><span><i class="lg lgm">1</i>first column of a month</span>');
+}
+
+/* ---------- readings (generated text; checked against the banned-word list) ---------- */
+function F(tk_){return D.featured.filter(function(f){return f.t===tk_})[0]}
+function sym(c){return lang==='bn'?c:(c+"'s")}
+function readingStock(f){
+  var c=f.chart,last=c.cols.length-1,r=colRange(c,last),X=f.col==='X';
+  if(lang==='bn')return {head:X?'সর্বশেষ কলামে ক্রেতারা এগিয়ে আছে।':'সর্বশেষ কলামে বিক্রেতারা এগিয়ে আছে।',
+    why:'সর্বশেষ কলামটি '+f.col+'-এর কলাম, '+tk(r[0])+' থেকে '+tk(r[1])+' পর্যন্ত, '+fd(f.col_since)+' থেকে আঁকা।',
+    lvl:X?tk(f.rev)+'-এ নামলে O-এর নতুন কলাম শুরু হবে।':tk(f.rev)+'-এ উঠলে X-এর নতুন কলাম শুরু হবে।'};
+  return {head:X?'Buyers have had the upper hand in the latest column.':'Sellers have had the upper hand in the latest column.',
+    why:'The latest column is a column of '+sym(f.col)+' covering '+tk(r[0])+' to '+tk(r[1])+', drawn since '+fd(f.col_since)+'.',
+    lvl:X?'A fall to '+tk(f.rev)+" would start a new column of O's.":'A rise to '+tk(f.rev)+" would start a new column of X's."};
+}
+function readingMarket(){
+  var d=D.dsex,X=d.col==='X';
+  if(lang==='bn')return {head:X?'বাজারের সর্বশেষ কলামে ক্রেতারা এগিয়ে আছে।':'বাজারের সর্বশেষ কলামে বিক্রেতারা এগিয়ে আছে।',
+    why:'ডিএসইএক্স চার্টের সর্বশেষ কলামটি '+d.col+'-এর কলাম। বাজারের Bullish Percent এখন '+D.market_bp.bp.toFixed(1)+'%।',lvl:''};
+  return {head:X?'Buyers have had the upper hand in the latest market column.':'Sellers have had the upper hand in the latest market column.',
+    why:"The latest column on the DSEX chart is a column of "+sym(d.col)+'. The market Bullish Percent reading is '+D.market_bp.bp.toFixed(1)+'% ('+D.market_bp.zone+').',lvl:''};
+}
+function sectorLine(f){
+  var s=f.sector_bp;if(!s)return lang==='bn'?'এই শেয়ারের জন্য সেক্টর চার্ট নেই।':'No sector chart for this stock.';
+  if(lang==='bn')return f.sector+' সেক্টর: Bullish Percent '+s.bp.toFixed(1)+'%, '+s.column+'-এর কলামে।';
+  return f.sector+' sector: Bullish Percent '+s.bp.toFixed(1)+'% ('+s.zone+'), in a column of '+sym(s.column)+'.';
+}
+var BANRE=/\b(target|likely|expected to|bullish|bearish|pick|picks|will rise|will fall|buy|sell|hold)\b/i;
+var BAN={checked:0,found:[]};
+function banCheck(){
+  var save=lang;['en','bn'].forEach(function(l){lang=l;var all=[readingMarket()];D.featured.forEach(function(f){all.push(readingStock(f));BAN.checked++;BAN.found.push.apply(BAN.found,[sectorLine(f)].filter(function(x){return BANRE.test(x.replace(/Bullish Percent/g,''))}))});
+    all.forEach(function(r){['head','why','lvl'].forEach(function(k){BAN.checked++;var s=(r[k]||'').replace(/Bullish Percent/g,'');if(BANRE.test(s))BAN.found.push(r[k])})})});
+  lang=save;
+}
+function readBlock(r){return el('div',{'class':'read'},'<p class="head">'+esc(r.head)+'</p><p>'+esc(r.why)+'</p>'+(r.lvl?'<p class="mut">'+esc(r.lvl)+'</p>':''))}
+
+/* ---------- pages ---------- */
+var P_={};
+function crumbs(m,items){m.appendChild(el('p',{'class':'crumbs'},items))}
+function stripHTML(f){var m=D.market_bp,s=f&&f.sector_bp;
+  return '<div class="ctx"><div class="cg cmk"><small>Market</small><span><i>Signal</i>'+m.signal+'</span><span><i>Column</i>'+m.column+'</span><span><i>Level</i>'+m.bp.toFixed(1)+'%</span></div>'+
+  (s?'<div class="cg csec"><small>Sector · '+esc(f.sector)+'</small><span><i>Signal</i>'+s.signal+'</span><span><i>Column</i>'+s.column+'</span><span><i>Level</i>'+s.bp.toFixed(1)+'%</span><span class="na"><i>RS vs market</i>n/a</span></div>':'')+'</div>';
+}
+function ohlcHTML(price,q){var c=function(l,v){return '<span><i>'+l+'</i>'+(v==null?'<span class="na">n/a</span>':'<b>'+pr2(v)+'</b>')+'</span>'};
+  return '<span class="ohlc">'+c('O',q&&q[0])+c('H',q&&q[1])+c('L',q&&q[2])+c('C',price)+'</span>'}
+function trendText(c,price){var tn=trendNow(c);if(!tn)return 'n/a';return (price>tn.level?'Above':'Below')+' the '+(tn.kind==='bull'?'rising':'falling')+' 45° line ('+pr(tn.level)+')'}
+function infoHead(f){
+  return '<div class="hd"><div class="top"><h1 class="nm" id="pg">'+esc(f.name)+'</h1><span class="tk">'+f.t+' · '+esc(f.sector)+'</span></div><div class="row"><div class="f"><small>Date</small><b>'+fd(f.date)+'</b></div><div class="f"><small>Open · High · Low · Close</small>'+ohlcHTML(f.price,D.ohlc&&D.ohlc[f.t])+'</div><div class="f"><small>Signal</small><b>'+f.signal+' since '+fd(f.since)+'</b></div><div class="f"><small>Pattern</small><b>'+esc(f.pattern)+', '+fd(f.pattern_date)+'</b></div><div class="f"><small>Trend line</small><b>'+trendText(f.chart,f.price)+'</b></div></div>'+stripHTML(f)+'</div>';
+}
+function infoHeadMarket(){var d=D.dsex;
+  return '<div class="hd"><div class="top"><h1 class="nm" id="pg">DSEX</h1><span class="tk">Dhaka Stock Exchange broad index</span></div><div class="row"><div class="f"><small>Date</small><b>'+fd(D.asof)+'</b></div><div class="f"><small>Open · High · Low · Close</small>'+ohlcHTML(d.price,D.ohlc&&D.ohlc.DSEX)+'</div><div class="f"><small>Signal</small><b>'+d.signal+' since '+fd(d.since)+'</b></div><div class="f"><small>Latest column</small><b>'+d.col+'</b></div><div class="f"><small>Trend line</small><b>'+trendText(d.chart,d.price)+'</b></div></div>'+stripHTML(null)+'</div>';
+}
+function snapGrid(){
+  var g=el('div',{'class':'snaps'});
+  D.featured.forEach(function(f){var r=readingStock(f),a=el('a',{'class':'snap',href:'#/stock/'+f.t},'<span class="nm">'+f.t+'</span><span class="rd">'+esc(f.name)+'. '+esc(r.head)+'</span>');
+    var host=el('div',{'class':'sh'});a.appendChild(host);g.appendChild(a);
+    setTimeout(function(){drawChart(host,f.chart,{cols:20,rows:24,mini:true,price:f.price,interactive:false,aria:f.name+' chart, 20 columns by 24 boxes'})},0)});
+  return g;
+}
+P_.home=function(m){
+  var d=D.dsex,hero=el('section',{'class':'hero'}),bn=lang==='bn';
+  var stp=[['1',bn?'বাজার':'Market',bn?'পুরো বাজারে কে এগিয়ে?':'Who has the upper hand across the whole market?'],['2',bn?'সেক্টর':'Sector',bn?'কোন খাতে ক্রেতারা বেশি সক্রিয়?':'Which parts of the market attract buyers?'],['3',bn?'শেয়ার':'Stock',bn?'তারপর একটি শেয়ার, প্রেক্ষাপটসহ।':'Then one chart, with the context behind it.']];
+  var sh='<p class="lbl" style="margin:1.6rem 0 .5rem">'+(bn?'ওপর থেকে নিচে পড়ুন':'Read it top down')+'</p><div class="stp">'+stp.map(function(x){return '<div><b>'+x[0]+' · '+x[1]+'</b><span>'+x[2]+'</span></div>'}).join('')+'</div>';
+  var Lh=el('div',{'class':'hl'},'<p class="lbl">'+(STYLE==='A'?'Point and Figure, in plain words':'A field guide to price')+'</p><h1 id="pg">'+esc(t('h1'))+'</h1><p class="lede">'+esc(t('sub'))+'</p><div class="btns"><a class="btn" href="#/learn/1">'+esc(t('cta1'))+'</a><a class="btn2" href="#/stocks">'+esc(t('cta2'))+'</a></div>'+sh+'<p class="lbl down">'+(bn?'↓ পড়ার মতো চার্ট, এক পর্দা নিচে':'↓ Charts to read, one screen down')+'</p>');
+  var R=el('div',{'class':'hr'}),rd=readingMarket();
+  if(STYLE==='A'){
+    R.appendChild(el('div',{'class':'pull'},'<p class="lbl">'+(bn?'আজ ডিএসইএক্স':'Today on DSEX')+'</p><q>'+esc(rd.head)+'</q>'));
+    R.appendChild(chartBlock(d.chart,{cols:20,rows:24,price:d.price,aria:'DSEX Point and Figure chart',table:false,legend:false,hint:bn?'একটি কলাম ট্যাপ করুন।':'Tap a column to read it.'}));
+  }else{
+    var fig=el('div',{'class':'fig'}),call=el('p',{'class':'callout','aria-live':'polite'},bn?'একটি কলাম ট্যাপ করুন।':'Tap a column: a note appears here.');
+    var tb='<table><thead><tr><th>#</th><th>Kind</th><th>From</th><th>To</th></tr></thead><tbody>';for(var i=d.chart.cols.length-5;i<d.chart.cols.length;i++){var r=colRange(d.chart,i);tb+='<tr><td>'+(i+1)+'</td><td>'+d.chart.cols[i][0]+'</td><td>'+lab(r[0])+'</td><td>'+lab(r[1])+'</td></tr>'}
+    var side=el('div',{'class':'side2'},tb+'</tbody></table>');side.appendChild(call);
+    fig.appendChild(chartBlock(d.chart,{cols:20,rows:24,price:d.price,aria:'DSEX Point and Figure chart',table:false,legend:false,capEl:call}));fig.appendChild(side);
+    R.appendChild(el('p',{'class':'lbl'},'Figure 1 · DSEX, 20 columns by 24 boxes'));R.appendChild(fig);
+    var f0=F('GP');R.appendChild(el('div',{'class':'reads'},'<div><b>Market</b>'+D.market_bp.column+' column since '+fd(D.market_bp.column_since)+', Bullish Percent '+D.market_bp.bp.toFixed(1)+'%</div><div><b>Sector · '+esc(f0.sector)+'</b>'+f0.sector_bp.column+' column, '+f0.sector_bp.bp.toFixed(1)+'%</div><div><b>Stock · GP</b>'+f0.col+' column since '+fd(f0.col_since)+'</div>'));
+  }
+  hero.appendChild(Lh);hero.appendChild(R);m.appendChild(hero);
+  var below=el('section',{'class':'below'},'<h2>'+(bn?'পড়ার মতো চার্ট':'Charts to read')+'</h2><p class="mut small" style="margin-top:-.4rem">'+(bn?'প্রতিটি স্ন্যাপশটে একই জানালা: ২০ কলাম, ২৪ বক্স।':'Every snapshot shows the same window: 20 columns by 24 boxes.')+'</p>');
+  below.appendChild(snapGrid());
+  below.appendChild(el('p',{'class':'small mut',style:'margin-top:1.2rem'},D.featured.length+' stocks are charted in full here, out of about '+D.n+' on the exchange. Data to '+fd(D.asof)+'. The chart game comes later.'));
+  m.appendChild(below);
+  setTimeout(fitHero,0);
+};
+function fitHero(){var h=document.querySelector('.hero');if(!h)return;if(innerWidth<=900){h.style.minHeight='';return}var top=h.getBoundingClientRect().top+window.scrollY;h.style.minHeight=Math.max(0,innerHeight-top)+'px'}
+window.addEventListener('resize',function(){fitHero()});
+P_.stocks=function(m){
+  m.appendChild(el('h1',{id:'pg'},lang==='bn'?'শেয়ার চার্ট':'Stock charts'));
+  m.appendChild(el('p',{'class':'lede'},lang==='bn'?'প্রতিটি পাতায় আগে সহজ ভাষায় বর্ণনা, তারপর চার্ট।':'Every snapshot shows the same window, 20 columns by 24 boxes. Open a chart for the full picture.'));
+  m.appendChild(snapGrid());
+};
+P_.stock=function(m,id){
+  var f=F(id);if(!f){m.appendChild(el('h1',{id:'pg'},'Not found'));return}
+  crumbs(m,'<a href="#/stocks">'+t('charts')+'</a> / '+f.t);
+  var card=el('div',{'class':'pfcard'},infoHead(f));
+  card.appendChild(chartBlock(f.chart,{cols:Math.min(f.chart.cols.length,45),price:f.price,trend:false,toggle:true,aria:f.name+' Point and Figure chart',hint:lang==='bn'?'একটি কলাম ট্যাপ করুন।':'Tap a column to read it. Switch on the 45° lines above the chart.'}));
+  var sp=el('div',{'class':'split'}),Lc=el('div',{'class':'stack'}),Rc=el('div',{'class':'stack'});
+  Lc.appendChild(readBlock(readingStock(f)));Lc.appendChild(card);
+  Rc.appendChild(el('div',{'class':'card'},'<h3>'+(lang==='bn'?'এই চার্ট থেকে শিখুন':'Learn from this chart')+'</h3><ul class="small" style="padding-left:1.1rem;margin:0"><li><a href="#/learn/3">Lesson 3 · Reading a column</a>: the latest column here is '+sym(f.col)+'.</li><li><a href="#/learn/2">Lesson 2 · The three-box reversal</a>: the reversal level is '+tk(f.rev)+'.</li><li><a href="#/learn/5">Lesson 5 · The 45-degree lines</a>: the dashed lines on the chart.</li></ul>'));
+  Rc.appendChild(el('div',{'class':'card'},'<h3>'+(lang==='bn'?'এই পাতার চার্ট নিয়ম':'Chart rules for this page')+'</h3><table><tbody><tr><td>Box size</td><td class="num">'+tk(f.box)+'</td></tr><tr><td>Reversal</td><td>3 boxes</td></tr><tr><td>Input</td><td>Daily highs and lows</td></tr><tr><td>Close</td><td class="num">'+tk(f.price)+' on '+fd(f.date)+'</td></tr></tbody></table><p class="small mut" style="margin:.5rem 0 0"><a href="#/rules">All chart rules</a></p>'));
+  sp.appendChild(Lc);sp.appendChild(Rc);m.appendChild(sp);
+};
+P_.market=function(m){
+  var d=D.dsex;
+  m.appendChild(readBlock(readingMarket()));
+  var card=el('div',{'class':'pfcard'},infoHeadMarket());
+  card.appendChild(chartBlock(d.chart,{cols:60,price:d.price,trend:false,toggle:true,aria:'DSEX chart',hint:lang==='bn'?'একটি কলাম ট্যাপ করুন।':'Tap a column to read it. Switch on the 45° lines above the chart.'}));
+  m.appendChild(card);
+  var c2=el('div',null,'<h2>Bullish Percent</h2><p class="small mut">'+(lang==='bn'?'কত শতাংশ শেয়ার এখন X-এর কলামে আছে।':'The share of stocks whose latest column is a column of X’s: the market’s breadth, as the book defines it.')+'</p>');
+  var bc=D.bp_chart;c2.appendChild(chartBlock(bc,{cols:bc.cols.length,aria:'Bullish Percent chart',table:false,legend:false,hint:'Tap a column to read it.'}));
+  m.appendChild(c2);
+  var rows=Object.keys(D.sector_bp).sort(),h='<div class="tw"><table><thead><tr><th>Sector</th><th>Latest column</th><th class="n">Bullish Percent</th><th>Reading</th><th class="n">Stocks</th></tr></thead><tbody>';
+  rows.forEach(function(k){var s=D.sector_bp[k];h+='<tr><td>'+esc(k)+'</td><td>'+s.column+'</td><td class="n">'+s.bp.toFixed(1)+'%</td><td>'+esc(s.zone)+'</td><td class="n">'+s.n+'</td></tr>'});
+  m.appendChild(el('h2',null,lang==='bn'?'সেক্টর (বর্ণমালা অনুসারে)':'Sectors (alphabetical, not ranked)'));
+  m.appendChild(el('div',{'class':'card'},h+'</tbody></table></div>'));
+};
+
+(function(){
+var SCRH=null;
+function chartOf(t){var f=D.featured.filter(function(x){return x.t===t})[0];return f?f.chart:null}
+var $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+function sfd(s){var p=s.split('-');return (+p[2])+' '+MON[+p[1]-1]}
+var SEC={'Financial In':'Financial Institutions','FoodAllied':'Food & Allied','PharmaChem':'Pharma & Chemicals'};
+var NAMES={GP:'Grameenphone',BRACBANK:'BRAC Bank',SQURPHARMA:'Square Pharmaceuticals',BATBC:'British American Tobacco Bangladesh',WALTONHIL:'Walton Hi-Tech Industries'};
+var DEF={
+'Double Top':'An X column rises to the top of the previous X column and then one box above it, with an O column between them.',
+'Triple Top':'An X column rises one box above two earlier X columns that stopped at the same level.',
+'Bullish Signal (Double Top, rising bottom)':'A Double Top where the O column between the two X columns bottoms higher than the one before.',
+'Bullish Signal (Diagonal Triple Top)':'A Triple Top whose three X columns peak at the same level, with rising bottoms between them.',
+'Spread Triple Top':'A Triple Top with a wider gap between the three equal X columns.',
+'Bullish Catapult':'A Triple Top followed by a further rise that gives a second signal above it.',
+'Bullish Triangle':'X and O columns narrow together, with rising bottoms and falling tops, and the X column leaves the triangle upward.',
+'Broadening Top':'Successive X columns reach higher tops while O columns reach lower bottoms, widening the range.',
+'Bearish Signal Reversed':'After a falling signal, an X column rises above the last X top and cancels it.',
+'Double Bottom':'An O column falls to the bottom of the previous O column and then one box below it, with an X column between them.',
+'Triple Bottom':'An O column falls one box below two earlier O columns that stopped at the same level.',
+'Bearish Signal (Double Bottom, lower top)':'A Double Bottom where the X column between the two O columns tops lower than the one before.',
+'Bearish Signal (Diagonal Triple Bottom)':'A Triple Bottom whose three O columns bottom at the same level, with falling tops between them.',
+'Bearish Catapult':'A Triple Bottom followed by a further fall that gives a second signal below it.',
+'Bearish Triangle':'X and O columns narrow together and the O column leaves the triangle downward.',
+'Broadening Bottom':'O columns reach lower bottoms while X columns reach higher tops, widening the range.',
+'Bullish Signal Reversed':'After a rising signal, an O column falls below the last O bottom and cancels it.'};
+var PX=['Double Top','Triple Top','Bullish Signal (Double Top, rising bottom)','Bullish Signal (Diagonal Triple Top)','Spread Triple Top','Bullish Catapult','Bullish Triangle','Broadening Top','Bearish Signal Reversed'];
+var PO=['Double Bottom','Triple Bottom','Bearish Signal (Double Bottom, lower top)','Bearish Signal (Diagonal Triple Bottom)','Bearish Catapult','Bearish Triangle','Broadening Bottom','Bullish Signal Reversed'];
+var ROWS=D.scr.rows.map(function(r){r.sk=r.sector;r.sector=SEC[r.sector]||r.sector||'Unassigned';r.name=r.name||NAMES[r.t]||'';r.col=PX.indexOf(r.pat)>=0?'X':'O';return r});
+var SECS=[];ROWS.forEach(function(r){if(SECS.indexOf(r.sector)<0)SECS.push(r.sector)});SECS.sort();
+function inSec(r){return !SF.sec||r.sector===SF.sec}
+function cnt(p){return ROWS.filter(function(r){return r.pat===p&&inSec(r)}).length}
+function patsFor(){return PX.concat(PO).filter(function(p){return cnt(p)>0})}
+function setF(k,v){SF[k]=v;if(k==='stk'&&v){SF.sec='';SF.pat=''}if(k==='sec'){if(v)SF.stk='';if(SF.pat&&patsFor().indexOf(SF.pat)<0)SF.pat=''}}
+function nInSec(){return ROWS.filter(inSec).length}
+var V=null;
+var SF={pat:'',col:'',sec:'',stk:'',sort:'t',dir:1};
+function filt(skip){return ROWS.filter(function(r){return (skip==='pat'||!SF.pat||r.pat===SF.pat)&&(!SF.col||r.col===SF.col)&&(!SF.sec||r.sector===SF.sec)&&(!SF.stk||r.t===SF.stk)}).sort(function(a,b){var k=SF.sort,x=a[k],y=b[k];if(x==null)x=-1;if(y==null)y=-1;return (x>y?1:x<y?-1:0)*SF.dir})}
+function chartHTML(r,big){var c=chartOf(r.t);if(!c){var nd=document.createElement('div');nd.innerHTML='<div class="nochart"><b>'+r.col+'</b><span>Chart drawn in the nightly build</span></div>';return nd}
+ var h=document.createElement('div');drawChart(h,c,big?{cols:20,rows:24,price:r.price,interactive:false,minW:0,aria:r.t+' chart'}:{cols:20,rows:24,mini:true,price:r.price,interactive:false,aria:r.t+' chart, 20 columns by 24 boxes'});return h}
+function tag(r){return '<span class="stag '+(r.col==='X'?'tx':'to')+'">'+r.col+' column</span>'}
+function sig(r){return r.signal?'<span class="sgn '+(r.signal==='BUY'?'sgb':'sgs')+'">'+r.signal+'</span>':'<span class="dim">–</span>'}
+function selOptions(){var h='<option value="">All patterns ('+nInSec()+')</option><optgroup label="Marked on a rising (X) column">';
+ PX.filter(cnt).forEach(function(p){h+='<option value="'+esc(p)+'"'+(SF.pat===p?' selected':'')+'>'+esc(p)+' ('+cnt(p)+')</option>'});
+ h+='</optgroup><optgroup label="Marked on a falling (O) column">';
+ PO.filter(cnt).forEach(function(p){h+='<option value="'+esc(p)+'"'+(SF.pat===p?' selected':'')+'>'+esc(p)+' ('+cnt(p)+')</option>'});return h+'</optgroup>'}
+function secOptions(){return '<option value="">All sectors</option>'+SECS.map(function(s){return '<option'+(SF.sec===s?' selected':'')+'>'+esc(s)+'</option>'}).join('')}
+function stkOptions(){return '<option value="">All stocks ('+ROWS.length+')</option>'+ROWS.map(function(r){return r.t}).sort().map(function(t){var r=ROWS.filter(function(x){return x.t===t})[0];return '<option value="'+t+'"'+(SF.stk===t?' selected':'')+'>'+t+(r.name?' · '+esc(r.name):'')+'</option>'}).join('')}
+function secLink(r){return r.sk&&D.scr.sector_bp[r.sk]?'<button class="lk" data-open="sec:'+esc(r.sector)+'">'+esc(r.sector)+'</button>':esc(r.sector)}
+function price(r){return r.price!=null?pr2(r.price):'<span class="dim">–</span>'}
+function defBox(){if(SF.stk)return '<p class="def dim">Pattern filtering applies to lists of stocks, so it is switched off for a single stock. Click the stock to open its chart.</p>';return SF.pat?'<p class="def"><b>'+esc(SF.pat)+'.</b> '+esc(DEF[SF.pat])+' <a href="#" onclick="return false">Read the rule in Lesson 6</a></p>':'<p class="def dim">Pick a pattern to see what it looks like on the chart. Patterns describe what has already happened on the chart. They do not say what happens next.</p>'}
+/* ---------- A ---------- */
+var openA=null;
+function renderA(){var host=SCRH;if(V){viewInto(host);return}var rs=filt();
+ var th=function(k,l,cls){return '<th class="'+(cls||'')+'" aria-sort="'+(SF.sort===k?(SF.dir>0?'ascending':'descending'):'none')+'"><button data-s="'+k+'">'+l+(SF.sort===k?(SF.dir>0?' ▲':' ▼'):'')+'</button></th>'};
+ host.innerHTML='<section class="phead"><p class="kick">Screener</p><h1 id="pg">Find charts by pattern</h1><p class="slede">Every chart in the desk, filtered by stock, sector and pattern its latest column completed. Updated after each close, '+sfd(D.asof)+'.</p></section>'+
+ '<form class="fbar" onsubmit="return false"><label class="sf"><span>1 · Stock</span><select id="a_stk">'+stkOptions()+'</select></label>'+
+ '<label class="sf"><span>2 · Sector</span><select id="a_sec">'+secOptions()+'</select></label>'+
+ '<label class="sf big"><span>3 · Pattern</span><select id="a_pat"'+(SF.stk?' disabled':'')+'>'+selOptions()+'</select></label>'+
+ '<label class="sf"><span>Column</span><select id="a_col"><option value="">X or O</option><option value="X"'+(SF.col==='X'?' selected':'')+'>X column</option><option value="O"'+(SF.col==='O'?' selected':'')+'>O column</option></select></label>'+
+ '<button type="button" class="reset" id="a_reset">Clear</button></form>'+defBox()+
+ '<div class="count" role="status" aria-live="polite"><b>'+rs.length+'</b> of '+ROWS.length+' charts'+(SF.pat?' match <i>'+esc(SF.pat)+'</i>':'')+'<span class="dim"> · sample of the full list of '+D.n+'</span></div>'+
+ '<div class="stw"><table class="res"><thead><tr>'+th('t','Stock')+th('sector','Sector')+th('pat','Pattern')+th('date','Date')+th('col','Column')+th('price','Price','snum')+'<th class="nb">Signal</th><th class="chev"><span class="sronly">Open chart</span></th></tr></thead><tbody>'+
+ (rs.length?rs.map(function(r,i){var o=openA===r.t;return '<tr class="rw'+(o?' open':'')+'" data-t="'+r.t+'"><td><button class="lk" data-open="stk:'+r.t+'"><b>'+r.t+'</b></button>'+(r.name?'<small>'+esc(r.name)+'</small>':'')+'</td><td>'+secLink(r)+'</td><td class="pt">'+esc(r.pat)+'</td><td>'+sfd(r.date)+'</td><td>'+tag(r)+'</td><td class="snum">'+price(r)+'</td><td>'+sig(r)+'</td><td class="chev"><button aria-expanded="'+o+'" aria-label="'+(o?'Close':'Open')+' chart for '+r.t+'" data-o="'+r.t+'">'+(o?'−':'+')+'</button></td></tr>'+
+  (o?'<tr class="dt"><td colspan="8"><div class="dgrid"><div class="dch" data-c="'+r.t+'"></div><div class="dtx"><h3>'+esc(r.pat)+'</h3><p>'+esc(DEF[r.pat]||'')+'</p><p class="dim">Marked on the '+r.col+' column of '+sfd(r.date)+(r.level!=null?' at '+Math.round(r.level).toLocaleString('en-US'):'')+'.</p><a class="sbtn" href="#" onclick="return false">Open full chart</a></div></div></td></tr>':'')}).join(''):'<tr><td colspan="8" class="none">No chart in this sample shows that pattern. The full list is built each night.</td></tr>')+'</tbody></table></div>';
+ $$('[data-c]',host).forEach(function(h){var r=ROWS.filter(function(x){return x.t===h.getAttribute('data-c')})[0];h.appendChild(chartHTML(r,true))});
+ $('#a_pat').onchange=function(){setF('pat',this.value);renderA()};$('#a_col').onchange=function(){SF.col=this.value;renderA()};$('#a_sec').onchange=function(){setF('sec',this.value);renderA()};
+ $('#a_stk').onchange=function(){setF('stk',this.value);renderA()};
+ $('#a_reset').onclick=function(){SF.pat=SF.col=SF.sec=SF.stk='';renderA()};
+ $$('[data-s]',host).forEach(function(b){b.onclick=function(){var k=b.getAttribute('data-s');if(SF.sort===k)SF.dir=-SF.dir;else{SF.sort=k;SF.dir=1}renderA()}});
+ $$('[data-o]',host).forEach(function(b){b.onclick=function(e){e.stopPropagation();var t=b.getAttribute('data-o');openA=openA===t?null:t;renderA()}});
+ $$('tr.rw',host).forEach(function(tr){tr.onclick=function(){var t=tr.getAttribute('data-t');openA=openA===t?null:t;renderA()}})}
+/* ---------- B ---------- */
+var openB=null;
+function groups(id){
+ if(id==='stk')return [['Stocks in this sample',ROWS.map(function(r){return r}).sort(function(a,b){return a.t<b.t?-1:1}).map(function(r){return {v:r.t,l:r.t+(r.name?' · '+r.name:''),n:r.pat?1:0}})]];
+ if(id==='sec')return [['Sectors',SECS.map(function(s){return {v:s,l:s,n:ROWS.filter(function(r){return r.sector===s}).length}})]];
+ var mk=function(a){return a.filter(cnt).map(function(p){return {v:p,l:p,n:cnt(p)}})};
+ return [['Marked on a rising (X) column',mk(PX)],['Marked on a falling (O) column',mk(PO)]]}
+var ALL={stk:'All stocks',sec:'All sectors',pat:'All patterns'},KEY={stk:'stk',sec:'sec',pat:'pat'};
+function opts(id,q){var h='';groups(id).forEach(function(g){var m=g[1].filter(function(o){return !q||o.l.toLowerCase().indexOf(q.toLowerCase())>=0});if(m.length)h+='<div class="og">'+g[0]+'</div>'+m.map(function(o){return '<div role="option" class="op'+(o.n?'':' z')+(SF[KEY[id]]===o.v?' sel':'')+'" data-v="'+esc(o.v)+'" aria-selected="'+(SF[KEY[id]]===o.v)+'"><span>'+esc(o.l)+'</span>'+(id==='stk'?'':'<em>'+o.n+'</em>')+'</div>'}).join('')});
+ return h||'<div class="og">No match for “'+esc(q)+'”</div>'}
+function combo(id,num,label){var v=SF[KEY[id]],cur=v?(id==='stk'?(function(){var r=ROWS.filter(function(x){return x.t===v})[0];return r.t+(r.name?' · '+r.name:'')})():v):ALL[id],o=openB===id;
+ return '<div class="fld"><label id="b_'+id+'_l">'+num+' · '+label+'</label><div class="combo"><button type="button" id="b_'+id+'"'+(id==='pat'&&SF.stk?' disabled':'')+' aria-haspopup="listbox" aria-expanded="'+o+'" aria-labelledby="b_'+id+'_l b_'+id+'"><span>'+esc(cur)+'</span><i>▾</i></button>'+
+ (o?'<div class="pop"><input id="b_s" type="search" placeholder="Search" aria-label="Search '+label.toLowerCase()+'" autocomplete="off"><div role="listbox" aria-label="'+label+'"><div role="option" class="op'+(v?'':' sel')+'" data-v="">'+ALL[id]+'</div><div id="b_o">'+opts(id,'')+'</div></div></div>':'')+'</div></div>'}
+function renderB(){var host=SCRH;if(V){viewInto(host);return}var rs=filt(),chips='';
+ if(SF.stk)chips+='<button class="chip" data-x="stk">'+esc(SF.stk)+' ✕</button>';if(SF.sec)chips+='<button class="chip" data-x="sec">'+esc(SF.sec)+' ✕</button>';if(SF.pat)chips+='<button class="chip" data-x="pat">'+esc(SF.pat)+' ✕</button>';if(SF.col)chips+='<button class="chip" data-x="col">'+SF.col+' column ✕</button>';
+ var th=function(k,l,c){return '<th class="'+(c||'')+'" aria-sort="'+(SF.sort===k?(SF.dir>0?'ascending':'descending'):'none')+'"><button data-s="'+k+'">'+l+(SF.sort===k?(SF.dir>0?' ▲':' ▼'):'')+'</button></th>'};
+ host.innerHTML='<div class="bgrid"><aside class="rail" aria-label="Filters"><h2>Filters</h2>'+combo('stk',1,'Stock')+combo('sec',2,'Sector')+combo('pat',3,'Pattern')+
+ '<div class="fld"><label>Column</label><div class="seg" role="group" aria-label="Column">'+[['','Any'],['X','X'],['O','O']].map(function(c){return '<button type="button" data-c="'+c[0]+'" aria-pressed="'+(SF.col===c[0])+'">'+c[1]+'</button>'}).join('')+'</div></div>'+
+ '<button type="button" class="reset" id="b_reset">Clear all</button>'+
+ '<div class="what"><h3>'+(SF.pat&&!SF.stk?esc(SF.pat):'About patterns')+'</h3><p>'+(SF.stk?'Pattern filtering applies to lists of stocks, so it is off for a single stock. Click the stock to open its chart.':SF.pat?esc(DEF[SF.pat]):'Each pattern is a shape the chart has already drawn. Picking one lists the charts that drew it. It is a way to find charts to read, not a prediction.')+'</p></div></aside>'+
+ '<section class="out"><div class="otop"><h1 id="pg">Screener</h1><div class="oc" role="status" aria-live="polite"><b>'+rs.length+'</b> / '+ROWS.length+' charts · '+sfd((D.scr&&D.scr.asof)||D.asof)+'</div></div>'+
+ '<div class="chips">'+(chips||'<span class="dim">No filters applied</span>')+'</div>'+
+ '<table class="lines"><thead><tr>'+th('t','Stock')+th('sector','Sector')+th('pat','Pattern')+th('date','Date')+th('col','Column')+th('price','Price','snum')+'<th class="nb">Signal</th></tr></thead><tbody>'+
+ (rs.length?rs.map(function(r){return '<tr><td><button class="lk" data-open="stk:'+r.t+'"><b>'+r.t+'</b></button>'+(r.name?'<small>'+esc(r.name)+'</small>':'')+'</td><td>'+secLink(r)+'</td><td class="pt">'+esc(r.pat)+'</td><td>'+sfd(r.date)+'</td><td>'+tag(r)+'</td><td class="snum">'+price(r)+'</td><td>'+sig(r)+'</td></tr>'}).join(''):'<tr><td colspan="7" class="none">No chart in this sample shows that pattern. The full list is built each night.</td></tr>')+'</tbody></table></section></div>';
+ ['stk','sec','pat'].forEach(function(id){$('#b_'+id).onclick=function(){openB=openB===id?null:id;renderB();if(openB)$('#b_s').focus()}});
+ if(openB){var id=openB,s=$('#b_s');s.oninput=function(){$('#b_o').innerHTML=opts(id,s.value)};
+  $('.pop [role=listbox]').onclick=function(e){var o=e.target.closest('.op');if(!o)return;setF(KEY[id],o.getAttribute('data-v'));openB=null;renderB()};
+  s.onkeydown=function(e){if(e.key==='Escape'){openB=null;renderB();$('#b_'+id).focus()}}}
+ $$('[data-c]',host).forEach(function(b){b.onclick=function(){SF.col=b.getAttribute('data-c');renderB()}});
+ $('#b_reset').onclick=function(){SF.pat=SF.col=SF.sec=SF.stk='';renderB()};
+ $$('[data-x]',host).forEach(function(b){b.onclick=function(){setF(b.getAttribute('data-x'),'');renderB()}});
+ $$('[data-s]',host).forEach(function(b){b.onclick=function(){var k=b.getAttribute('data-s');if(SF.sort===k)SF.dir=-SF.dir;else{SF.sort=k;SF.dir=1}renderB()}})}
+/* ---------- full chart view (both styles) ---------- */
+function rerender(){(STYLE==='A'?renderA:renderB)();window.scrollTo(0,0)}
+function sbp(k){var b=D.scr.sector_bp[k];return b?'<dl class="facts"><div><dt>Signal</dt><dd>'+(b.signal==='BUY'?'<span class="sgn sgb">BUY</span>':'<span class="sgn sgs">SELL</span>')+'</dd></div><div><dt>Column</dt><dd>'+b.column+'</dd></div><div><dt>Bullish Percent</dt><dd>'+b.bp.toFixed(1)+'%</dd></div><div><dt>Zone</dt><dd>'+esc(b.zone)+'</dd></div><div><dt>Stocks in sector</dt><dd>'+b.n+'</dd></div></dl>':''}
+function viewInto(host){var h='<div class="vw"><button class="back" data-back>← Back to screener</button>',init=null;
+ if(V.t==='stk'){var r=ROWS.filter(function(x){return x.t===V.id})[0];
+  h+='<header class="vh"><p class="kick">Stock chart</p><h1 id="pg">'+r.t+(r.name?' <span>'+esc(r.name)+'</span>':'')+'</h1><p class="sub">Sector: '+secLink(r)+'</p></header>'+
+  '<dl class="facts"><div><dt>Price</dt><dd>'+price(r)+'</dd></div><div><dt>Signal</dt><dd>'+sig(r)+'</dd></div><div><dt>Pattern</dt><dd>'+esc(r.pat)+'</dd></div><div><dt>Pattern date</dt><dd>'+sfd(r.date)+'</dd></div><div><dt>Column</dt><dd>'+r.col+'</dd></div></dl>'+
+  '<p class="def">'+esc(DEF[r.pat]||'')+'</p>'+(chartOf(r.t)?'<p><a href="#/stock/'+r.t+'">Read this chart in plain words</a></p>':'')+(chartOf(r.t)?'<div class="vchart" id="vc"></div>':'<div class="vchart nochart"><b>'+r.col+'</b><span>The full chart for '+r.t+' is drawn in the nightly build. This mockup has full charts for 5 stocks: BATBC, BRACBANK, GP, SQURPHARMA, WALTONHIL.</span></div>');
+  init=function(){var c=chartOf(r.t);if(c)drawChart($('#vc'),c,{price:r.price,interactive:false,minW:620,aria:r.t+' Point and Figure chart'})}}
+ else{var s=V.id,rs=ROWS.filter(function(x){return x.sector===s});
+  h+='<header class="vh"><p class="kick">Sector chart · Bullish Percent</p><h1 id="pg">'+esc(s)+'</h1><p class="sub">'+rs.length+' of the sample stocks are in this sector.</p></header>'+sbp(rs[0].sk)+
+  '<div class="vchart" id="vc"></div><p class="dim scap">Stand-in drawing. The sector\'s own Bullish Percent chart is built each night. This is the market Bullish Percent chart, shown only to fix the layout.</p>'+
+  '<h2 class="ssh">Stocks in this sector</h2><ul class="slist">'+rs.map(function(x){return '<li><button class="lk" data-open="stk:'+x.t+'"><b>'+x.t+'</b></button><span>'+esc(x.pat)+'</span><span class="dim">'+sfd(x.date)+'</span></li>'}).join('')+'</ul>';
+  init=function(){drawChart($('#vc'),D.bp_chart,{interactive:false,minW:620,aria:'Bullish Percent chart'})}}
+ host.innerHTML=h+'</div>';init()}
+document.addEventListener('click',function(e){var o=e.target.closest&&e.target.closest('.scr [data-open]');
+ if(o){e.stopPropagation();e.preventDefault();var p=o.getAttribute('data-open'),i=p.indexOf(':');V={t:p.slice(0,i),id:p.slice(i+1)};rerender();return}
+ var b=e.target.closest&&e.target.closest('.scr [data-back]');if(b){e.stopPropagation();V=null;rerender()}},true);
+
+P_.screener=function(m){V=null;var h=el('div',{'class':'scr'});m.appendChild(h);SCRH=h;(STYLE==='A'?renderA:renderB)()};
+})();
+/* ---------- lessons ---------- */
+function shuffleKeep(opts,ansText){return {opts:opts,ans:opts.indexOf(ansText)}}
+function lastTop(c,n){var m=-1e9,mi=0;for(var i=c.cols.length-n;i<c.cols.length;i++){if(c.cols[i][2]>m){m=c.cols[i][2]}}return m}
+function trendNow(c){
+  var last=c.cols.length-1,e=null;c.tl.forEach(function(x){if(x[1]<=last&&x[3]>=last)e=x});
+  if(!e)return null;var d=e[0]==='bull'?1:-1,idx=e[2]+d*(last-e[1]);return {kind:e[0],level:lv(c,idx)};
+}
+var LESSONS=[
+ {id:1,title:{en:'X, O and boxes',bn:'X, O আর বক্স'},
+  name:{en:'An X means price rose through one more box. An O means price fell through one more box. A box is a fixed price step, so moves smaller than one box are not drawn.',bn:'X মানে দাম আরও এক বক্স উঠেছে। O মানে দাম আরও এক বক্স নেমেছে। বক্স হলো নির্দিষ্ট দামের ধাপ, তাই এক বক্সের চেয়ে ছোট নড়াচড়া আঁকা হয় না।'},
+  see:function(){var f=F('GP');return {chart:f.chart,o:{cols:14,aria:'GP chart',hint:'Tap any column to read it.'}}},
+  qs:function(){return [{q:{en:'In the chart above, what does a column of O’s tell you?',bn:'ওপরের চার্টে O-এর একটি কলাম কী বলে?'},opts:[{en:'Price fell through one box for each O',bn:'প্রতিটি O-এর জন্য দাম এক বক্স নেমেছে'},{en:'Price rose through one box for each O',bn:'প্রতিটি O-এর জন্য দাম এক বক্স উঠেছে'},{en:'Many shares were traded',bn:'অনেক শেয়ার লেনদেন হয়েছে'}],ans:0}]},
+  check:function(){return {en:'Each O is one box of price falling. Time is not on the axis, so a quiet month adds nothing. Limit: the chart does not show how many shares traded or how long a move took.',bn:'প্রতিটি O মানে দাম এক বক্স নেমেছে। অক্ষে সময় নেই, তাই শান্ত একটি মাস কিছু যোগ করে না। সীমা: চার্টে দেখা যায় না কত শেয়ার লেনদেন হয়েছে বা কত সময় লেগেছে।'}}},
+ {id:2,title:{en:'The three-box reversal',bn:'তিন বক্সের বিপরীতমুখী চাল'},
+  name:{en:'A column continues while price keeps making new boxes in its direction. It turns to the other symbol only after price reverses by three boxes.',bn:'দাম একই দিকে নতুন বক্স তৈরি করলে কলাম চলতে থাকে। উল্টো দিকে তিন বক্স গেলেই কেবল অন্য চিহ্নের নতুন কলাম শুরু হয়।'},
+  see:function(){var f=F('GP');return {chart:f.chart,o:{cols:14,aria:'GP chart',hint:'Tap the last column.'}}},
+  qs:function(){var f=F('GP'),c=f.chart,r=colRange(c,c.cols.length-1),a=r[0],b=f.box,ans=a+3*b;return [{q:{en:'The latest GP column of O’s ends at '+tk(a)+'. The box size is '+tk(b)+'. At what price does a new column of X’s begin?',bn:'GP-এর সর্বশেষ O-কলাম '+tk(a)+'-এ শেষ। বক্সের মাপ '+tk(b)+'। কোন দামে X-এর নতুন কলাম শুরু হয়?'},opts:[{en:tk(a+b),bn:tk(a+b)},{en:tk(a+2*b),bn:tk(a+2*b)},{en:tk(ans),bn:tk(ans)}],ans:2,fact:{en:tk(a)+' plus three boxes of '+tk(b)+' is '+tk(ans)+'.',bn:tk(a)+' আর তিন বক্স ('+tk(b)+' করে) যোগ করলে '+tk(ans)+'।'}}]},
+  check:function(){return {en:'A rise of less than three boxes is not drawn. This filter is why small pullbacks do not break the picture. Limit: it also hides real but small moves.',bn:'তিন বক্সের কম ওঠা আঁকা হয় না। এই ছাঁকনির কারণেই ছোট ওঠানামা ছবি ভাঙে না। সীমা: এটি বাস্তব কিন্তু ছোট নড়াচড়াও লুকিয়ে ফেলে।'}}},
+ {id:3,title:{en:'Reading a column',bn:'একটি কলাম পড়া'},
+  name:{en:'The latest column shows who has had the upper hand most recently: X’s mean buyers, O’s mean sellers.',bn:'সর্বশেষ কলাম দেখায় সম্প্রতি কে এগিয়ে ছিল: X মানে ক্রেতা, O মানে বিক্রেতা।'},
+  see:function(){var f=F('BRACBANK');return {chart:f.chart,o:{cols:16,aria:'BRAC Bank chart',hint:'Tap the last column.'}}},
+  qs:function(){var f=F('BRACBANK');var b={en:'Buyers (X’s)',bn:'ক্রেতা (X)'},s={en:'Sellers (O’s)',bn:'বিক্রেতা (O)'},n={en:'Neither',bn:'কেউ না'};return [{q:{en:'In the BRAC Bank chart, whose column is the latest?',bn:'ব্র্যাক ব্যাংকের চার্টে সর্বশেষ কলাম কার?'},opts:[b,s,n],ans:f.col==='X'?0:1}]},
+  check:function(){var f=F('BRACBANK'),X=f.col==='X';return {en:'The latest BRAC Bank column is a column of '+sym(f.col)+', drawn since '+fd(f.col_since)+'. Limit: it describes what has happened so far and says nothing about what comes next.',bn:'ব্র্যাক ব্যাংকের সর্বশেষ কলাম '+f.col+'-এর, '+fd(f.col_since)+' থেকে। সীমা: এটি এ পর্যন্ত যা ঘটেছে তা বলে, এরপর কী হবে তা নয়।'}}},
+ {id:4,title:{en:'Levels',bn:'স্তর'},
+  name:{en:'A level is a price where one side stopped the other. An X column that stalls at a price makes a ceiling; an O column that stops makes a floor.',bn:'স্তর হলো এমন দাম যেখানে এক পক্ষ অন্য পক্ষকে থামিয়েছে। X-কলাম কোনো দামে থেমে গেলে সেটি ছাদ; O-কলাম থেমে গেলে সেটি মেঝে।'},
+  see:function(){var f=F('WALTONHIL'),c=f.chart;var top=lastTop(c,12);return {chart:c,o:{cols:20,hline:top,aria:'Walton chart',hint:'The dashed line marks the highest top in the last 12 columns.'}}},
+  qs:function(){var f=F('WALTONHIL'),c=f.chart,top=lv(c,lastTop(c,12)),b=f.box;return [{q:{en:'What is the highest price reached by any of the last 12 columns of Walton? (the dashed line)',bn:'ওয়ালটনের শেষ ১২টি কলামের মধ্যে সর্বোচ্চ দাম কত? (ড্যাশ করা রেখা)'},opts:[{en:tk(top-2*b),bn:tk(top-2*b)},{en:tk(top),bn:tk(top)},{en:tk(top+2*b),bn:tk(top+2*b)}],ans:1}]},
+  check:function(){var f=F('WALTONHIL'),top=lv(f.chart,lastTop(f.chart,12));return {en:'The dashed line is at '+tk(top)+', the highest top in the last 12 columns. Price did not go above it in that stretch. Limit: a level that held before can fail.',bn:'ড্যাশ রেখাটি '+tk(top)+'-এ, শেষ ১২ কলামের সর্বোচ্চ শীর্ষ। ওই সময়ে দাম এর ওপরে যায়নি। সীমা: আগে টিকে থাকা স্তরও ভাঙতে পারে।'}}},
+ {id:5,title:{en:'The 45-degree lines',bn:'৪৫ ডিগ্রি রেখা'},
+  name:{en:'A 45-degree line moves one box per column. A rising line under the chart marks where buyers have kept price up; a falling line above it marks where sellers have kept price down.',bn:'৪৫ ডিগ্রি রেখা প্রতি কলামে এক বক্স করে সরে। ওপরে ওঠা রেখা চার্টের নিচে দেখায় ক্রেতারা কোথায় দাম ধরে রেখেছে; নামতে থাকা রেখা ওপরে দেখায় বিক্রেতারা কোথায় দাম চেপে রেখেছে।'},
+  see:function(){return {chart:D.dsex.chart,o:{cols:60,maxRows:90,trend:true,price:D.dsex.price,aria:'DSEX chart with 45-degree lines',hint:'Green dashed lines rise, rust dashed lines fall.'}}},
+  qs:function(){var c=D.dsex.chart,tn=trendNow(c),above=D.dsex.price>tn.level;var rise=tn.kind==='bull';return [{q:{en:'The index is '+pr(D.dsex.price)+'. The current '+(rise?'rising':'falling')+' line is near '+pr(tn.level)+'. Is the index above or below that line?',bn:'সূচক '+pr(D.dsex.price)+'। বর্তমান '+(rise?'ওঠা':'নামা')+' রেখা প্রায় '+pr(tn.level)+'-এ। সূচক রেখার ওপরে না নিচে?'},opts:[{en:'Above the line',bn:'রেখার ওপরে'},{en:'Below the line',bn:'রেখার নিচে'}],ans:above?0:1}]},
+  check:function(){return {en:'The line moves one box for every column. Where price sits against it shows which side has kept control over a longer stretch. Limit: lines break. A break shows the picture changed, not what comes next.',bn:'রেখাটি প্রতি কলামে এক বক্স সরে। দাম তার তুলনায় কোথায় আছে তা দেখায় দীর্ঘ সময়ে কে নিয়ন্ত্রণে ছিল। সীমা: রেখা ভাঙে। ভাঙলে ছবি বদলেছে বোঝায়, এরপর কী হবে তা নয়।'}}},
+ {id:6,title:{en:'Market, then sector, then stock',bn:'বাজার, তারপর সেক্টর, তারপর শেয়ার'},
+  name:{en:'Read the whole market first, then the sector, then the single chart. The market and sector are the backdrop for the stock; they give context, not a forecast.',bn:'আগে পুরো বাজার, তারপর সেক্টর, তারপর একটি চার্ট পড়ুন। বাজার ও সেক্টর শেয়ারের পটভূমি; এগুলো প্রেক্ষাপট দেয়, ভবিষ্যদ্বাণী নয়।'},
+  see:function(){var f=F('BRACBANK');return {chart:f.chart,o:{cols:16,aria:'BRAC Bank chart',hint:'Market and sector first, then this chart.'},ctx:true}},
+  qs:function(){var f=F('BRACBANK'),ox=[{en:'A column of X’s',bn:'X-এর কলাম'},{en:'A column of O’s',bn:'O-এর কলাম'}];
+    return [{q:{en:'1 · Market: what is the latest column on the DSEX chart?',bn:'১ · বাজার: ডিএসইএক্স চার্টের সর্বশেষ কলাম কী?'},opts:ox,ans:D.dsex.col==='X'?0:1},
+            {q:{en:'2 · Sector: what is the latest column of the Bank sector Bullish Percent chart?',bn:'২ · সেক্টর: ব্যাংক সেক্টরের Bullish Percent চার্টের সর্বশেষ কলাম কী?'},opts:ox,ans:f.sector_bp.column==='X'?0:1},
+            {q:{en:'3 · Stock: what is the latest column of BRAC Bank?',bn:'৩ · শেয়ার: ব্র্যাক ব্যাংকের সর্বশেষ কলাম কী?'},opts:ox,ans:f.col==='X'?0:1}]},
+  check:function(){var f=F('BRACBANK');return {en:'Your reading, in order: market '+sym(D.dsex.col)+'; Bank sector '+sym(f.sector_bp.column)+'; BRAC Bank '+sym(f.col)+'. These describe the setting for the stock chart. Limit: agreement between the three is context, not a promise.',bn:'আপনার পাঠ, ক্রমানুসারে: বাজার '+D.dsex.col+'; ব্যাংক সেক্টর '+f.sector_bp.column+'; ব্র্যাক ব্যাংক '+f.col+'। এগুলো শেয়ার চার্টের পটভূমি। সীমা: তিনটির মিল প্রেক্ষাপট, প্রতিশ্রুতি নয়।'}}}
+];
+P_.learn=function(m){
+  var pg=load();
+  m.appendChild(el('h1',{id:'pg'},lang==='bn'?'ঢাকা স্টক এক্সচেঞ্জের চার্ট পড়া শিখুন':'Learn to read a chart'));
+  m.appendChild(el('p',{'class':'lede'},lang==='bn'?'প্রতিটি পাঠে চারটি ধাপ: দেখুন, নাম জানুন, চেষ্টা করুন, মিলিয়ে নিন।':'Every lesson has the same four steps: see, name, try, check. Six lessons here; the rest come later.'));
+  m.appendChild(el('div',{'class':'callout'},'<b>'+(lang==='bn'?'আট প্রশ্নের পরীক্ষা':'The 8-question check')+'</b><p class="small" style="margin:6px 0 10px">'+(lang==='bn'?'পাঠ ১-এর আগে একবার, পাঠ ৬-এর পরে একবার দিন। উত্তর শুধু আপনার ব্রাউজারে থাকে।':'Take it before lesson 1 and again after lesson 6. Answers stay in your browser.')+'</p>'+
+    '<div class="btns" style="margin:0"><a class="btn ghost" href="#/check/pre">'+(pg.pre!=null?'Before: '+pg.pre+'/8':'Take it before')+'</a><a class="btn ghost" href="#/check/post">'+(pg.post!=null?'After: '+pg.post+'/8':'Take it after')+'</a></div>'+(pg.pre!=null&&pg.post!=null?'<p class="small ok" style="margin:10px 0 0">Change: '+(pg.post-pg.pre>=0?'+':'')+(pg.post-pg.pre)+' correct answers.</p>':'')));
+  var g=el('div',{'class':'grid'});
+  LESSONS.forEach(function(l){g.appendChild(el('a',{'class':'card',href:'#/learn/'+l.id},'<p class="small mut num" style="margin:0 0 4px">'+(lang==='bn'?'পাঠ ':'Lesson ')+l.id+(pg.lessons&&pg.lessons[l.id]?' <span class="tick">done</span>':'')+'</p><h3 style="margin:0">'+esc(L(l.title))+'</h3>'))});
+  [['7','Double and triple tops and bottoms'],['8','Triangles and the catapult'],['9','Signals and their limits'],['10','Relative strength'],['11','Bullish Percent'],['12','The full checklist']].forEach(function(x){g.appendChild(el('div',{'class':'card',style:'opacity:.55'},'<p class="small mut num" style="margin:0 0 4px">Lesson '+x[0]+' · coming later</p><h3 style="margin:0">'+x[1]+'</h3>'))});
+  m.appendChild(g);
+};
+function optionList(q,onDone){
+  var wrap=el('div'),done=false;
+  wrap.appendChild(el('p',{'class':'head',style:'font:600 18px var(--disp);margin-bottom:10px'},esc(L(q.q))));
+  var btns=q.opts.map(function(o,i){var b=el('button',{type:'button','class':'opt'},'<span>'+esc(L(o))+'</span><span class="tag"></span>');
+    b.onclick=function(){if(done)return;done=true;btns.forEach(function(x,j){x.disabled=true;if(j===q.ans){x.classList.add('right');x.lastChild.textContent=lang==='bn'?'সঠিক':'right'}else if(j===i){x.classList.add('wrong');x.lastChild.textContent=lang==='bn'?'ভুল':'not this'}});onDone(i===q.ans,wrap)};
+    wrap.appendChild(b);return b});
+  return wrap;
+}
+P_.lesson=function(m,id){
+  var l=LESSONS.filter(function(x){return String(x.id)===String(id)})[0];
+  if(!l){m.appendChild(el('h1',{id:'pg'},'Not found'));return}
+  crumbs(m,'<a href="#/learn">'+t('learn')+'</a> / '+(lang==='bn'?'পাঠ ':'Lesson ')+l.id);
+  m.appendChild(el('h1',{id:'pg'},(lang==='bn'?'পাঠ ':'Lesson ')+l.id+' · '+esc(L(l.title))));
+  m.appendChild(el('ol',{'class':'loop'},['See','Name','Try','Check'].map(function(s,i){return '<li><b>'+(i+1)+'</b>'+(lang==='bn'?['দেখুন','নাম','চেষ্টা','মিলান'][i]:s)+'</li>'}).join('')));
+  var sv=l.see();
+  m.appendChild(el('h2',{style:'margin-top:8px'},'1 · '+(lang==='bn'?'দেখুন':'See')));
+  if(sv.ctx){var cx=el('div',{'class':'grid',style:'margin-bottom:14px'});var mc=el('div',{'class':'card'},'<h3>'+(lang==='bn'?'বাজার':'Market')+'</h3><p class="small">'+esc(readingMarket().why)+'</p>');var ms=el('div');mc.appendChild(el('div',{'class':'chartbox'})).appendChild(ms);cx.appendChild(mc);
+    cx.appendChild(el('div',{'class':'card'},'<h3>'+(lang==='bn'?'সেক্টর':'Sector')+'</h3><p class="small">'+esc(sectorLine(F('BRACBANK')))+'</p>'));m.appendChild(cx);setTimeout(function(){drawChart(ms,D.dsex.chart,{cols:fitN(D.dsex.chart,12,16),interactive:false,aria:'DSEX chart'})},0)}
+  m.appendChild(chartBlock(sv.chart,sv.o));
+  m.appendChild(el('h2',null,'2 · '+(lang==='bn'?'নাম জানুন':'Name')));
+  m.appendChild(el('div',{'class':'callout'},'<p style="margin:0;font-size:19px">'+esc(L(l.name))+'</p>'));
+  m.appendChild(el('h2',null,'3 · '+(lang==='bn'?'চেষ্টা করুন':'Try')));
+  var qs=l.qs(),answered=0,correct=0,tryBox=el('div');m.appendChild(tryBox);
+  var chk=el('div',{hidden:''});
+  function finish(){var pg=load();pg.lessons=pg.lessons||{};pg.lessons[l.id]=true;save(pg);chk.hidden=false;chk.scrollIntoView({block:'nearest'})}
+  qs.forEach(function(q){tryBox.appendChild(optionList(q,function(ok,w){answered++;if(ok)correct++;
+    if(q.fact)w.appendChild(el('p',{'class':'small',style:'margin-top:6px'},esc(L(q.fact))));
+    if(answered===qs.length)finish()}))});
+  chk.appendChild(el('h2',null,'4 · '+(lang==='bn'?'মিলিয়ে নিন':'Check')));
+  var res=el('div',{'class':'callout'});chk.appendChild(res);
+  m.appendChild(chk);
+  var nxt=LESSONS.filter(function(x){return x.id===l.id+1})[0];
+  var oc=l.check();
+  var obs=new MutationObserver(function(){if(!chk.hidden){res.innerHTML='<p style="margin:0 0 6px"><b>'+(correct===qs.length?(lang==='bn'?'সব সঠিক।':'All correct.'):(lang==='bn'?correct+'/'+qs.length+' সঠিক।':correct+' of '+qs.length+' correct.'))+'</b></p><p style="margin:0">'+esc(L(oc))+'</p>';
+    chk.appendChild(el('div',{'class':'btns'},(nxt?'<a class="btn" href="#/learn/'+nxt.id+'">Next: lesson '+nxt.id+'</a>':'<a class="btn" href="#/check/post">Take the check again</a>')+'<a class="btn ghost" href="#/learn">All lessons</a>'));obs.disconnect()}});
+  obs.observe(chk,{attributes:true,attributeFilter:['hidden']});
+};
+
+/* ---------- 8-question check ---------- */
+function checkQs(){
+  var g=F('GP'),b=F('BRACBANK'),tn=trendNow(b.chart),above=b.price>tn.level;
+  var ox=[{en:'Price rose through one more box',bn:'দাম আরও এক বক্স উঠেছে'},{en:'Price fell through one more box',bn:'দাম আরও এক বক্স নেমেছে'},{en:'More shares were traded',bn:'আরও শেয়ার লেনদেন হয়েছে'}];
+  return [
+   {q:{en:'What does an X mean on the chart?',bn:'চার্টে X মানে কী?'},opts:ox,ans:0,ref:'Ch. 2'},
+   {q:{en:'What does an O mean on the chart?',bn:'চার্টে O মানে কী?'},opts:ox,ans:1,ref:'Ch. 2'},
+   {q:{en:'In the standard method, how many boxes must price reverse before a new column starts?',bn:'প্রচলিত পদ্ধতিতে নতুন কলাম শুরুর আগে দাম কত বক্স উল্টো যেতে হয়?'},opts:[{en:'One',bn:'এক'},{en:'Three',bn:'তিন'},{en:'Five',bn:'পাঁচ'}],ans:1,ref:'Ch. 2, reversal'},
+   {q:{en:'Which of these does the chart leave out?',bn:'চার্ট এর মধ্যে কোনটি বাদ দেয়?'},opts:[{en:'Price',bn:'দাম'},{en:'The passing of time',bn:'সময়ের চলে যাওয়া'},{en:'Box size',bn:'বক্সের মাপ'}],ans:1,ref:'Ch. 2'},
+   {q:{en:'On this GP chart, whose column is the latest?',bn:'এই জিপি চার্টে সর্বশেষ কলাম কার?'},chart:g,opts:[{en:'Buyers (X’s)',bn:'ক্রেতা (X)'},{en:'Sellers (O’s)',bn:'বিক্রেতা (O)'}],ans:g.col==='X'?0:1,ref:'Chs. 2 to 7'},
+   {q:{en:'On this BRAC Bank chart, is the latest price above or below the current 45-degree line (near '+pr(tn.level)+')?',bn:'এই ব্র্যাক ব্যাংক চার্টে সর্বশেষ দাম বর্তমান ৪৫ ডিগ্রি রেখার (প্রায় '+pr(tn.level)+') ওপরে না নিচে?'},chart:b,trend:true,opts:[{en:'Above',bn:'ওপরে'},{en:'Below',bn:'নিচে'}],ans:above?0:1,ref:'Chs. 2 to 7'},
+   {q:{en:'In a top-down reading, which do you read first?',bn:'ওপর থেকে নিচে পাঠে আগে কোনটি পড়েন?'},opts:[{en:'The single stock',bn:'একটি শেয়ার'},{en:'The market',bn:'বাজার'},{en:'The sector',bn:'সেক্টর'}],ans:1,ref:'Ch. 12'},
+   {q:{en:'Does a Point and Figure chart tell you what price will do next?',bn:'পয়েন্ট অ্যান্ড ফিগার চার্ট কি বলে দেয় দাম এরপর কী করবে?'},opts:[{en:'Yes, reliably',bn:'হ্যাঁ, নির্ভরযোগ্যভাবে'},{en:'No, it describes what has happened',bn:'না, যা ঘটেছে তা বর্ণনা করে'}],ans:1,ref:'Method limits'}
+  ];
+}
+P_.check=function(m,mode){
+  mode=mode==='post'?'post':'pre';var qs=checkQs(),i=0,score=0;
+  crumbs(m,'<a href="#/learn">'+t('learn')+'</a> / '+(mode==='pre'?'Check before':'Check after'));
+  m.appendChild(el('h1',{id:'pg'},mode==='pre'?'8-question check, before lesson 1':'8-question check, after lesson 6'));
+  var box=el('div');m.appendChild(box);
+  function show(){
+    box.innerHTML='';
+    if(i>=qs.length){var pg=load();pg[mode]=score;save(pg);
+      box.appendChild(el('div',{'class':'callout'},'<h2 style="margin:0 0 8px">'+score+' of 8</h2><p style="margin:0">'+(pg.pre!=null&&pg.post!=null?'Before: '+pg.pre+'. After: '+pg.post+'. Change: '+(pg.post-pg.pre>=0?'+':'')+(pg.post-pg.pre)+' correct answers.':(mode==='pre'?'Now try lessons 1 to 6, then take the check again.':'Take the check before lesson 1 to see your change.'))+'</p><div class="btns"><a class="btn" href="#/learn">'+(mode==='pre'?'Go to the lessons':'Back to the lessons')+'</a></div>'));return}
+    var q=qs[i];box.appendChild(el('div',{'class':'prog',role:'progressbar','aria-valuemin':'0','aria-valuemax':'8','aria-valuenow':String(i)},'<i style="width:'+(i/8*100)+'%"></i>'));
+    box.appendChild(el('p',{'class':'small mut num'},'Question '+(i+1)+' of 8 · '+q.ref));
+    if(q.chart)box.appendChild(chartBlock(q.chart.chart,{cols:16,trend:!!q.trend,price:q.chart.price,aria:q.chart.name+' chart',interactive:false,table:false}));
+    var ol=optionList(q,function(ok,w){if(ok)score++;w.appendChild(el('div',{'class':'btns'},'<button class="btn" id="nx" type="button">'+(i===7?'See my score':'Next question')+'</button>'));$('#nx',w).onclick=function(){i++;show()};$('#nx',w).focus()});
+    box.appendChild(ol);
+  }
+  show();
+};
+
+/* ---------- glossary, rules, limits ---------- */
+var TERMS=[
+ ['X',{en:'A mark meaning price rose through one more box.',bn:'দাম আরও এক বক্স উঠেছে বোঝানো চিহ্ন।'}],
+ ['O',{en:'A mark meaning price fell through one more box.',bn:'দাম আরও এক বক্স নেমেছে বোঝানো চিহ্ন।'}],
+ ['Box',{en:'A fixed price step. Moves smaller than one box are not drawn.',bn:'নির্দিষ্ট দামের ধাপ। এক বক্সের চেয়ে ছোট নড়াচড়া আঁকা হয় না।'}],
+ ['Column',{en:'A vertical run of X’s or O’s. It continues while price keeps making new boxes in one direction.',bn:'X বা O-এর উল্লম্ব সারি। একই দিকে নতুন বক্স তৈরি হলে চলতে থাকে।'}],
+ ['Three-box reversal',{en:'The rule that a new column of the other symbol starts only after price reverses by three boxes.',bn:'উল্টো দিকে তিন বক্স গেলেই কেবল অন্য চিহ্নের নতুন কলাম শুরু হওয়ার নিয়ম।'}],
+ ['Level',{en:'A price where one side stopped the other, seen as a ceiling or a floor.',bn:'এমন দাম যেখানে এক পক্ষ অন্য পক্ষকে থামিয়েছে; ছাদ বা মেঝে হিসেবে দেখা যায়।'}],
+ ['45-degree line',{en:'A line that moves one box per column. It shows which side has kept control over a longer stretch.',bn:'প্রতি কলামে এক বক্স সরে এমন রেখা। দীর্ঘ সময়ে কে নিয়ন্ত্রণে ছিল তা দেখায়।'}],
+ ['Top-down reading',{en:'Reading the market first, then the sector, then the stock.',bn:'আগে বাজার, তারপর সেক্টর, তারপর শেয়ার পড়া।'}],
+ ['Relative strength',{en:'One chart divided by another, to see whether a stock or sector is stronger or weaker than its benchmark. Covered in a later lesson.',bn:'একটি চার্টকে অন্যটি দিয়ে ভাগ করে দেখা কোনো শেয়ার বা সেক্টর বেঞ্চমার্কের চেয়ে শক্তিশালী না দুর্বল। পরের পাঠে।'}],
+ ['Bullish Percent',{en:'The share of stocks whose latest column is a column of X’s. A measure of the market’s breadth, as the book defines it.',bn:'যেসব শেয়ারের সর্বশেষ কলাম X-এর, তাদের শতাংশ। বইয়ের সংজ্ঞায় বাজারের বিস্তারের পরিমাপ।'}]
+];
+P_.glossary=function(m){
+  m.appendChild(el('h1',{id:'pg'},t('gloss')));
+  var h='';TERMS.forEach(function(x){h+='<div class="card" id="'+esc(x[0].replace(/\W+/g,'-'))+'" style="margin-bottom:10px"><h3 style="margin-bottom:4px">'+esc(x[0])+'</h3><p style="margin:0">'+esc(L(x[1]))+'</p></div>'});
+  m.appendChild(el('div',null,h));
+};
+P_.rules=function(m){
+  var f=F('GP'),c=f.chart,n=c.cols.length,h='<div class="tw"><table><thead><tr><th class="n">Column</th><th>Kind</th><th class="n">From</th><th class="n">To</th><th class="n">Boxes</th></tr></thead><tbody>';
+  for(var i=n-6;i<n;i++){var r=colRange(c,i);h+='<tr><td class="n">'+(i+1)+'</td><td>'+c.cols[i][0]+'</td><td class="n">'+lab(r[0])+'</td><td class="n">'+lab(r[1])+'</td><td class="n">'+(c.cols[i][2]-c.cols[i][1]+1)+'</td></tr>'}
+  m.appendChild(el('h1',{id:'pg'},lang==='bn'?'চার্টের নিয়ম':'Chart rules'));
+  m.appendChild(el('p',{'class':'lede'},'The rules are open, so you can rebuild any chart by hand. The method follows Thomas Dorsey, Point and Figure Charting (3rd ed.).'));
+  m.appendChild(el('div',{'class':'card'},'<table><tbody><tr><td><b>Box scale</b></td><td>0.25 below Tk 5; 0.5 to Tk 20; 1 to Tk 100; 2 to Tk 200; 4 above</td></tr><tr><td><b>Reversal</b></td><td>3 boxes</td></tr><tr><td><b>Input</b></td><td>Daily highs and lows, one direction per day</td></tr><tr><td><b>Price data</b></td><td>End of day to '+fd(D.asof)+'</td></tr></tbody></table>'));
+  m.appendChild(el('h2',null,'Rebuild one by hand: the last six columns of GP'));
+  m.appendChild(el('div',{'class':'card'},'<p class="small mut" style="margin-top:0">Box size '+tk(f.box)+'. A column continues while price makes a new box in its direction. It turns only after a move of three boxes the other way.</p>'+h+'</tbody></table></div>'));
+  m.appendChild(el('h2',null,'Wording check'));
+  var ok=BAN.found.length===0;
+  m.appendChild(el('div',{'class':'card'},'<p style="margin:0"><b class="'+(ok?'ok':'bad')+'">'+(ok?'Passed':'Failed')+'</b>: '+BAN.checked+' generated readings checked in English and Bengali for forecasting words (target, likely, expected to, bullish, bearish, pick, will rise, will fall, buy, sell, hold). '+(ok?'None found.':'Found: '+esc(BAN.found.join(' | ')))+'</p><p class="small mut" style="margin:8px 0 0">The book’s term “Bullish Percent” is exempt. Lessons and the game may use method terms; generated chart readings may not.</p>'));
+};
+P_.limits=function(m){
+  m.appendChild(el('h1',{id:'pg'},lang==='bn'?'এই চার্ট কী বলতে পারে না':'What this cannot tell you'));
+  m.appendChild(el('div',{'class':'card'},'<ul style="padding-left:20px;margin:0"><li>It describes what buyers and sellers have already done. It does not say what they will do next.</li><li>A pattern is a shape in past prices. It carries no promise.</li><li>A chart can look the same for weeks. Quiet periods add nothing.</li><li>It leaves out time and the number of shares traded.</li><li>Data can contain errors. Each page shows the date its prices run to.</li></ul>'));
+};
+
+/* ---------- router and chrome ---------- */
+var NAV=[['','home'],['learn','learn'],['stocks','charts'],['screener','screener'],['market','market'],['game','game'],['rules','rules'],['glossary','gloss'],['limits','limits']];
+var ROUTES={'':'home',screener:'screener',stocks:'stocks',stock:'stock',market:'market',learn:'learn',check:'check',glossary:'glossary',rules:'rules',limits:'limits'};
+function chrome(cur){
+  $('#banner').textContent=t('banner')+fd(D.asof)+'.';
+  $('#foot').innerHTML='<span>'+esc(t('foot'))+'</span>';
+  var n=$('#nav');n.innerHTML='';
+  NAV.forEach(function(x){if(x[0]==='game'){n.appendChild(el('span',{title:lang==='bn'?'পরে আসছে':'Coming later'},t(x[1])));return}
+    var a=el('a',{href:'#/'+x[0]},t(x[1]));if(x[0]===cur||(cur==='stock'&&x[0]==='stocks')||(cur==='check'&&x[0]==='learn'))a.setAttribute('aria-current','page');n.appendChild(a)});
+  var pa=$('#path');if(pa){var pg=load(),dn=pg.lessons?Object.keys(pg.lessons).length:0;pa.innerHTML=(lang==='bn'?'পাঠের পথ':'Lesson path')+'<b>'+dn+' of 6 done</b>'}
+  $('#lang').textContent=lang==='en'?'বাংলা':'EN';document.documentElement.lang=lang;
+}
+function route(){
+  var p=location.hash.replace(/^#\/?/,'').split('/'),m=$('#app');m.innerHTML='';var key=p[0];
+  if(key==='learn'&&p[1])P_.lesson(m,p[1]);
+  else if(ROUTES[key]!=null&&P_[ROUTES[key]])P_[ROUTES[key]](m,p[1]);
+  else{m.appendChild(el('h1',{id:'pg'},'Page not found'));m.appendChild(el('p',null,'<a href="#/">Go home</a>'))}
+  chrome(key==='learn'&&p[1]?'learn':key);
+  var h=$('#pg');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true})}window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',route);
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.skip');if(a){e.preventDefault();var h=$('#pg')||$('#app');h.setAttribute('tabindex','-1');h.focus()}});
+document.addEventListener('DOMContentLoaded',function(){
+  banCheck();
+  $('#lang').onclick=function(){lang=lang==='en'?'bn':'en';try{localStorage.setItem('pnfs_lang',lang)}catch(e){}route()};
+  route();
+});
+window.__pnf={BAN:function(){return BAN},D:D};
+})();
+</script>
+
+</body></html>
