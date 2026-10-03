@@ -311,13 +311,13 @@ var KEY='pnfs_progress_'+STYLE;
 function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
 function save(o){try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
 var TX={
- en:{home:'Home',screener:'Charts',watchlist:'Watchlist',learn:'Learn',charts:'Charts',market:'Market',game:'Game (coming later)',rules:'Rules',gloss:'Glossary',limits:'Limits',
+ en:{home:'Home',screener:'Charts',watchlist:'Watchlist',learn:'Learn',charts:'Charts',market:'Market',rules:'Rules',gloss:'Glossary',limits:'Limits',
   h1:'Read a Dhaka Stock Exchange chart in thirty minutes',
   sub:'Point and Figure charts for DSE stocks, explained in plain words. Free, with no sign-in. The chart describes what buyers and sellers have done; it does not tell you what happens next.',
   cta1:'Start lesson 1',cta2:'Browse the charts',
   banner:'Educational tool, not investment advice. End-of-day Dhaka Stock Exchange prices via AmarStock (amarstock.com), to ',
   foot:'Educational only. Not investment advice. Charts describe what has happened; they do not forecast. Not affiliated with Thomas Dorsey, John Wiley & Sons or Dorsey Wright. Method after Thomas Dorsey, Point and Figure Charting (3rd ed.). The Bengali text is a draft for a native editor.'},
- bn:{home:'হোম',screener:'চার্ট',watchlist:'ওয়াচলিস্ট',learn:'শিখুন',charts:'চার্ট',market:'বাজার',game:'কুইজ (পরে আসছে)',rules:'নিয়ম',gloss:'শব্দকোষ',limits:'সীমাবদ্ধতা',
+ bn:{home:'হোম',screener:'চার্ট',watchlist:'ওয়াচলিস্ট',learn:'শিখুন',charts:'চার্ট',market:'বাজার',rules:'নিয়ম',gloss:'শব্দকোষ',limits:'সীমাবদ্ধতা',
   h1:'ত্রিশ মিনিটে ঢাকা স্টক এক্সচেঞ্জের চার্ট পড়তে শিখুন',
   sub:'ডিএসই শেয়ারের পয়েন্ট অ্যান্ড ফিগার চার্ট, সহজ ভাষায়। বিনামূল্যে, সাইন-ইন ছাড়া। চার্ট দেখায় ক্রেতা ও বিক্রেতা কী করেছে; এরপর কী হবে তা বলে না।',
   cta1:'পাঠ ১ শুরু করুন',cta2:'চার্টগুলো দেখুন',
@@ -545,7 +545,7 @@ P_.home=function(m){
   hero.appendChild(Lh);hero.appendChild(R);m.appendChild(hero);
   var below=el('section',{'class':'below'},'<h2>'+(bn?'পড়ার মতো চার্ট':'Charts to read')+'</h2><p class="mut small" style="margin-top:-.4rem">'+(bn?'প্রতিটি স্ন্যাপশটে একই জানালা: ২০ কলাম, ২৪ বক্স।':'Every snapshot shows the same window: 20 columns by 24 boxes.')+'</p>');
   below.appendChild(snapGrid());
-  below.appendChild(el('p',{'class':'small mut',style:'margin-top:1.2rem'},'Every stock on the exchange has its own chart here ('+D.n+' trading now), with all the history in the archive. Data to '+fd(D.asof)+'. The chart game comes later.'));
+  below.appendChild(el('p',{'class':'small mut',style:'margin-top:1.2rem'},'Every stock on the exchange has its own chart here ('+D.n+' trading now), with all the history in the archive. Data to '+fd(D.asof)+'. '));
   m.appendChild(below);
   setTimeout(fitHero,0);
 };
@@ -566,7 +566,7 @@ P_.stock=function(m,id){
   var sp=el('div',{'class':'split'}),Lc=el('div',{'class':'stack'}),Rc=el('div',{'class':'stack'});
   Lc.appendChild(readBlock(readingStock(f)));Lc.appendChild(card);
   Rc.appendChild(el('div',{'class':'card'},'<h3>'+(lang==='bn'?'এই চার্ট থেকে শিখুন':'Learn from this chart')+'</h3><ul class="small" style="padding-left:1.1rem;margin:0"><li><a href="#/learn/3">Lesson 3 · Reading a column</a>: the latest column here is '+sym(f.col)+'.</li><li><a href="#/learn/2">Lesson 2 · The three-box reversal</a>: the reversal level is '+tk(f.rev)+'.</li><li><a href="#/learn/5">Lesson 5 · The 45-degree lines</a>: the dashed lines on the chart.</li></ul>'));
-  Rc.appendChild(el('div',{'class':'card'},'<h3>'+(lang==='bn'?'এই পাতার চার্ট নিয়ম':'Chart rules for this page')+'</h3><table><tbody><tr><td>Box size</td><td class="num">'+tk(f.box)+'</td></tr><tr><td>Reversal</td><td>3 boxes</td></tr><tr><td>Input</td><td>Daily highs and lows</td></tr><tr><td>Close</td><td class="num">'+tk(f.price)+' on '+fd(f.date)+'</td></tr></tbody></table><p class="small mut" style="margin:.5rem 0 0"><a href="#/rules">All chart rules</a></p>'));
+  Rc.appendChild(el('div',{'class':'card'},'<h3>'+(lang==='bn'?'এই পাতার চার্ট নিয়ম':'Chart rules for this page')+'</h3><table><tbody><tr><td>Box size</td><td class="num">'+tk(f.box)+'</td></tr><tr><td>Reversal</td><td>3 boxes</td></tr><tr><td>Input</td><td>Daily highs and lows</td></tr><tr><td>Close</td><td class="num">'+tk(f.price)+' on '+fd(f.date)+'</td></tr></tbody></table><p class="small mut" style="margin:.5rem 0 0"><a href="#/glossary/rules">All chart rules</a></p>'));
   sp.appendChild(Lc);sp.appendChild(Rc);m.appendChild(sp);
 };
 P_.market=function(m){
@@ -906,37 +906,46 @@ var TERMS=[
  ['Relative strength',{en:'One chart divided by another, to see whether a stock or sector is stronger or weaker than its benchmark. Covered in a later lesson.',bn:'একটি চার্টকে অন্যটি দিয়ে ভাগ করে দেখা কোনো শেয়ার বা সেক্টর বেঞ্চমার্কের চেয়ে শক্তিশালী না দুর্বল। পরের পাঠে।'}],
  ['Bullish Percent',{en:'The share of stocks whose latest column is a column of X’s. A measure of the market’s breadth, as the book defines it.',bn:'যেসব শেয়ারের সর্বশেষ কলাম X-এর, তাদের শতাংশ। বইয়ের সংজ্ঞায় বাজারের বিস্তারের পরিমাপ।'}]
 ];
-P_.glossary=function(m){
-  m.appendChild(el('h1',{id:'pg'},t('gloss')));
+function glossTerms(m){
   var h='';TERMS.forEach(function(x){h+='<div class="card" id="'+esc(x[0].replace(/\W+/g,'-'))+'" style="margin-bottom:10px"><h3 style="margin-bottom:4px">'+esc(x[0])+'</h3><p style="margin:0">'+esc(L(x[1]))+'</p></div>'});
   m.appendChild(el('div',null,h));
+}
+P_.glossary=function(m,sec){
+  var bn=lang==='bn',w=function(id,title){var s_=el('section',{id:id,style:'margin-top:2.2rem'});s_.appendChild(el('h2',null,title));m.appendChild(s_);return s_};
+  m.appendChild(el('h1',{id:'pg'},t('gloss')));
+  m.appendChild(el('p',{'class':'lede'},bn?'শব্দ, চার্টের নিয়ম আর এই চার্ট কী বলতে পারে না, এক পাতায়।':'The terms, the chart rules and what a chart cannot tell you, on one page.'));
+  m.appendChild(el('p',{'class':'small jump'},'<a href="#/glossary">'+(bn?'শব্দ':'Terms')+'</a> · <a href="#/glossary/rules">'+(bn?'চার্টের নিয়ম':'Chart rules')+'</a> · <a href="#/glossary/limits">'+(bn?'সীমাবদ্ধতা':'Limits')+'</a>'));
+  glossTerms(w('terms',bn?'শব্দ':'Terms'));
+  chartRules(w('rules',bn?'চার্টের নিয়ম':'Chart rules'));
+  chartLimits(w('limits',bn?'এই চার্ট কী বলতে পারে না':'What this cannot tell you'));
+  if(sec==='rules'||sec==='limits')setTimeout(function(){var e=document.getElementById(sec);if(e)e.scrollIntoView()},0);
 };
-P_.rules=function(m){
+function chartRules(m){
   var f=F('GP'),c=f.chart,n=c.cols.length,h='<div class="tw"><table><thead><tr><th class="n">Column</th><th>Kind</th><th class="n">From</th><th class="n">To</th><th class="n">Boxes</th></tr></thead><tbody>';
   for(var i=n-6;i<n;i++){var r=colRange(c,i);h+='<tr><td class="n">'+(i+1)+'</td><td>'+c.cols[i][0]+'</td><td class="n">'+lab(r[0])+'</td><td class="n">'+lab(r[1])+'</td><td class="n">'+(c.cols[i][2]-c.cols[i][1]+1)+'</td></tr>'}
-  m.appendChild(el('h1',{id:'pg'},lang==='bn'?'চার্টের নিয়ম':'Chart rules'));
   m.appendChild(el('p',{'class':'lede'},'The rules are open, so you can rebuild any chart by hand. The method follows Thomas Dorsey, Point and Figure Charting (3rd ed.).'));
   m.appendChild(el('div',{'class':'card'},'<table><tbody><tr><td><b>Box scale</b></td><td>0.25 below Tk 5; 0.5 to Tk 20; 1 to Tk 100; 2 to Tk 200; 4 above</td></tr><tr><td><b>Reversal</b></td><td>3 boxes</td></tr><tr><td><b>Input</b></td><td>Daily highs and lows, one direction per day</td></tr><tr><td><b>Price data</b></td><td>End of day to '+fd(D.asof)+'</td></tr></tbody></table>'));
-  m.appendChild(el('h2',null,'Rebuild one by hand: the last six columns of GP'));
+  m.appendChild(el('h3',null,'Rebuild one by hand: the last six columns of GP'));
   m.appendChild(el('div',{'class':'card'},'<p class="small mut" style="margin-top:0">Box size '+tk(f.box)+'. A column continues while price makes a new box in its direction. It turns only after a move of three boxes the other way.</p>'+h+'</tbody></table></div>'));
-  m.appendChild(el('h2',null,'Wording check'));
+  m.appendChild(el('h3',null,'Wording check'));
   var ok=BAN.found.length===0;
-  m.appendChild(el('div',{'class':'card'},'<p style="margin:0"><b class="'+(ok?'ok':'bad')+'">'+(ok?'Passed':'Failed')+'</b>: '+BAN.checked+' generated readings checked in English and Bengali for forecasting words (target, likely, expected to, bullish, bearish, pick, will rise, will fall, buy, sell, hold). '+(ok?'None found.':'Found: '+esc(BAN.found.join(' | ')))+'</p><p class="small mut" style="margin:8px 0 0">The book’s term “Bullish Percent” is exempt. Lessons and the game may use method terms; generated chart readings may not.</p>'));
+  m.appendChild(el('div',{'class':'card'},'<p style="margin:0"><b class="'+(ok?'ok':'bad')+'">'+(ok?'Passed':'Failed')+'</b>: '+BAN.checked+' generated readings checked in English and Bengali for forecasting words (target, likely, expected to, bullish, bearish, pick, will rise, will fall, buy, sell, hold). '+(ok?'None found.':'Found: '+esc(BAN.found.join(' | ')))+'</p><p class="small mut" style="margin:8px 0 0">The book’s term “Bullish Percent” is exempt. Lessons may use method terms; generated chart readings may not.</p>'));
 };
-P_.limits=function(m){
-  m.appendChild(el('h1',{id:'pg'},lang==='bn'?'এই চার্ট কী বলতে পারে না':'What this cannot tell you'));
+function chartLimits(m){
   m.appendChild(el('div',{'class':'card'},'<ul style="padding-left:20px;margin:0"><li>It describes what buyers and sellers have already done. It does not say what they will do next.</li><li>A pattern is a shape in past prices. It carries no promise.</li><li>A chart can look the same for weeks. Quiet periods add nothing.</li><li>It leaves out time and the number of shares traded.</li><li>Data can contain errors. Each page shows the date its prices run to.</li></ul>'));
-};
+}
+P_.rules=function(m){P_.glossary(m,'rules')};
+P_.limits=function(m){P_.glossary(m,'limits')};
 
 /* ---------- router and chrome ---------- */
-var NAV=[['','home'],['learn','learn'],['screener','screener'],['watchlist','watchlist'],['market','market'],['game','game'],['rules','rules'],['glossary','gloss'],['limits','limits']];
+var NAV=[['','home'],['screener','screener'],['market','market'],['watchlist','watchlist'],['learn','learn'],['glossary','gloss']];
 var ROUTES={'':'home',screener:'screener',charts:'screener',watchlist:'watchlist',stocks:'stocks',stock:'stock',market:'market',learn:'learn',check:'check',glossary:'glossary',rules:'rules',limits:'limits'};
 function chrome(cur){
   $('#banner').textContent=t('banner')+fd(D.asof)+'.';
   $('#foot').innerHTML='<span>'+esc(t('foot'))+'</span>';
   var n=$('#nav');n.innerHTML='';
-  NAV.forEach(function(x){if(x[0]==='game'){n.appendChild(el('span',{title:lang==='bn'?'পরে আসছে':'Coming later'},t(x[1])));return}
-    var a=el('a',{href:'#/'+x[0]},t(x[1]));if(x[0]===cur||(cur==='stock'&&x[0]==='stocks')||(cur==='check'&&x[0]==='learn'))a.setAttribute('aria-current','page');n.appendChild(a)});
+  NAV.forEach(function(x){
+    var a=el('a',{href:'#/'+x[0]},t(x[1]));if(x[0]===cur||(cur==='stock'&&x[0]==='screener')||(cur==='check'&&x[0]==='learn')||((cur==='rules'||cur==='limits')&&x[0]==='glossary'))a.setAttribute('aria-current','page');n.appendChild(a)});
   var pa=$('#path');if(pa){var pg=load(),dn=pg.lessons?Object.keys(pg.lessons).length:0;pa.innerHTML=(lang==='bn'?'পাঠের পথ':'Lesson path')+'<b>'+dn+' of 6 done</b>'}
   $('#lang').textContent=lang==='en'?'বাংলা':'EN';document.documentElement.lang=lang;
 }
