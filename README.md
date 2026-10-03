@@ -5,7 +5,9 @@ Learn to read Point and Figure charts for Dhaka Stock Exchange stocks, in two de
 - **Site A**, light, magazine style: `/a/`
 - **Site B**, dark, field guide: `/b/`
 
-Both are single static HTML files (no tracking, no build step to view). The pages load fonts from Google Fonts.
+Every stock in the archive has its own chart page. The sites are static pages that load their data from `data/`
+(`data/index.json` for the Charts list, `data/s/<TICKER>.json` for one stock). No tracking, no build step to view.
+The pages load fonts from Google Fonts.
 
 **Educational only, not investment advice.** A Point and Figure chart describes what price has done; it does not predict what comes next.
 
