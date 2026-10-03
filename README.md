@@ -1,8 +1,8 @@
-# PnF Desk
+# DSE - Point and Figure Desk
 
 Learn to read Point and Figure charts for Dhaka Stock Exchange stocks, in two designs of the same site:
 
-- **Site A**, light, magazine style: `/a/`
+- **Site A**, light, newspaper style: `/a/`
 - **Site B**, dark, field guide: `/b/`
 
 Every stock in the archive has its own chart page. The sites are static pages that load their data from `data/`

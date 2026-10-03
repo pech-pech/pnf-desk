@@ -1,12 +1,12 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>PnF Desk · Point and Figure charts for the Dhaka Stock Exchange</title>
+<title>DSE - Point and Figure Desk · charts for the Dhaka Stock Exchange</title>
 <meta name="description" content="Learn to read Point and Figure charts for Dhaka Stock Exchange stocks in thirty minutes: lessons, a pattern screener and the market Bullish Percent. Educational, not investment advice.">
 <meta name="theme-color" content="#ffffff">
-<meta property="og:type" content="website"><meta property="og:title" content="PnF Desk · Point and Figure charts for the Dhaka Stock Exchange"><meta property="og:description" content="Learn to read Point and Figure charts for Dhaka Stock Exchange stocks in thirty minutes: lessons, a pattern screener and the market Bullish Percent. Educational, not investment advice.">
+<meta property="og:type" content="website"><meta property="og:title" content="DSE - Point and Figure Desk · charts for the Dhaka Stock Exchange"><meta property="og:description" content="Learn to read Point and Figure charts for Dhaka Stock Exchange stocks in thirty minutes: lessons, a pattern screener and the market Bullish Percent. Educational, not investment advice.">
 <meta name="twitter:card" content="summary"><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20rx=%275%27%20fill=%27%2314181f%27/%3E%3Cpath%20d=%27M7%207l7%207M14%207l-7%207M7%2018l7%207M14%2018l-7%207%27%20stroke=%27%23ffffff%27%20stroke-width=%272.6%27%20stroke-linecap=%27round%27%20fill=%27none%27/%3E%3Ccircle%20cx=%2723%27%20cy=%2710.5%27%20r=%274%27%20stroke=%27%238db4ff%27%20stroke-width=%272.6%27%20fill=%27none%27/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:wght@700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=UnifrakturCook:wght@700&display=swap">
 <style>
-:root{--bg:#ffffff;--surface:#ffffff;--ink:#14181f;--mut:#566170;--line:#dde1e7;--grid:#eceff3;--soft:#f3f5f8;--chartbg:#ffffff;--x:#14181f;--o:#14181f;--link:#1a56c8;--linkink:#ffffff;--note:#eef3fd;--noteink:#23406f;--okbg:#e4f3ec;--badbg:#fbe6dd;--logo:#14181f;--logoink:#ffffff;--logoo:#8db4ff;--cbg:#ffffff;--cink:#1a1d21;--cgrid:#dcdfe3;--cband:#eceef1;--clast:#cddae6;--cframe:#868d95;--cyr:#d6dade;--ccm:#5d646c;--cgreen:#2e7d39;--cred:#c4372f;--cmk:#0b4fb8;--cmks:#000;--lm:#1f77c9;--ls:#8a4fd6;color-scheme:light;--rad:3px;--disp:"Public Sans","IBM Plex Sans",system-ui,sans-serif;--body:"Public Sans","IBM Plex Sans",system-ui,"Noto Sans Bengali",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--glyph:"IBM Plex Sans",Arial,Helvetica,sans-serif}
+:root{--bg:#dad5ca;--surface:#dfdcd3;--ink:#111111;--mut:#4d4a43;--line:#a69e8e;--grid:#cdc7b8;--soft:#d4cfc1;--chartbg:#dfdcd3;--x:#14181f;--o:#14181f;--link:#7a1c14;--linkink:#f8f4ea;--note:#d4cdbd;--noteink:#2b2823;--okbg:#e4f3ec;--badbg:#fbe6dd;--logo:#111111;--logoink:#f8f4ea;--logoo:#d9b36a;--cbg:#dfdcd3;--cink:#111111;--cgrid:#bdb6a5;--cband:#d4cebf;--clast:#c6ba9d;--cframe:#4d4a43;--cyr:#c7c0ae;--ccm:#4d4a43;--cgreen:#2e7d39;--cred:#c4372f;--cmk:#0b3f94;--cmks:#000;--lm:#1f77c9;--ls:#8a4fd6;color-scheme:light;--rad:0px;--disp:"Playfair Display",Georgia,"Times New Roman",serif;--body:"Source Serif 4",Georgia,"Times New Roman","Noto Serif Bengali",serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--glyph:"IBM Plex Sans",Arial,Helvetica,sans-serif}
 *{box-sizing:border-box}
 html{scroll-padding-top:72px}
 body{background:var(--bg);color:var(--ink);font:17px/1.65 var(--body);padding:0}
@@ -178,7 +178,7 @@ svg.pf .bnd,.axs .bnd{fill:var(--logo)}svg.pf .bndt,.axs .bndt{fill:var(--logoin
 
 /* axes sit outside the plot: the prices and years stay in place while the boxes are dragged */
 .cwrap{position:relative;box-sizing:content-box}.axs{position:absolute;display:block;overflow:hidden;pointer-events:none;font-family:var(--mono);background:var(--cbg)}
-/* Style A: magazine, light */
+/* Style A: newspaper, light */
 .A header.mast{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:2px solid var(--ink);display:flex;flex-direction:column;align-items:center;padding:.45rem 1rem 0}
 .A .brand{font:800 1.35rem var(--disp);display:flex;gap:.6rem;align-items:center;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
 .A .brand svg{width:1.7rem;height:1.7rem}
@@ -242,9 +242,31 @@ svg.pf .bnd,.axs .bnd{fill:var(--logo)}svg.pf .bndt,.axs .bndt{fill:var(--logoin
 .A .scr .vchart{max-width:70rem;margin:1rem 0}.A .scr .vchart .cscroll{overflow-x:auto}.A .scr .scap{font-size:.85rem}.A .scr .ssh{font:800 1.3rem var(--disp);margin:1.6rem 0 .4rem}
 .A .scr .slist{list-style:none;margin:0;padding:0}.A .scr .slist li{display:grid;grid-template-columns:8rem minmax(0,1fr) auto;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line)}
 
+/* Newspaper look: 10% darker newsprint, Playfair Display headlines, Source Serif 4 text, blackletter nameplate */
+body{font-family:var(--body)}
+.A header.mast{border-bottom:4px double var(--ink);padding-top:.7rem}
+.A .brand{font:700 2.5rem "UnifrakturCook","Playfair Display",Georgia,serif;letter-spacing:0;text-align:center;align-self:center;margin:0 auto}
+.A .tabs{border-top:1px solid var(--ink);padding-top:.1rem;width:100%;margin-top:.5rem}
+.A .tabs a,.A .tabs span{font:600 .74rem "Public Sans",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.16em}
+.A .tabs a[aria-current="page"]{border-bottom-color:var(--ink)}
+.A .tools button,.A .btn,.A .scr .sbtn{border-radius:0}
+.A .btn{background:var(--ink);color:var(--surface);font-family:"Public Sans",sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.85rem}
+.A .btn2{font-family:var(--disp);border-bottom:2px solid var(--ink)}
+.A h1,.A h2,.A h3{font-family:var(--disp);font-weight:800}
+.A .hl h1,.A .scr h1{font-family:var(--disp);font-weight:800;letter-spacing:-.015em}
+.A .pull{border-left:0;border-top:4px solid var(--ink);padding:.7rem 0 0}
+.A .pull q{font-family:var(--disp);font-weight:700}
+.A footer{border-top:4px double var(--ink)}
+.A .scr .fbar{border-top:3px solid var(--ink)}
+.A .scr .kick,.A .kick{font-family:"Public Sans",sans-serif;letter-spacing:.2em;color:var(--link)}
+.A .scr .res th,.A .scr .sf span{font-family:"Public Sans",sans-serif}
+.A .scr .res td{border-bottom-color:var(--line)}
+.A .scr select,.A .scr input,.A .scr .sf.big select{background:var(--surface);border-color:var(--ink)}
+.A .scr .chev button{background:var(--surface);border-radius:0}
+@media(max-width:640px){.A .brand{font-size:1.55rem}.A .brand svg{width:1.4rem;height:1.4rem}}
 </style>
 
-<div class="site A"><a class="skip" href="#app" id="skip">Skip to content</a><div class="banner" role="note" id="banner"></div><header class="mast"><a class="brand" href="#/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="var(--logo)"/><path d="M7 7l7 7M14 7l-7 7M7 18l7 7M14 18l-7 7" stroke="var(--logoink)" stroke-width="2.6" stroke-linecap="round" fill="none"/><circle cx="23" cy="10.5" r="4" stroke="var(--logoo)" stroke-width="2.6" fill="none"/></svg><span>PnF Desk</span></a><nav class="tabs" id="nav" aria-label="Main"></nav><div class="tools"><button id="lang" type="button" aria-label="Switch language">বাংলা</button></div></header><main id="app"></main><footer><div class="in" id="foot"></div></footer></div>
+<div class="site A"><a class="skip" href="#app" id="skip">Skip to content</a><div class="banner" role="note" id="banner"></div><header class="mast"><a class="brand" href="#/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="var(--logo)"/><path d="M7 7l7 7M14 7l-7 7M7 18l7 7M14 18l-7 7" stroke="var(--logoink)" stroke-width="2.6" stroke-linecap="round" fill="none"/><circle cx="23" cy="10.5" r="4" stroke="var(--logoo)" stroke-width="2.6" fill="none"/></svg><span>DSE - Point and Figure Desk</span></a><nav class="tabs" id="nav" aria-label="Main"></nav><div class="tools"><button id="lang" type="button" aria-label="Switch language">বাংলা</button></div></header><main id="app"></main><footer><div class="in" id="foot"></div></footer></div>
 
 <script>
 (function(){
