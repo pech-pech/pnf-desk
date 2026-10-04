@@ -155,7 +155,7 @@ svg.pf .hl{stroke:var(--cink);stroke-width:1.4;stroke-dasharray:3 3}svg.pf .hlt,
 .hero{min-height:calc(100vh - 12rem);display:grid;padding-block:.8rem;gap:clamp(1.2rem,3.4vw,3.6rem);align-items:center}
 .hero .hl h1{margin:0 0 .9rem;letter-spacing:-.03em}
 .hero .lede{font-size:clamp(1rem,1.35vw,1.4rem);color:var(--mut);max-width:34em}
-.hero svg.pf{max-height:46vh;width:auto;max-width:100%}
+.hero svg.pf{max-height:46vh;width:auto;max-width:100%}.hero .cwrap svg.pf{max-height:none}.hero .cwrap .cscroll{max-height:min(52vh,460px)}
 .hero .chartbox{padding:.6rem}
 .down{margin:1.4rem 0 0}
 .crumbs{font-size:.85rem;margin-bottom:.8rem}
@@ -525,6 +525,7 @@ function snapGrid(){
     setTimeout(function(){drawChart(host,f.chart,{cols:20,rows:24,mini:true,price:f.price,interactive:false,aria:f.name+' chart, 20 columns by 24 boxes'})},0)});
   return g;
 }
+function fiveYears(c,asof){var y=+asof.slice(0,4)-5,cut=y+asof.slice(4),n=0;c.dates.forEach(function(d){if(d>=cut)n++});return Math.max(n,20)}
 P_.home=function(m){
   var d=D.dsex,hero=el('section',{'class':'hero'}),bn=lang==='bn';
   var stp=[['1',bn?'বাজার':'Market',bn?'পুরো বাজারে কে এগিয়ে?':'Who has the upper hand across the whole market?'],['2',bn?'সেক্টর':'Sector',bn?'কোন খাতে ক্রেতারা বেশি সক্রিয়?':'Which parts of the market attract buyers?'],['3',bn?'শেয়ার':'Stock',bn?'তারপর একটি শেয়ার, প্রেক্ষাপটসহ।':'Then one chart, with the context behind it.']];
@@ -533,13 +534,13 @@ P_.home=function(m){
   var R=el('div',{'class':'hr'}),rd=readingMarket();
   if(STYLE==='A'){
     R.appendChild(el('div',{'class':'pull'},'<p class="lbl">'+(bn?'আজ ডিএসইএক্স':'Today on DSEX')+'</p><q>'+esc(rd.head)+'</q>'));
-    R.appendChild(chartBlock(d.chart,{cols:20,rows:24,price:d.price,aria:'DSEX Point and Figure chart',table:false,legend:false,hint:bn?'একটি কলাম ট্যাপ করুন।':'Tap a column to read it.'}));
+    R.appendChild(chartBlock(d.chart,{natural:true,cell:12,cols:fiveYears(d.chart,D.asof)+1,price:d.price,aria:'DSEX Point and Figure chart, the last five years',table:false,legend:false,hint:bn?'একটি কলাম ট্যাপ করুন। টেনে পুরোনো বছরগুলো দেখুন।':'The last five years. Drag to look back; tap a column to read it.'}));
   }else{
     var fig=el('div',{'class':'fig'}),call=el('p',{'class':'callout','aria-live':'polite'},bn?'একটি কলাম ট্যাপ করুন।':'Tap a column: a note appears here.');
     var tb='<table><thead><tr><th>#</th><th>Kind</th><th>From</th><th>To</th></tr></thead><tbody>';for(var i=d.chart.cols.length-5;i<d.chart.cols.length;i++){var r=colRange(d.chart,i);tb+='<tr><td>'+(i+1)+'</td><td>'+d.chart.cols[i][0]+'</td><td>'+lab(r[0])+'</td><td>'+lab(r[1])+'</td></tr>'}
     var side=el('div',{'class':'side2'},tb+'</tbody></table>');side.appendChild(call);
-    fig.appendChild(chartBlock(d.chart,{cols:20,rows:24,price:d.price,aria:'DSEX Point and Figure chart',table:false,legend:false,capEl:call}));fig.appendChild(side);
-    R.appendChild(el('p',{'class':'lbl'},'Figure 1 · DSEX, 20 columns by 24 boxes'));R.appendChild(fig);
+    fig.appendChild(chartBlock(d.chart,{natural:true,cell:12,cols:fiveYears(d.chart,D.asof)+1,price:d.price,aria:'DSEX Point and Figure chart, the last five years',table:false,legend:false,capEl:call}));fig.appendChild(side);
+    R.appendChild(el('p',{'class':'lbl'},'Figure 1 · DSEX, the last five years'));R.appendChild(fig);
     var f0=F('GP');R.appendChild(el('div',{'class':'reads'},'<div><b>Market</b>'+D.market_bp.column+' column since '+fd(D.market_bp.column_since)+', Bullish Percent '+D.market_bp.bp.toFixed(1)+'%</div><div><b>Sector · '+esc(f0.sector)+'</b>'+f0.sector_bp.column+' column, '+f0.sector_bp.bp.toFixed(1)+'%</div><div><b>Stock · GP</b>'+f0.col+' column since '+fd(f0.col_since)+'</div>'));
   }
   hero.appendChild(Lh);hero.appendChild(R);m.appendChild(hero);
