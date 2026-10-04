@@ -1,0 +1,32 @@
+name: Data freshness
+
+# DSE trades Sunday to Thursday and closes at 14:30 Dhaka time (08:30 UTC). The Mac that holds the price database
+# publishes each evening. This check runs at 18:30 Dhaka time (12:30 UTC) and fails, which emails the repo owner,
+# when the published data is two or more trading days old. A single missed day passes (holidays, a late update).
+on:
+  schedule:
+    - cron: '30 12 * * 0-4'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compare the published date with the last trading days
+        run: |
+          python3 - <<'PY'
+          import datetime, json, sys, urllib.request
+          url = 'https://pech-pech.github.io/pnf-desk/data/index.json'
+          asof = json.load(urllib.request.urlopen(url, timeout=60))['asof']
+          today = (datetime.datetime.utcnow() + datetime.timedelta(hours=6)).date()
+          days, d = [], today
+          while len(days) < 2:                      # the two latest trading days up to today (Sunday to Thursday)
+              if d.weekday() in (6, 0, 1, 2, 3):
+                  days.append(d)
+              d -= datetime.timedelta(days=1)
+          oldest_ok = days[-1].isoformat()
+          print(f'published data runs to {asof}; the two latest trading days are {days[0]} and {days[1]}')
+          if asof < oldest_ok:
+              sys.exit(f'STALE: the data runs to {asof}, older than {oldest_ok}. Check the daily update on the Mac.')
+          print('fresh enough')
+          PY
