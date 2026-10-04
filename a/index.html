@@ -138,14 +138,16 @@ svg.pf .hl{stroke:var(--cink);stroke-width:1.4;stroke-dasharray:3 3}svg.pf .hlt,
 .hd .ctx .cmk small{color:var(--lm)}.hd .ctx .csec small{color:var(--ls)}
 .hd .ctx .cg span{color:var(--cink);white-space:nowrap}.hd .ctx .cg span i{font-style:normal;color:var(--ccm);margin-right:.35rem}
 .hd .ctx .cg span.na,.hd .ctx .cg span.na i{color:var(--ccm)}
-.snaps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(.6rem,1.2vw,1.2rem)}
-@media(max-width:1000px){.snaps{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:640px){.snaps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.snap{display:flex;flex-direction:column;gap:.3rem;background:var(--cbg);border:1px solid var(--line);border-radius:var(--rad);padding:.7rem;color:var(--ink);text-decoration:none;min-width:0}
-.snap:hover{border-color:var(--link)}
-.snap .nm{font:700 1rem var(--disp)}.snap .rd{font-size:.78rem;color:var(--mut);line-height:1.35;min-height:3.2em}
-.snap .sh{margin-top:auto}
-.snap svg.pf{max-width:none}
+.snaps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.8rem,1.6vw,1.4rem)}
+@media(max-width:900px){.snaps{grid-template-columns:minmax(0,1fr)}}
+.snap{display:flex;flex-direction:column;gap:.4rem;background:var(--cbg);border:1px solid var(--line);border-radius:var(--rad);padding:.8rem;color:var(--ink);min-width:0}
+.snap .snh{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .7rem;color:var(--ink);text-decoration:none}
+.snap .snh:hover .nm{color:var(--link)}
+.snap .rk{font:700 .8rem var(--disp);color:var(--mut)}
+.snap .nm{font:700 1.05rem var(--disp)}.snap .tk,.snap .tv{font-size:.78rem;color:var(--mut)}.snap .tv{margin-left:auto}
+.snap .rd{font-size:.82rem;color:var(--mut);line-height:1.35;margin:0}
+.snap .cscroll{max-height:min(46vh,380px)}
+.snap .cwrap svg.pf{max-height:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.9rem;padding:0 1.5rem;border:2px solid var(--link);background:var(--link);color:var(--linkink);font:700 1rem var(--disp);text-decoration:none;border-radius:var(--rad);cursor:pointer}
 .btn:focus-visible,.btn2:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--link);outline-offset:2px}
 .btns{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.4rem;margin-top:1.2rem}
@@ -467,7 +469,7 @@ function legendEl(withBand){
 }
 
 /* ---------- readings (generated text; checked against the banned-word list) ---------- */
-var EXTRA={},DATA='../data/';
+var EXTRA={},DATA='../data/',LOADIDX=null;
 function getJSON(u){return fetch(u).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.json()})}
 function F(tk_){return D.featured.filter(function(f){return f.t===tk_})[0]||EXTRA[tk_]}
 function loadStock(t,cb){var f=F(t);if(f)return cb(f);getJSON(DATA+'s/'+encodeURIComponent(t)+'.json').then(function(j){EXTRA[t]=j;cb(j)},function(){cb(null)})}
@@ -519,10 +521,16 @@ function infoHeadMarket(){var d=D.dsex;
   return '<div class="hd"><div class="top"><h1 class="nm" id="pg">DSEX</h1><span class="tk">Dhaka Stock Exchange broad index</span></div><div class="row"><div class="f"><small>Date</small><b>'+fd(D.asof)+'</b></div><div class="f"><small>Open · High · Low · Close</small>'+ohlcHTML(d.price,D.ohlc&&D.ohlc.DSEX)+'</div><div class="f"><small>Signal</small><b>'+d.signal+' since '+fd(d.since)+'</b></div><div class="f"><small>Latest column</small><b>'+d.col+'</b></div><div class="f"><small>Trend line</small><b>'+trendText(d.chart,d.price)+'</b></div></div>'+stripHTML(null)+'</div>';
 }
 function snapGrid(){
-  var g=el('div',{'class':'snaps'});
-  D.featured.forEach(function(f){var r=readingStock(f),a=el('a',{'class':'snap',href:'#/stock/'+f.t},'<span class="nm">'+f.t+'</span><span class="rd">'+esc(f.name)+'. '+esc(r.head)+'</span>');
-    var host=el('div',{'class':'sh'});a.appendChild(host);g.appendChild(a);
-    setTimeout(function(){drawChart(host,f.chart,{cols:20,rows:24,mini:true,price:f.price,interactive:false,aria:f.name+' chart, 20 columns by 24 boxes'})},0)});
+  var g=el('div',{'class':'snaps'}),bn=lang==='bn';
+  LOADIDX(function(j){
+    var act=(j&&j.active)||[];
+    if(!act.length){g.appendChild(el('p',{'class':'mut small'},bn?'আজকের তথ্য লোড করা যায়নি।':'The most active list could not be loaded. Reload the page to try again.'));return}
+    act.forEach(function(x,i){var t=x[0],a=el('article',{'class':'snap'});g.appendChild(a);
+      loadStock(t,function(f){if(!f){a.remove();return}
+        var r=readingStock(f);
+        a.appendChild(el('a',{'class':'snh',href:'#/stock/'+f.t},'<span class="rk">'+(i+1)+'</span><span class="nm">'+esc(f.name||f.t)+'</span><span class="tk">'+f.t+' · '+esc(f.sector||'')+'</span><span class="tv">'+(bn?'লেনদেন ':'Traded ')+x[1].toLocaleString('en-US',{maximumFractionDigits:1})+(bn?' মিলিয়ন টাকা':' BDT m')+'</span>'));
+        a.appendChild(el('p',{'class':'rd'},esc(r.head)));
+        a.appendChild(chartBlock(f.chart,{natural:true,cell:12,cols:fiveYears(f.chart,D.asof)+1,price:f.price,aria:(f.name||f.t)+' Point and Figure chart, the last five years',table:false,legend:false,hint:bn?'টেনে পুরোনো বছরগুলো দেখুন।':'The last five years. Drag to look back.'}))})})})
   return g;
 }
 function fiveYears(c,asof){var y=+asof.slice(0,4)-5,cut=y+asof.slice(4),n=0;c.dates.forEach(function(d){if(d>=cut)n++});return Math.max(n,20)}
@@ -530,7 +538,7 @@ P_.home=function(m){
   var d=D.dsex,hero=el('section',{'class':'hero'}),bn=lang==='bn';
   var stp=[['1',bn?'বাজার':'Market',bn?'পুরো বাজারে কে এগিয়ে?':'Who has the upper hand across the whole market?'],['2',bn?'সেক্টর':'Sector',bn?'কোন খাতে ক্রেতারা বেশি সক্রিয়?':'Which parts of the market attract buyers?'],['3',bn?'শেয়ার':'Stock',bn?'তারপর একটি শেয়ার, প্রেক্ষাপটসহ।':'Then one chart, with the context behind it.']];
   var sh='<p class="lbl" style="margin:1.6rem 0 .5rem">'+(bn?'ওপর থেকে নিচে পড়ুন':'Read it top down')+'</p><div class="stp">'+stp.map(function(x){return '<div><b>'+x[0]+' · '+x[1]+'</b><span>'+x[2]+'</span></div>'}).join('')+'</div>';
-  var Lh=el('div',{'class':'hl'},'<p class="lbl">'+(STYLE==='A'?'Point and Figure, in plain words':'A field guide to price')+'</p><h1 id="pg">'+esc(t('h1'))+'</h1><p class="lede">'+esc(t('sub'))+'</p><div class="btns"><a class="btn" href="#/learn/1">'+esc(t('cta1'))+'</a><a class="btn2" href="#/screener">'+esc(t('cta2'))+'</a></div>'+sh+'<p class="lbl down">'+(bn?'↓ পড়ার মতো চার্ট, এক পর্দা নিচে':'↓ Charts to read, one screen down')+'</p>');
+  var Lh=el('div',{'class':'hl'},'<p class="lbl">'+(STYLE==='A'?'Point and Figure, in plain words':'A field guide to price')+'</p><h1 id="pg">'+esc(t('h1'))+'</h1><p class="lede">'+esc(t('sub'))+'</p><div class="btns"><a class="btn" href="#/learn/1">'+esc(t('cta1'))+'</a><a class="btn2" href="#/screener">'+esc(t('cta2'))+'</a></div>'+sh+'<p class="lbl down">'+(bn?'↓ আজ সবচেয়ে সক্রিয়, এক পর্দা নিচে':'↓ Most active today, one screen down')+'</p>');
   var R=el('div',{'class':'hr'}),rd=readingMarket();
   if(STYLE==='A'){
     R.appendChild(el('div',{'class':'pull'},'<p class="lbl">'+(bn?'আজ ডিএসইএক্স':'Today on DSEX')+'</p><q>'+esc(rd.head)+'</q>'));
@@ -544,7 +552,7 @@ P_.home=function(m){
     var f0=F('GP');R.appendChild(el('div',{'class':'reads'},'<div><b>Market</b>'+D.market_bp.column+' column since '+fd(D.market_bp.column_since)+', Bullish Percent '+D.market_bp.bp.toFixed(1)+'%</div><div><b>Sector · '+esc(f0.sector)+'</b>'+f0.sector_bp.column+' column, '+f0.sector_bp.bp.toFixed(1)+'%</div><div><b>Stock · GP</b>'+f0.col+' column since '+fd(f0.col_since)+'</div>'));
   }
   hero.appendChild(Lh);hero.appendChild(R);m.appendChild(hero);
-  var below=el('section',{'class':'below'},'<h2>'+(bn?'পড়ার মতো চার্ট':'Charts to read')+'</h2><p class="mut small" style="margin-top:-.4rem">'+(bn?'প্রতিটি স্ন্যাপশটে একই জানালা: ২০ কলাম, ২৪ বক্স।':'Every snapshot shows the same window: 20 columns by 24 boxes.')+'</p>');
+  var below=el('section',{'class':'below'},'<h2>'+(bn?'আজ সবচেয়ে সক্রিয়':'Most active today')+'</h2><p class="mut small" style="margin-top:-.4rem">'+(bn?'লেনদেনের মূল্যে শীর্ষ পাঁচটি শেয়ার, শেষ পাঁচ বছরের চার্টসহ।':'The five stocks with the highest traded value in the latest session, each with its last five years.')+'</p>');
   below.appendChild(snapGrid());
   below.appendChild(el('p',{'class':'small mut',style:'margin-top:1.2rem'},'Every stock on the exchange has its own chart here ('+D.n+' trading now), with all the history in the archive. Data to '+fd(D.asof)+'. '));
   m.appendChild(below);
@@ -554,7 +562,7 @@ function fitHero(){var h=document.querySelector('.hero');if(!h)return;if(innerWi
 window.addEventListener('resize',function(){fitHero()});
 P_.stocks=function(m){
   m.appendChild(el('h1',{id:'pg'},lang==='bn'?'শেয়ার চার্ট':'Stock charts'));
-  m.appendChild(el('p',{'class':'lede'},lang==='bn'?'প্রতিটি পাতায় আগে সহজ ভাষায় বর্ণনা, তারপর চার্ট।':'Every snapshot shows the same window, 20 columns by 24 boxes. Open a chart for the full picture.'));
+  m.appendChild(el('p',{'class':'lede'},lang==='bn'?'প্রতিটি পাতায় আগে সহজ ভাষায় বর্ণনা, তারপর চার্ট।':'The five most active stocks of the latest session, each with its last five years. Open one for the full picture.'));
   m.appendChild(snapGrid());
 };
 P_.stock=function(m,id){
@@ -615,6 +623,7 @@ var PO=['Double Bottom','Triple Bottom','Bearish Signal (Double Bottom, lower to
 var ROWS=[],SECS=[],IDX=null,IDXP=null;
 function setRows(rs){ROWS=rs.map(function(r){r.sector=SEC[r.sk]||r.sk||'Unassigned';r.name=r.name||NAMES[r.t]||'';return r});SECS=[];ROWS.forEach(function(r){if(SECS.indexOf(r.sector)<0)SECS.push(r.sector)});SECS.sort()}
 function loadIndex(cb){if(IDX)return cb(IDX);(IDXP=IDXP||getJSON(DATA+'index.json')).then(function(j){IDX=j;setRows(j.rows);cb(j)},function(){IDXP=null;cb(null)})}
+LOADIDX=loadIndex;
 function pt(r){return r.pat?esc(r.pat):'<span class="dim">no signal yet</span>'}
 function dt(d){return d?sfd(d):'<span class="dim">–</span>'}
 function inSec(r){return !SF.sec||r.sector===SF.sec}
